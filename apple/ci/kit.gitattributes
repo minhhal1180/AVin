@@ -1,0 +1,2 @@
+# Keep archive/manifest byte identity when importing this prepared kit into Git.
+* -text

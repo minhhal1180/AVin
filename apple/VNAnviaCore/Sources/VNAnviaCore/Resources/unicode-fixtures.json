@@ -1,0 +1,50 @@
+[
+  {
+    "id": "text-emoji",
+    "input_type": "TEXT",
+    "content": "A😀B",
+    "valid": true,
+    "trimmed": "A😀B",
+    "codepoints": 3
+  },
+  {
+    "id": "text-nfd-preserved",
+    "input_type": "TEXT",
+    "content": "é",
+    "valid": true,
+    "trimmed": "é",
+    "codepoints": 2
+  },
+  {
+    "id": "text-explicit-trim",
+    "input_type": "TEXT",
+    "content": " Xin chào　",
+    "valid": true,
+    "trimmed": "Xin chào",
+    "codepoints": 8
+  },
+  {
+    "id": "text-empty",
+    "input_type": "TEXT",
+    "content": "\t \r\n",
+    "valid": false,
+    "trimmed": "",
+    "codepoints": 0
+  },
+  {
+    "id": "text-control",
+    "input_type": "TEXT",
+    "content": "a\u0000b",
+    "valid": false,
+    "trimmed": "a\u0000b",
+    "codepoints": 3
+  },
+  {
+    "id": "text-newline",
+    "input_type": "TEXT",
+    "content": "a\nb",
+    "valid": true,
+    "trimmed": "a\nb",
+    "codepoints": 3
+  }
+]

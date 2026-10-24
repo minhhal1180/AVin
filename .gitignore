@@ -1,0 +1,16 @@
+# Safari resources in dist/ are REQUIRED and must be committed in this kit.
+.DS_Store
+.env
+.env.*
+*.p12
+*.p8
+*.pem
+*.mobileprovision
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.build/
+build/
+apple/*.xcodeproj/
+apple/*/Info.plist
+__pycache__/

@@ -1,0 +1,293 @@
+[
+  {
+    "id": "ascii",
+    "unicode_host": "vietcombank.com.vn",
+    "ascii_host": "vietcombank.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "cyrillic-a",
+    "unicode_host": "vietcombаnk.com.vn",
+    "ascii_host": "xn--vietcombnk-6qi.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "vietcombank.com.vn",
+    "code_points": [
+      "U+0430"
+    ]
+  },
+  {
+    "id": "cyrillic-i",
+    "unicode_host": "bіdv.com.vn",
+    "ascii_host": "xn--bdv-jhd.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "bidv.com.vn",
+    "code_points": [
+      "U+0456"
+    ]
+  },
+  {
+    "id": "greek-omicron",
+    "unicode_host": "techcοmbank.com",
+    "ascii_host": "xn--techcmbank-lqh.com",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "techcombank.com",
+    "code_points": [
+      "U+03BF"
+    ]
+  },
+  {
+    "id": "whole-script",
+    "unicode_host": "аррӏе.com",
+    "ascii_host": "xn--80ak6aa92e.com",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+0430",
+      "U+0440",
+      "U+04CF",
+      "U+0435"
+    ]
+  },
+  {
+    "id": "generic-mixed",
+    "unicode_host": "gοogle.com",
+    "ascii_host": "xn--gogle-rce.com",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+03BF"
+    ]
+  },
+  {
+    "id": "vietnamese",
+    "unicode_host": "ngânhàng.vn",
+    "ascii_host": "xn--ngnhng-ltan.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "russian",
+    "unicode_host": "пример.рф",
+    "ascii_host": "xn--e1afmkfd.xn--p1ai",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "greek",
+    "unicode_host": "παράδειγμα.δοκιμή",
+    "ascii_host": "xn--hxajbheg2az3al.xn--jxalpdlp",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "cjk-latin",
+    "unicode_host": "abc例子.com",
+    "ascii_host": "xn--abc-xc0e315c.com",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "dotless-i",
+    "unicode_host": "bıdv.com.vn",
+    "ascii_host": "xn--bdv-jua.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "bidv.com.vn",
+    "code_points": [
+      "U+0131"
+    ]
+  },
+  {
+    "id": "legit-subdomain",
+    "unicode_host": "раypal.vietcombank.com.vn",
+    "ascii_host": "xn--ypal-43d9g.vietcombank.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+0440",
+      "U+0430"
+    ]
+  },
+  {
+    "id": "boundary-not-substring",
+    "unicode_host": "xbіdv.com.vn",
+    "ascii_host": "xn--xbdv-m9d.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+0456"
+    ]
+  },
+  {
+    "id": "homograph-decoy",
+    "unicode_host": "bіdv.com.vn.evil.example",
+    "ascii_host": "xn--bdv-jhd.com.vn.evil.example",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "bidv.com.vn",
+    "code_points": [
+      "U+0456"
+    ]
+  },
+  {
+    "id": "trailing-dot",
+    "unicode_host": "bіdv.com.vn.",
+    "ascii_host": "xn--bdv-jhd.com.vn",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": "bidv.com.vn",
+    "code_points": [
+      "U+0456"
+    ]
+  },
+  {
+    "id": "repeat-capped",
+    "unicode_host": "aaaaаоесе.com",
+    "ascii_host": "xn--aaaa-83d4aa4e2a.com",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+0430",
+      "U+043E",
+      "U+0435",
+      "U+0441"
+    ]
+  },
+  {
+    "id": "plain-accent",
+    "unicode_host": "café.fr",
+    "ascii_host": "xn--caf-dma.fr",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "nfd-unchanged",
+    "unicode_host": "café.fr",
+    "ascii_host": "xn--caf-dma.fr",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  },
+  {
+    "id": "astral-math",
+    "unicode_host": "𝖆bc.example",
+    "ascii_host": "abc.example",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": true,
+    "reference_match": null,
+    "code_points": [
+      "U+1D586"
+    ]
+  },
+  {
+    "id": "unmapped-letter",
+    "unicode_host": "aЖ.example",
+    "ascii_host": "xn--a-ltb.example",
+    "reference_hosts": [
+      "vietcombank.com.vn",
+      "bidv.com.vn",
+      "techcombank.com"
+    ],
+    "suspicious": false,
+    "reference_match": null,
+    "code_points": []
+  }
+]

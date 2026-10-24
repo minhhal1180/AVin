@@ -1,0 +1,17 @@
+{
+  "version": "url-references-2026-10-22.1",
+  "engine_version": "url-local-1.2",
+  "reference_hosts": ["vietcombank.com.vn", "bidv.com.vn", "techcombank.com"],
+  "shortener_hosts": ["bit.ly", "tinyurl.com", "t.co"],
+  "reviewed_at": "2026-10-22",
+  "hash_policy": "Each entry SHA-256 covers its canonical JSON excluding sha256 (UTF-8, sorted keys, compact separators). This fingerprints reviewed metadata, not mutable remote page content.",
+  "entries": [
+    {"host": "vietcombank.com.vn", "kind": "reference", "source_url": "https://www.vietcombank.com.vn/", "reviewed_at": "2026-10-22", "sha256": "ea7115fbb6663e4440f6f65ee8eecf8bcf021e6a1177acee0466d77553ce5fe9"},
+    {"host": "bidv.com.vn", "kind": "reference", "source_url": "https://bidv.com.vn/", "reviewed_at": "2026-10-22", "sha256": "0de6794adf3055102ff67b5b5bc73ea9951b8e38f33ada60590f534d8c10c27b"},
+    {"host": "techcombank.com", "kind": "reference", "source_url": "https://techcombank.com/", "reviewed_at": "2026-10-22", "sha256": "2dbd2c384809501be9628f19a0890bc9b7e1a8e8c5a3653cf051cb57797cf15a"},
+    {"host": "bit.ly", "kind": "shortener", "source_url": "https://bitly.com/pages/products/url-shortener", "reviewed_at": "2026-10-22", "sha256": "58692ad979f716aec113eeafae6527080a04aa12b349e5b3129e77b980ab7745"},
+    {"host": "tinyurl.com", "kind": "shortener", "source_url": "https://tinyurl.com/", "reviewed_at": "2026-10-22", "sha256": "b72edc8fbe13b037a2fa8082c9f41acf6a845da44e1a7d823a78646e70b8c909"},
+    {"host": "t.co", "kind": "shortener", "source_url": "https://help.x.com/en/using-x/url-shortener", "reviewed_at": "2026-10-22", "sha256": "62b687ff43b6649cf8fd7dbf2d00f18330998eea222f04fb22ec9cd80477f503"}
+  ],
+  "note": "Manually reviewed limited offline reference set. Matching a reference or its subdomain does not verify site ownership, content or safety. No DNS, fetch, redirect or reputation requests during analysis."
+}

@@ -1,0 +1,19 @@
+{
+  "version": "tessdata_fast-4.1.0",
+  "assets": [
+    {
+      "language": "vie",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/4.1.0/vie.traineddata",
+      "sha256": "79df64caf7bcfb2a27df5042ecb6121e196eada34da774956995747636d5bfa1",
+      "bytes": 531275,
+      "license": "Apache-2.0"
+    },
+    {
+      "language": "eng",
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/4.1.0/eng.traineddata",
+      "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+      "bytes": 4113088,
+      "license": "Apache-2.0"
+    }
+  ]
+}

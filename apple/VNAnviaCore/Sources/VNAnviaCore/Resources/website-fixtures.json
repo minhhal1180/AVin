@@ -1,0 +1,660 @@
+[
+  {
+    "id": "bounded-no-indicators",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 0 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": true
+  },
+  {
+    "id": "external-sso-info",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [
+        {
+          "kind": "EXTERNAL_PASSWORD_FORM",
+          "evidence_text": "https://sso.example/auth",
+          "source": "FORM_ACTION",
+          "explanation": "Biểu mẫu mật khẩu gửi sang origin khác; có thể là SSO hợp lệ, cần đối chiếu dịch vụ đăng nhập.",
+          "severity": "INFO",
+          "source_id": "form:0"
+        }
+      ],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 1 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": true
+  },
+  {
+    "id": "insecure-password-warning",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "MEDIUM",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [
+        {
+          "kind": "INSECURE_PASSWORD_FORM",
+          "evidence_text": "http://example.com/login",
+          "source": "FORM_ACTION",
+          "explanation": "Biểu mẫu mật khẩu có trang hoặc đích nhận dùng HTTP không mã hóa.",
+          "severity": "WARNING",
+          "source_id": "form:0"
+        }
+      ],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 1 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": true
+  },
+  {
+    "id": "challenge",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ.",
+        "Trang chưa đọc được đầy đủ; xem phạm vi kiểm tra và giới hạn bên dưới."
+      ],
+      "inspection_status": "INSUFFICIENT_DATA",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 0 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": true
+  },
+  {
+    "id": "technical-failure",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "FAILED",
+      "assessment": null,
+      "error_code": "WEBSITE_CAPTURE_FAILED",
+      "final_url": null,
+      "redirects": [],
+      "findings": [],
+      "screenshot_sha256": null,
+      "limitations": [],
+      "inspection_status": "ERROR",
+      "checks": []
+    },
+    "valid": true
+  },
+  {
+    "id": "warning-cannot-look-clean",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "MEDIUM",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [
+        {
+          "kind": "INSECURE_PASSWORD_FORM",
+          "evidence_text": "http://example.com/login",
+          "source": "FORM_ACTION",
+          "explanation": "Biểu mẫu mật khẩu có trang hoặc đích nhận dùng HTTP không mã hóa.",
+          "severity": "WARNING",
+          "source_id": "form:0"
+        }
+      ],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 1 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": false
+  },
+  {
+    "id": "missing-check",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 0 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        }
+      ]
+    },
+    "valid": false
+  },
+  {
+    "id": "missing-severity",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [
+        {
+          "kind": "EXTERNAL_PASSWORD_FORM",
+          "evidence_text": "https://sso.example/auth",
+          "source": "FORM_ACTION",
+          "explanation": "Biểu mẫu mật khẩu gửi sang origin khác; có thể là SSO hợp lệ, cần đối chiếu dịch vụ đăng nhập.",
+          "source_id": "form:0"
+        }
+      ],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 1 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": false
+  },
+  {
+    "id": "stale-protocol",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.0",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "HTML_SOURCE",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 0 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": false
+  },
+  {
+    "id": "duplicate-check",
+    "request": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "url": "https://example.com/",
+      "schema_version": "website-1.1",
+      "consent_version": "website-2026-10-24.1"
+    },
+    "response": {
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "schema_version": "website-1.1",
+      "processing_status": "COMPLETED",
+      "assessment": "INCONCLUSIVE",
+      "error_code": null,
+      "final_url": "https://example.com/",
+      "redirects": [
+        "https://example.com/"
+      ],
+      "findings": [],
+      "screenshot_sha256": "1f9ce8cbe2576eb1255e91cf3e3f75c62f1602f8164ff320703a73254d95a122",
+      "limitations": [
+        "Chỉ đánh giá phần đã quan sát trong một lượt; chưa xác minh website an toàn hoặc danh tính thương hiệu.",
+        "HTML đã bỏ giá trị trường nhập; JavaScript chỉ đọc tĩnh. Không gửi cookie, header xác thực hoặc body request.",
+        "Không đăng nhập, gửi biểu mẫu, tải tệp hoặc vượt CAPTCHA. Không kiểm toàn bộ nhánh mã hay hành vi sau đăng nhập.",
+        "Không ghi nhận dấu hiệu không đồng nghĩa website an toàn; thông tin INFO không tự nâng mức nguy cơ."
+      ],
+      "inspection_status": "NO_RISK_INDICATORS",
+      "checks": [
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "Đọc 67 ký tự chữ; tối đa 12.000 ký tự trong snapshot."
+        },
+        {
+          "name": "DOM_TEXT",
+          "status": "CHECKED",
+          "note": "HTML ban đầu đã làm sạch; bỏ 0 giá trị/thuộc tính nhạy cảm; tối đa 12.000 ký tự. Snapshot 3 domain tham chiếu không xác minh sở hữu hoặc an toàn."
+        },
+        {
+          "name": "FORMS",
+          "status": "CHECKED",
+          "note": "Kiểm 0 biểu mẫu, đích gửi và trường password; không nhập hoặc gửi dữ liệu."
+        },
+        {
+          "name": "LINKS",
+          "status": "CHECKED",
+          "note": "Đối chiếu 0/0 liên kết; không bấm hoặc crawl trang con."
+        },
+        {
+          "name": "JAVASCRIPT",
+          "status": "CHECKED",
+          "note": "Đọc tĩnh 0/0 script; 0 bỏ qua/giới hạn. 0 có marker mã hóa/làm rối; marker không tự là dấu hiệu lừa đảo."
+        },
+        {
+          "name": "NETWORK",
+          "status": "CHECKED",
+          "note": "Ghi 0 request khi tải trang; 0 bị chặn, 0 lỗi/chưa xong. Chỉ origin/method/type/status; không body/cookie/header."
+        },
+        {
+          "name": "SCREENSHOT",
+          "status": "CHECKED",
+          "note": "Một ảnh viewport 1280×900, được model đọc cùng dữ liệu nguồn; không xác minh thương hiệu."
+        }
+      ]
+    },
+    "valid": false
+  }
+]

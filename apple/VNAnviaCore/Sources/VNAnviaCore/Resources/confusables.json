@@ -1,0 +1,6077 @@
+{
+  "version": "ascii-lookalikes-17.0.0.1",
+  "unicode_version": "17.0.0",
+  "profile": "single non-ASCII scalar to 1-4 ASCII alphanumeric characters; no normalization, no full UTS39 conformance claim",
+  "sources": [
+    {
+      "url": "https://www.unicode.org/Public/17.0.0/security/confusables.txt",
+      "sha256": "091c7f82fc39ef208faf8f94d29c244de99254675e09de163160c810d13ef22a"
+    },
+    {
+      "url": "https://www.unicode.org/Public/17.0.0/ucd/Scripts.txt",
+      "sha256": "9f5e50d3abaee7d6ce09480f325c706f485ae3240912527e651954d2d6b035bf"
+    }
+  ],
+  "mappings": {
+    "Æ": {
+      "ascii": "ae",
+      "script": "Latin"
+    },
+    "×": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "æ": {
+      "ascii": "ae",
+      "script": "Latin"
+    },
+    "þ": {
+      "ascii": "p",
+      "script": "Latin"
+    },
+    "ı": {
+      "ascii": "i",
+      "script": "Latin"
+    },
+    "Ĳ": {
+      "ascii": "lj",
+      "script": "Latin"
+    },
+    "ĳ": {
+      "ascii": "ij",
+      "script": "Latin"
+    },
+    "Œ": {
+      "ascii": "oe",
+      "script": "Latin"
+    },
+    "œ": {
+      "ascii": "oe",
+      "script": "Latin"
+    },
+    "ſ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "Ƅ": {
+      "ascii": "b",
+      "script": "Latin"
+    },
+    "ƍ": {
+      "ascii": "g",
+      "script": "Latin"
+    },
+    "ƒ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "Ɩ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "Ʀ": {
+      "ascii": "r",
+      "script": "Latin"
+    },
+    "Ƨ": {
+      "ascii": "2",
+      "script": "Latin"
+    },
+    "Ʒ": {
+      "ascii": "3",
+      "script": "Latin"
+    },
+    "Ƽ": {
+      "ascii": "5",
+      "script": "Latin"
+    },
+    "ƽ": {
+      "ascii": "s",
+      "script": "Latin"
+    },
+    "ƿ": {
+      "ascii": "p",
+      "script": "Latin"
+    },
+    "ǀ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "ǁ": {
+      "ascii": "ll",
+      "script": "Latin"
+    },
+    "Ǉ": {
+      "ascii": "lj",
+      "script": "Latin"
+    },
+    "ǈ": {
+      "ascii": "lj",
+      "script": "Latin"
+    },
+    "ǉ": {
+      "ascii": "lj",
+      "script": "Latin"
+    },
+    "Ǌ": {
+      "ascii": "nj",
+      "script": "Latin"
+    },
+    "ǋ": {
+      "ascii": "nj",
+      "script": "Latin"
+    },
+    "ǌ": {
+      "ascii": "nj",
+      "script": "Latin"
+    },
+    "Ǳ": {
+      "ascii": "dz",
+      "script": "Latin"
+    },
+    "ǲ": {
+      "ascii": "dz",
+      "script": "Latin"
+    },
+    "ǳ": {
+      "ascii": "dz",
+      "script": "Latin"
+    },
+    "Ȝ": {
+      "ascii": "3",
+      "script": "Latin"
+    },
+    "Ȣ": {
+      "ascii": "8",
+      "script": "Latin"
+    },
+    "ȣ": {
+      "ascii": "8",
+      "script": "Latin"
+    },
+    "ɑ": {
+      "ascii": "a",
+      "script": "Latin"
+    },
+    "ɡ": {
+      "ascii": "g",
+      "script": "Latin"
+    },
+    "ɣ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "ɩ": {
+      "ascii": "i",
+      "script": "Latin"
+    },
+    "ɪ": {
+      "ascii": "i",
+      "script": "Latin"
+    },
+    "ɯ": {
+      "ascii": "w",
+      "script": "Latin"
+    },
+    "ʋ": {
+      "ascii": "u",
+      "script": "Latin"
+    },
+    "ʏ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "ʣ": {
+      "ascii": "dz",
+      "script": "Latin"
+    },
+    "ʦ": {
+      "ascii": "ts",
+      "script": "Latin"
+    },
+    "ʪ": {
+      "ascii": "ls",
+      "script": "Latin"
+    },
+    "ʫ": {
+      "ascii": "lz",
+      "script": "Latin"
+    },
+    "˛": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "ͺ": {
+      "ascii": "i",
+      "script": "Greek"
+    },
+    "Ϳ": {
+      "ascii": "j",
+      "script": "Greek"
+    },
+    "Α": {
+      "ascii": "a",
+      "script": "Greek"
+    },
+    "Β": {
+      "ascii": "b",
+      "script": "Greek"
+    },
+    "Ε": {
+      "ascii": "e",
+      "script": "Greek"
+    },
+    "Ζ": {
+      "ascii": "z",
+      "script": "Greek"
+    },
+    "Η": {
+      "ascii": "h",
+      "script": "Greek"
+    },
+    "Ι": {
+      "ascii": "l",
+      "script": "Greek"
+    },
+    "Κ": {
+      "ascii": "k",
+      "script": "Greek"
+    },
+    "Μ": {
+      "ascii": "m",
+      "script": "Greek"
+    },
+    "Ν": {
+      "ascii": "n",
+      "script": "Greek"
+    },
+    "Ο": {
+      "ascii": "o",
+      "script": "Greek"
+    },
+    "Ρ": {
+      "ascii": "p",
+      "script": "Greek"
+    },
+    "Τ": {
+      "ascii": "t",
+      "script": "Greek"
+    },
+    "Υ": {
+      "ascii": "y",
+      "script": "Greek"
+    },
+    "Χ": {
+      "ascii": "x",
+      "script": "Greek"
+    },
+    "α": {
+      "ascii": "a",
+      "script": "Greek"
+    },
+    "γ": {
+      "ascii": "y",
+      "script": "Greek"
+    },
+    "ι": {
+      "ascii": "i",
+      "script": "Greek"
+    },
+    "ν": {
+      "ascii": "v",
+      "script": "Greek"
+    },
+    "ο": {
+      "ascii": "o",
+      "script": "Greek"
+    },
+    "ρ": {
+      "ascii": "p",
+      "script": "Greek"
+    },
+    "σ": {
+      "ascii": "o",
+      "script": "Greek"
+    },
+    "υ": {
+      "ascii": "u",
+      "script": "Greek"
+    },
+    "ϒ": {
+      "ascii": "y",
+      "script": "Greek"
+    },
+    "Ϝ": {
+      "ascii": "f",
+      "script": "Greek"
+    },
+    "Ϩ": {
+      "ascii": "2",
+      "script": "Coptic"
+    },
+    "Ϭ": {
+      "ascii": "6",
+      "script": "Coptic"
+    },
+    "ϭ": {
+      "ascii": "o",
+      "script": "Coptic"
+    },
+    "ϱ": {
+      "ascii": "p",
+      "script": "Greek"
+    },
+    "ϲ": {
+      "ascii": "c",
+      "script": "Greek"
+    },
+    "ϳ": {
+      "ascii": "j",
+      "script": "Greek"
+    },
+    "ϸ": {
+      "ascii": "p",
+      "script": "Greek"
+    },
+    "Ϲ": {
+      "ascii": "c",
+      "script": "Greek"
+    },
+    "Ϻ": {
+      "ascii": "m",
+      "script": "Greek"
+    },
+    "Ѕ": {
+      "ascii": "s",
+      "script": "Cyrillic"
+    },
+    "І": {
+      "ascii": "l",
+      "script": "Cyrillic"
+    },
+    "Ј": {
+      "ascii": "j",
+      "script": "Cyrillic"
+    },
+    "А": {
+      "ascii": "a",
+      "script": "Cyrillic"
+    },
+    "В": {
+      "ascii": "b",
+      "script": "Cyrillic"
+    },
+    "Е": {
+      "ascii": "e",
+      "script": "Cyrillic"
+    },
+    "З": {
+      "ascii": "3",
+      "script": "Cyrillic"
+    },
+    "К": {
+      "ascii": "k",
+      "script": "Cyrillic"
+    },
+    "М": {
+      "ascii": "m",
+      "script": "Cyrillic"
+    },
+    "Н": {
+      "ascii": "h",
+      "script": "Cyrillic"
+    },
+    "О": {
+      "ascii": "o",
+      "script": "Cyrillic"
+    },
+    "Р": {
+      "ascii": "p",
+      "script": "Cyrillic"
+    },
+    "С": {
+      "ascii": "c",
+      "script": "Cyrillic"
+    },
+    "Т": {
+      "ascii": "t",
+      "script": "Cyrillic"
+    },
+    "У": {
+      "ascii": "y",
+      "script": "Cyrillic"
+    },
+    "Х": {
+      "ascii": "x",
+      "script": "Cyrillic"
+    },
+    "Ы": {
+      "ascii": "bl",
+      "script": "Cyrillic"
+    },
+    "Ь": {
+      "ascii": "b",
+      "script": "Cyrillic"
+    },
+    "Ю": {
+      "ascii": "lo",
+      "script": "Cyrillic"
+    },
+    "а": {
+      "ascii": "a",
+      "script": "Cyrillic"
+    },
+    "б": {
+      "ascii": "6",
+      "script": "Cyrillic"
+    },
+    "г": {
+      "ascii": "r",
+      "script": "Cyrillic"
+    },
+    "е": {
+      "ascii": "e",
+      "script": "Cyrillic"
+    },
+    "о": {
+      "ascii": "o",
+      "script": "Cyrillic"
+    },
+    "р": {
+      "ascii": "p",
+      "script": "Cyrillic"
+    },
+    "с": {
+      "ascii": "c",
+      "script": "Cyrillic"
+    },
+    "у": {
+      "ascii": "y",
+      "script": "Cyrillic"
+    },
+    "х": {
+      "ascii": "x",
+      "script": "Cyrillic"
+    },
+    "ш": {
+      "ascii": "w",
+      "script": "Cyrillic"
+    },
+    "ѕ": {
+      "ascii": "s",
+      "script": "Cyrillic"
+    },
+    "і": {
+      "ascii": "i",
+      "script": "Cyrillic"
+    },
+    "ј": {
+      "ascii": "j",
+      "script": "Cyrillic"
+    },
+    "ѡ": {
+      "ascii": "w",
+      "script": "Cyrillic"
+    },
+    "Ѵ": {
+      "ascii": "v",
+      "script": "Cyrillic"
+    },
+    "ѵ": {
+      "ascii": "v",
+      "script": "Cyrillic"
+    },
+    "Ү": {
+      "ascii": "y",
+      "script": "Cyrillic"
+    },
+    "ү": {
+      "ascii": "y",
+      "script": "Cyrillic"
+    },
+    "һ": {
+      "ascii": "h",
+      "script": "Cyrillic"
+    },
+    "ҽ": {
+      "ascii": "e",
+      "script": "Cyrillic"
+    },
+    "Ӏ": {
+      "ascii": "l",
+      "script": "Cyrillic"
+    },
+    "ӏ": {
+      "ascii": "l",
+      "script": "Cyrillic"
+    },
+    "Ӕ": {
+      "ascii": "ae",
+      "script": "Cyrillic"
+    },
+    "ӕ": {
+      "ascii": "ae",
+      "script": "Cyrillic"
+    },
+    "Ӡ": {
+      "ascii": "3",
+      "script": "Cyrillic"
+    },
+    "ԁ": {
+      "ascii": "d",
+      "script": "Cyrillic"
+    },
+    "Ԍ": {
+      "ascii": "g",
+      "script": "Cyrillic"
+    },
+    "ԛ": {
+      "ascii": "q",
+      "script": "Cyrillic"
+    },
+    "Ԝ": {
+      "ascii": "w",
+      "script": "Cyrillic"
+    },
+    "ԝ": {
+      "ascii": "w",
+      "script": "Cyrillic"
+    },
+    "Ս": {
+      "ascii": "u",
+      "script": "Armenian"
+    },
+    "Տ": {
+      "ascii": "s",
+      "script": "Armenian"
+    },
+    "Օ": {
+      "ascii": "o",
+      "script": "Armenian"
+    },
+    "ա": {
+      "ascii": "w",
+      "script": "Armenian"
+    },
+    "գ": {
+      "ascii": "q",
+      "script": "Armenian"
+    },
+    "զ": {
+      "ascii": "q",
+      "script": "Armenian"
+    },
+    "հ": {
+      "ascii": "h",
+      "script": "Armenian"
+    },
+    "ո": {
+      "ascii": "n",
+      "script": "Armenian"
+    },
+    "ռ": {
+      "ascii": "n",
+      "script": "Armenian"
+    },
+    "ս": {
+      "ascii": "u",
+      "script": "Armenian"
+    },
+    "ց": {
+      "ascii": "g",
+      "script": "Armenian"
+    },
+    "ւ": {
+      "ascii": "i",
+      "script": "Armenian"
+    },
+    "ք": {
+      "ascii": "f",
+      "script": "Armenian"
+    },
+    "օ": {
+      "ascii": "o",
+      "script": "Armenian"
+    },
+    "׀": {
+      "ascii": "l",
+      "script": "Hebrew"
+    },
+    "ו": {
+      "ascii": "l",
+      "script": "Hebrew"
+    },
+    "ט": {
+      "ascii": "v",
+      "script": "Hebrew"
+    },
+    "ן": {
+      "ascii": "l",
+      "script": "Hebrew"
+    },
+    "ס": {
+      "ascii": "o",
+      "script": "Hebrew"
+    },
+    "װ": {
+      "ascii": "ll",
+      "script": "Hebrew"
+    },
+    "ا": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "ه": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "١": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "٥": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "٧": {
+      "ascii": "v",
+      "script": "Arabic"
+    },
+    "ھ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ہ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ە": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "۱": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "۵": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "۷": {
+      "ascii": "v",
+      "script": "Arabic"
+    },
+    "߀": {
+      "ascii": "o",
+      "script": "Nko"
+    },
+    "ߊ": {
+      "ascii": "l",
+      "script": "Nko"
+    },
+    "०": {
+      "ascii": "o",
+      "script": "Devanagari"
+    },
+    "३": {
+      "ascii": "3",
+      "script": "Devanagari"
+    },
+    "০": {
+      "ascii": "o",
+      "script": "Bengali"
+    },
+    "৪": {
+      "ascii": "8",
+      "script": "Bengali"
+    },
+    "৭": {
+      "ascii": "9",
+      "script": "Bengali"
+    },
+    "੦": {
+      "ascii": "o",
+      "script": "Gurmukhi"
+    },
+    "੧": {
+      "ascii": "9",
+      "script": "Gurmukhi"
+    },
+    "੪": {
+      "ascii": "8",
+      "script": "Gurmukhi"
+    },
+    "૦": {
+      "ascii": "o",
+      "script": "Gujarati"
+    },
+    "૩": {
+      "ascii": "3",
+      "script": "Gujarati"
+    },
+    "ଃ": {
+      "ascii": "8",
+      "script": "Oriya"
+    },
+    "ଠ": {
+      "ascii": "o",
+      "script": "Oriya"
+    },
+    "୦": {
+      "ascii": "o",
+      "script": "Oriya"
+    },
+    "୨": {
+      "ascii": "9",
+      "script": "Oriya"
+    },
+    "௦": {
+      "ascii": "o",
+      "script": "Tamil"
+    },
+    "ం": {
+      "ascii": "o",
+      "script": "Telugu"
+    },
+    "౦": {
+      "ascii": "o",
+      "script": "Telugu"
+    },
+    "ಂ": {
+      "ascii": "o",
+      "script": "Kannada"
+    },
+    "೦": {
+      "ascii": "o",
+      "script": "Kannada"
+    },
+    "ം": {
+      "ascii": "o",
+      "script": "Malayalam"
+    },
+    "ട": {
+      "ascii": "s",
+      "script": "Malayalam"
+    },
+    "ഠ": {
+      "ascii": "o",
+      "script": "Malayalam"
+    },
+    "൦": {
+      "ascii": "o",
+      "script": "Malayalam"
+    },
+    "൭": {
+      "ascii": "9",
+      "script": "Malayalam"
+    },
+    "ං": {
+      "ascii": "o",
+      "script": "Sinhala"
+    },
+    "๐": {
+      "ascii": "o",
+      "script": "Thai"
+    },
+    "໐": {
+      "ascii": "o",
+      "script": "Lao"
+    },
+    "င": {
+      "ascii": "c",
+      "script": "Myanmar"
+    },
+    "ဝ": {
+      "ascii": "o",
+      "script": "Myanmar"
+    },
+    "၀": {
+      "ascii": "o",
+      "script": "Myanmar"
+    },
+    "ၚ": {
+      "ascii": "c",
+      "script": "Myanmar"
+    },
+    "ყ": {
+      "ascii": "y",
+      "script": "Georgian"
+    },
+    "ჿ": {
+      "ascii": "o",
+      "script": "Georgian"
+    },
+    "ሀ": {
+      "ascii": "u",
+      "script": "Ethiopic"
+    },
+    "ዐ": {
+      "ascii": "o",
+      "script": "Ethiopic"
+    },
+    "Ꭰ": {
+      "ascii": "d",
+      "script": "Cherokee"
+    },
+    "Ꭱ": {
+      "ascii": "r",
+      "script": "Cherokee"
+    },
+    "Ꭲ": {
+      "ascii": "t",
+      "script": "Cherokee"
+    },
+    "Ꭵ": {
+      "ascii": "i",
+      "script": "Cherokee"
+    },
+    "Ꭹ": {
+      "ascii": "y",
+      "script": "Cherokee"
+    },
+    "Ꭺ": {
+      "ascii": "a",
+      "script": "Cherokee"
+    },
+    "Ꭻ": {
+      "ascii": "j",
+      "script": "Cherokee"
+    },
+    "Ꭼ": {
+      "ascii": "e",
+      "script": "Cherokee"
+    },
+    "Ꮃ": {
+      "ascii": "w",
+      "script": "Cherokee"
+    },
+    "Ꮇ": {
+      "ascii": "m",
+      "script": "Cherokee"
+    },
+    "Ꮋ": {
+      "ascii": "h",
+      "script": "Cherokee"
+    },
+    "Ꮍ": {
+      "ascii": "y",
+      "script": "Cherokee"
+    },
+    "Ꮐ": {
+      "ascii": "g",
+      "script": "Cherokee"
+    },
+    "Ꮒ": {
+      "ascii": "h",
+      "script": "Cherokee"
+    },
+    "Ꮓ": {
+      "ascii": "z",
+      "script": "Cherokee"
+    },
+    "Ꮞ": {
+      "ascii": "4",
+      "script": "Cherokee"
+    },
+    "Ꮟ": {
+      "ascii": "b",
+      "script": "Cherokee"
+    },
+    "Ꮢ": {
+      "ascii": "r",
+      "script": "Cherokee"
+    },
+    "Ꮤ": {
+      "ascii": "w",
+      "script": "Cherokee"
+    },
+    "Ꮥ": {
+      "ascii": "s",
+      "script": "Cherokee"
+    },
+    "Ꮩ": {
+      "ascii": "v",
+      "script": "Cherokee"
+    },
+    "Ꮪ": {
+      "ascii": "s",
+      "script": "Cherokee"
+    },
+    "Ꮮ": {
+      "ascii": "l",
+      "script": "Cherokee"
+    },
+    "Ꮯ": {
+      "ascii": "c",
+      "script": "Cherokee"
+    },
+    "Ꮲ": {
+      "ascii": "p",
+      "script": "Cherokee"
+    },
+    "Ꮶ": {
+      "ascii": "k",
+      "script": "Cherokee"
+    },
+    "Ꮷ": {
+      "ascii": "d",
+      "script": "Cherokee"
+    },
+    "Ꮾ": {
+      "ascii": "6",
+      "script": "Cherokee"
+    },
+    "Ᏻ": {
+      "ascii": "g",
+      "script": "Cherokee"
+    },
+    "Ᏼ": {
+      "ascii": "b",
+      "script": "Cherokee"
+    },
+    "ᐯ": {
+      "ascii": "v",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᑌ": {
+      "ascii": "u",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᑭ": {
+      "ascii": "p",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᑯ": {
+      "ascii": "d",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᑲ": {
+      "ascii": "b",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᒍ": {
+      "ascii": "j",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᒪ": {
+      "ascii": "l",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᒿ": {
+      "ascii": "2",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᕁ": {
+      "ascii": "x",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᕼ": {
+      "ascii": "h",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᕽ": {
+      "ascii": "x",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᖇ": {
+      "ascii": "r",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᖯ": {
+      "ascii": "b",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᖴ": {
+      "ascii": "f",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᗅ": {
+      "ascii": "a",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᗞ": {
+      "ascii": "d",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᗪ": {
+      "ascii": "d",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᗰ": {
+      "ascii": "m",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᗷ": {
+      "ascii": "b",
+      "script": "Canadian_Aboriginal"
+    },
+    "᙭": {
+      "ascii": "x",
+      "script": "Canadian_Aboriginal"
+    },
+    "᙮": {
+      "ascii": "x",
+      "script": "Canadian_Aboriginal"
+    },
+    "ᚷ": {
+      "ascii": "x",
+      "script": "Runic"
+    },
+    "ᛁ": {
+      "ascii": "l",
+      "script": "Runic"
+    },
+    "ᛕ": {
+      "ascii": "k",
+      "script": "Runic"
+    },
+    "ᛖ": {
+      "ascii": "m",
+      "script": "Runic"
+    },
+    "០": {
+      "ascii": "o",
+      "script": "Khmer"
+    },
+    "ᴄ": {
+      "ascii": "c",
+      "script": "Latin"
+    },
+    "ᴏ": {
+      "ascii": "o",
+      "script": "Latin"
+    },
+    "ᴑ": {
+      "ascii": "o",
+      "script": "Latin"
+    },
+    "ᴜ": {
+      "ascii": "u",
+      "script": "Latin"
+    },
+    "ᴠ": {
+      "ascii": "v",
+      "script": "Latin"
+    },
+    "ᴡ": {
+      "ascii": "w",
+      "script": "Latin"
+    },
+    "ᴢ": {
+      "ascii": "z",
+      "script": "Latin"
+    },
+    "ᴦ": {
+      "ascii": "r",
+      "script": "Greek"
+    },
+    "ᵫ": {
+      "ascii": "ue",
+      "script": "Latin"
+    },
+    "ᶃ": {
+      "ascii": "g",
+      "script": "Latin"
+    },
+    "ᶌ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "ẝ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "ỿ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "ι": {
+      "ascii": "i",
+      "script": "Greek"
+    },
+    "‖": {
+      "ascii": "ll",
+      "script": "Common"
+    },
+    "₨": {
+      "ascii": "rs",
+      "script": "Common"
+    },
+    "₶": {
+      "ascii": "lt",
+      "script": "Common"
+    },
+    "ℂ": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "ℊ": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "ℋ": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "ℌ": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "ℍ": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "ℎ": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "ℐ": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "ℑ": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "ℒ": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "ℓ": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "ℕ": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "№": {
+      "ascii": "no",
+      "script": "Common"
+    },
+    "ℙ": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "ℚ": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "ℛ": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "ℜ": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "ℝ": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "℡": {
+      "ascii": "tel",
+      "script": "Common"
+    },
+    "ℤ": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "ℨ": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "K": {
+      "ascii": "k",
+      "script": "Latin"
+    },
+    "ℬ": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "ℭ": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "℮": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "ℯ": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "ℰ": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "ℱ": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "ℳ": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "ℴ": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "ℹ": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "℻": {
+      "ascii": "fax",
+      "script": "Common"
+    },
+    "ℽ": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "ⅅ": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "ⅆ": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "ⅇ": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "ⅈ": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "ⅉ": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "Ⅰ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "Ⅱ": {
+      "ascii": "ll",
+      "script": "Latin"
+    },
+    "Ⅲ": {
+      "ascii": "lll",
+      "script": "Latin"
+    },
+    "Ⅳ": {
+      "ascii": "lv",
+      "script": "Latin"
+    },
+    "Ⅴ": {
+      "ascii": "v",
+      "script": "Latin"
+    },
+    "Ⅵ": {
+      "ascii": "vl",
+      "script": "Latin"
+    },
+    "Ⅶ": {
+      "ascii": "vll",
+      "script": "Latin"
+    },
+    "Ⅷ": {
+      "ascii": "vlll",
+      "script": "Latin"
+    },
+    "Ⅸ": {
+      "ascii": "lx",
+      "script": "Latin"
+    },
+    "Ⅹ": {
+      "ascii": "x",
+      "script": "Latin"
+    },
+    "Ⅺ": {
+      "ascii": "xl",
+      "script": "Latin"
+    },
+    "Ⅻ": {
+      "ascii": "xll",
+      "script": "Latin"
+    },
+    "Ⅼ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "Ⅽ": {
+      "ascii": "c",
+      "script": "Latin"
+    },
+    "Ⅾ": {
+      "ascii": "d",
+      "script": "Latin"
+    },
+    "Ⅿ": {
+      "ascii": "m",
+      "script": "Latin"
+    },
+    "ⅰ": {
+      "ascii": "i",
+      "script": "Latin"
+    },
+    "ⅱ": {
+      "ascii": "ii",
+      "script": "Latin"
+    },
+    "ⅲ": {
+      "ascii": "iii",
+      "script": "Latin"
+    },
+    "ⅳ": {
+      "ascii": "iv",
+      "script": "Latin"
+    },
+    "ⅴ": {
+      "ascii": "v",
+      "script": "Latin"
+    },
+    "ⅵ": {
+      "ascii": "vi",
+      "script": "Latin"
+    },
+    "ⅶ": {
+      "ascii": "vii",
+      "script": "Latin"
+    },
+    "ⅷ": {
+      "ascii": "viii",
+      "script": "Latin"
+    },
+    "ⅸ": {
+      "ascii": "ix",
+      "script": "Latin"
+    },
+    "ⅹ": {
+      "ascii": "x",
+      "script": "Latin"
+    },
+    "ⅺ": {
+      "ascii": "xi",
+      "script": "Latin"
+    },
+    "ⅻ": {
+      "ascii": "xii",
+      "script": "Latin"
+    },
+    "ⅼ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "ⅽ": {
+      "ascii": "c",
+      "script": "Latin"
+    },
+    "ⅾ": {
+      "ascii": "d",
+      "script": "Latin"
+    },
+    "ⅿ": {
+      "ascii": "rn",
+      "script": "Latin"
+    },
+    "∞": {
+      "ascii": "oo",
+      "script": "Common"
+    },
+    "∣": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "∥": {
+      "ascii": "ll",
+      "script": "Common"
+    },
+    "∨": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "∪": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "⊤": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "⋁": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "⋃": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "⋿": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "⍳": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "⍴": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "⍺": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "⏽": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "╳": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "⟙": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "⤫": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "⤬": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "⨯": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "Ⲃ": {
+      "ascii": "b",
+      "script": "Coptic"
+    },
+    "ⲅ": {
+      "ascii": "r",
+      "script": "Coptic"
+    },
+    "Ⲏ": {
+      "ascii": "h",
+      "script": "Coptic"
+    },
+    "Ⲓ": {
+      "ascii": "l",
+      "script": "Coptic"
+    },
+    "ⲓ": {
+      "ascii": "i",
+      "script": "Coptic"
+    },
+    "Ⲕ": {
+      "ascii": "k",
+      "script": "Coptic"
+    },
+    "Ⲙ": {
+      "ascii": "m",
+      "script": "Coptic"
+    },
+    "Ⲛ": {
+      "ascii": "n",
+      "script": "Coptic"
+    },
+    "Ⲝ": {
+      "ascii": "3",
+      "script": "Coptic"
+    },
+    "Ⲟ": {
+      "ascii": "o",
+      "script": "Coptic"
+    },
+    "ⲟ": {
+      "ascii": "o",
+      "script": "Coptic"
+    },
+    "Ⲣ": {
+      "ascii": "p",
+      "script": "Coptic"
+    },
+    "ⲣ": {
+      "ascii": "p",
+      "script": "Coptic"
+    },
+    "Ⲥ": {
+      "ascii": "c",
+      "script": "Coptic"
+    },
+    "ⲥ": {
+      "ascii": "c",
+      "script": "Coptic"
+    },
+    "Ⲧ": {
+      "ascii": "t",
+      "script": "Coptic"
+    },
+    "Ⲩ": {
+      "ascii": "y",
+      "script": "Coptic"
+    },
+    "ⲩ": {
+      "ascii": "y",
+      "script": "Coptic"
+    },
+    "Ⲭ": {
+      "ascii": "x",
+      "script": "Coptic"
+    },
+    "ⲽ": {
+      "ascii": "w",
+      "script": "Coptic"
+    },
+    "Ⳅ": {
+      "ascii": "3",
+      "script": "Coptic"
+    },
+    "Ⳋ": {
+      "ascii": "9",
+      "script": "Coptic"
+    },
+    "ⳋ": {
+      "ascii": "9",
+      "script": "Coptic"
+    },
+    "Ⳍ": {
+      "ascii": "3",
+      "script": "Coptic"
+    },
+    "Ⳏ": {
+      "ascii": "p",
+      "script": "Coptic"
+    },
+    "ⳏ": {
+      "ascii": "p",
+      "script": "Coptic"
+    },
+    "Ⳑ": {
+      "ascii": "l",
+      "script": "Coptic"
+    },
+    "Ⳓ": {
+      "ascii": "6",
+      "script": "Coptic"
+    },
+    "ⳓ": {
+      "ascii": "6",
+      "script": "Coptic"
+    },
+    "Ⳝ": {
+      "ascii": "6",
+      "script": "Coptic"
+    },
+    "ⴸ": {
+      "ascii": "v",
+      "script": "Tifinagh"
+    },
+    "ⴹ": {
+      "ascii": "e",
+      "script": "Tifinagh"
+    },
+    "ⵏ": {
+      "ascii": "l",
+      "script": "Tifinagh"
+    },
+    "ⵔ": {
+      "ascii": "o",
+      "script": "Tifinagh"
+    },
+    "ⵕ": {
+      "ascii": "q",
+      "script": "Tifinagh"
+    },
+    "ⵝ": {
+      "ascii": "x",
+      "script": "Tifinagh"
+    },
+    "〇": {
+      "ascii": "o",
+      "script": "Han"
+    },
+    "ꓐ": {
+      "ascii": "b",
+      "script": "Lisu"
+    },
+    "ꓑ": {
+      "ascii": "p",
+      "script": "Lisu"
+    },
+    "ꓒ": {
+      "ascii": "d",
+      "script": "Lisu"
+    },
+    "ꓓ": {
+      "ascii": "d",
+      "script": "Lisu"
+    },
+    "ꓔ": {
+      "ascii": "t",
+      "script": "Lisu"
+    },
+    "ꓖ": {
+      "ascii": "g",
+      "script": "Lisu"
+    },
+    "ꓗ": {
+      "ascii": "k",
+      "script": "Lisu"
+    },
+    "ꓙ": {
+      "ascii": "j",
+      "script": "Lisu"
+    },
+    "ꓚ": {
+      "ascii": "c",
+      "script": "Lisu"
+    },
+    "ꓜ": {
+      "ascii": "z",
+      "script": "Lisu"
+    },
+    "ꓝ": {
+      "ascii": "f",
+      "script": "Lisu"
+    },
+    "ꓟ": {
+      "ascii": "m",
+      "script": "Lisu"
+    },
+    "ꓠ": {
+      "ascii": "n",
+      "script": "Lisu"
+    },
+    "ꓡ": {
+      "ascii": "l",
+      "script": "Lisu"
+    },
+    "ꓢ": {
+      "ascii": "s",
+      "script": "Lisu"
+    },
+    "ꓣ": {
+      "ascii": "r",
+      "script": "Lisu"
+    },
+    "ꓦ": {
+      "ascii": "v",
+      "script": "Lisu"
+    },
+    "ꓧ": {
+      "ascii": "h",
+      "script": "Lisu"
+    },
+    "ꓪ": {
+      "ascii": "w",
+      "script": "Lisu"
+    },
+    "ꓫ": {
+      "ascii": "x",
+      "script": "Lisu"
+    },
+    "ꓬ": {
+      "ascii": "y",
+      "script": "Lisu"
+    },
+    "ꓮ": {
+      "ascii": "a",
+      "script": "Lisu"
+    },
+    "ꓰ": {
+      "ascii": "e",
+      "script": "Lisu"
+    },
+    "ꓲ": {
+      "ascii": "l",
+      "script": "Lisu"
+    },
+    "ꓳ": {
+      "ascii": "o",
+      "script": "Lisu"
+    },
+    "ꓴ": {
+      "ascii": "u",
+      "script": "Lisu"
+    },
+    "Ꙅ": {
+      "ascii": "2",
+      "script": "Cyrillic"
+    },
+    "ꙇ": {
+      "ascii": "i",
+      "script": "Cyrillic"
+    },
+    "Ꚙ": {
+      "ascii": "oo",
+      "script": "Cyrillic"
+    },
+    "ꚙ": {
+      "ascii": "oo",
+      "script": "Cyrillic"
+    },
+    "ꛟ": {
+      "ascii": "v",
+      "script": "Bamum"
+    },
+    "ꛯ": {
+      "ascii": "2",
+      "script": "Bamum"
+    },
+    "Ꜩ": {
+      "ascii": "t3",
+      "script": "Latin"
+    },
+    "ꜱ": {
+      "ascii": "s",
+      "script": "Latin"
+    },
+    "Ꜳ": {
+      "ascii": "aa",
+      "script": "Latin"
+    },
+    "ꜳ": {
+      "ascii": "aa",
+      "script": "Latin"
+    },
+    "Ꜵ": {
+      "ascii": "ao",
+      "script": "Latin"
+    },
+    "ꜵ": {
+      "ascii": "ao",
+      "script": "Latin"
+    },
+    "Ꜷ": {
+      "ascii": "au",
+      "script": "Latin"
+    },
+    "ꜷ": {
+      "ascii": "au",
+      "script": "Latin"
+    },
+    "Ꜹ": {
+      "ascii": "av",
+      "script": "Latin"
+    },
+    "ꜹ": {
+      "ascii": "av",
+      "script": "Latin"
+    },
+    "Ꜻ": {
+      "ascii": "av",
+      "script": "Latin"
+    },
+    "ꜻ": {
+      "ascii": "av",
+      "script": "Latin"
+    },
+    "Ꜽ": {
+      "ascii": "ay",
+      "script": "Latin"
+    },
+    "ꜽ": {
+      "ascii": "ay",
+      "script": "Latin"
+    },
+    "Ꝏ": {
+      "ascii": "oo",
+      "script": "Latin"
+    },
+    "ꝏ": {
+      "ascii": "oo",
+      "script": "Latin"
+    },
+    "Ꝛ": {
+      "ascii": "2",
+      "script": "Latin"
+    },
+    "Ꝫ": {
+      "ascii": "3",
+      "script": "Latin"
+    },
+    "Ꝯ": {
+      "ascii": "9",
+      "script": "Latin"
+    },
+    "ꝷ": {
+      "ascii": "tf",
+      "script": "Latin"
+    },
+    "Ꞙ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "ꞙ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "ꞟ": {
+      "ascii": "u",
+      "script": "Latin"
+    },
+    "Ɜ": {
+      "ascii": "3",
+      "script": "Latin"
+    },
+    "Ʝ": {
+      "ascii": "j",
+      "script": "Latin"
+    },
+    "Ꭓ": {
+      "ascii": "x",
+      "script": "Latin"
+    },
+    "Ꞵ": {
+      "ascii": "b",
+      "script": "Latin"
+    },
+    "ꬲ": {
+      "ascii": "e",
+      "script": "Latin"
+    },
+    "ꬵ": {
+      "ascii": "f",
+      "script": "Latin"
+    },
+    "ꬽ": {
+      "ascii": "o",
+      "script": "Latin"
+    },
+    "ꭇ": {
+      "ascii": "r",
+      "script": "Latin"
+    },
+    "ꭈ": {
+      "ascii": "r",
+      "script": "Latin"
+    },
+    "ꭎ": {
+      "ascii": "u",
+      "script": "Latin"
+    },
+    "ꭒ": {
+      "ascii": "u",
+      "script": "Latin"
+    },
+    "ꭚ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "ꭣ": {
+      "ascii": "uo",
+      "script": "Latin"
+    },
+    "ꭵ": {
+      "ascii": "i",
+      "script": "Cherokee"
+    },
+    "ꮁ": {
+      "ascii": "r",
+      "script": "Cherokee"
+    },
+    "ꮃ": {
+      "ascii": "w",
+      "script": "Cherokee"
+    },
+    "ꮓ": {
+      "ascii": "z",
+      "script": "Cherokee"
+    },
+    "ꮩ": {
+      "ascii": "v",
+      "script": "Cherokee"
+    },
+    "ꮪ": {
+      "ascii": "s",
+      "script": "Cherokee"
+    },
+    "ꮯ": {
+      "ascii": "c",
+      "script": "Cherokee"
+    },
+    "ﬀ": {
+      "ascii": "ff",
+      "script": "Latin"
+    },
+    "ﬁ": {
+      "ascii": "fi",
+      "script": "Latin"
+    },
+    "ﬂ": {
+      "ascii": "fl",
+      "script": "Latin"
+    },
+    "ﬃ": {
+      "ascii": "ffi",
+      "script": "Latin"
+    },
+    "ﬄ": {
+      "ascii": "ffl",
+      "script": "Latin"
+    },
+    "ﬆ": {
+      "ascii": "st",
+      "script": "Latin"
+    },
+    "ﮦ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮧ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮨ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮩ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮪ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮫ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮬ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﮭ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﺍ": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "ﺎ": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "ﻩ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﻪ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﻫ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "ﻬ": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "Ａ": {
+      "ascii": "a",
+      "script": "Latin"
+    },
+    "Ｂ": {
+      "ascii": "b",
+      "script": "Latin"
+    },
+    "Ｃ": {
+      "ascii": "c",
+      "script": "Latin"
+    },
+    "Ｅ": {
+      "ascii": "e",
+      "script": "Latin"
+    },
+    "Ｈ": {
+      "ascii": "h",
+      "script": "Latin"
+    },
+    "Ｉ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "Ｊ": {
+      "ascii": "j",
+      "script": "Latin"
+    },
+    "Ｋ": {
+      "ascii": "k",
+      "script": "Latin"
+    },
+    "Ｍ": {
+      "ascii": "m",
+      "script": "Latin"
+    },
+    "Ｎ": {
+      "ascii": "n",
+      "script": "Latin"
+    },
+    "Ｏ": {
+      "ascii": "o",
+      "script": "Latin"
+    },
+    "Ｐ": {
+      "ascii": "p",
+      "script": "Latin"
+    },
+    "Ｓ": {
+      "ascii": "s",
+      "script": "Latin"
+    },
+    "Ｔ": {
+      "ascii": "t",
+      "script": "Latin"
+    },
+    "Ｘ": {
+      "ascii": "x",
+      "script": "Latin"
+    },
+    "Ｙ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "Ｚ": {
+      "ascii": "z",
+      "script": "Latin"
+    },
+    "ａ": {
+      "ascii": "a",
+      "script": "Latin"
+    },
+    "ｃ": {
+      "ascii": "c",
+      "script": "Latin"
+    },
+    "ｅ": {
+      "ascii": "e",
+      "script": "Latin"
+    },
+    "ｇ": {
+      "ascii": "g",
+      "script": "Latin"
+    },
+    "ｈ": {
+      "ascii": "h",
+      "script": "Latin"
+    },
+    "ｉ": {
+      "ascii": "i",
+      "script": "Latin"
+    },
+    "ｊ": {
+      "ascii": "j",
+      "script": "Latin"
+    },
+    "ｌ": {
+      "ascii": "l",
+      "script": "Latin"
+    },
+    "ｏ": {
+      "ascii": "o",
+      "script": "Latin"
+    },
+    "ｐ": {
+      "ascii": "p",
+      "script": "Latin"
+    },
+    "ｓ": {
+      "ascii": "s",
+      "script": "Latin"
+    },
+    "ｖ": {
+      "ascii": "v",
+      "script": "Latin"
+    },
+    "ｘ": {
+      "ascii": "x",
+      "script": "Latin"
+    },
+    "ｙ": {
+      "ascii": "y",
+      "script": "Latin"
+    },
+    "￨": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𐊂": {
+      "ascii": "b",
+      "script": "Lycian"
+    },
+    "𐊆": {
+      "ascii": "e",
+      "script": "Lycian"
+    },
+    "𐊇": {
+      "ascii": "f",
+      "script": "Lycian"
+    },
+    "𐊊": {
+      "ascii": "l",
+      "script": "Lycian"
+    },
+    "𐊐": {
+      "ascii": "x",
+      "script": "Lycian"
+    },
+    "𐊒": {
+      "ascii": "o",
+      "script": "Lycian"
+    },
+    "𐊕": {
+      "ascii": "p",
+      "script": "Lycian"
+    },
+    "𐊖": {
+      "ascii": "s",
+      "script": "Lycian"
+    },
+    "𐊗": {
+      "ascii": "t",
+      "script": "Lycian"
+    },
+    "𐊠": {
+      "ascii": "a",
+      "script": "Carian"
+    },
+    "𐊡": {
+      "ascii": "b",
+      "script": "Carian"
+    },
+    "𐊢": {
+      "ascii": "c",
+      "script": "Carian"
+    },
+    "𐊥": {
+      "ascii": "f",
+      "script": "Carian"
+    },
+    "𐊫": {
+      "ascii": "o",
+      "script": "Carian"
+    },
+    "𐊰": {
+      "ascii": "m",
+      "script": "Carian"
+    },
+    "𐊱": {
+      "ascii": "t",
+      "script": "Carian"
+    },
+    "𐊲": {
+      "ascii": "y",
+      "script": "Carian"
+    },
+    "𐊴": {
+      "ascii": "x",
+      "script": "Carian"
+    },
+    "𐋏": {
+      "ascii": "h",
+      "script": "Carian"
+    },
+    "𐋵": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𐌁": {
+      "ascii": "b",
+      "script": "Old_Italic"
+    },
+    "𐌂": {
+      "ascii": "c",
+      "script": "Old_Italic"
+    },
+    "𐌉": {
+      "ascii": "l",
+      "script": "Old_Italic"
+    },
+    "𐌑": {
+      "ascii": "m",
+      "script": "Old_Italic"
+    },
+    "𐌕": {
+      "ascii": "t",
+      "script": "Old_Italic"
+    },
+    "𐌗": {
+      "ascii": "x",
+      "script": "Old_Italic"
+    },
+    "𐌚": {
+      "ascii": "8",
+      "script": "Old_Italic"
+    },
+    "𐌠": {
+      "ascii": "l",
+      "script": "Old_Italic"
+    },
+    "𐌢": {
+      "ascii": "x",
+      "script": "Old_Italic"
+    },
+    "𐐄": {
+      "ascii": "o",
+      "script": "Deseret"
+    },
+    "𐐕": {
+      "ascii": "c",
+      "script": "Deseret"
+    },
+    "𐐛": {
+      "ascii": "l",
+      "script": "Deseret"
+    },
+    "𐐠": {
+      "ascii": "s",
+      "script": "Deseret"
+    },
+    "𐐬": {
+      "ascii": "o",
+      "script": "Deseret"
+    },
+    "𐐽": {
+      "ascii": "c",
+      "script": "Deseret"
+    },
+    "𐑈": {
+      "ascii": "s",
+      "script": "Deseret"
+    },
+    "𐒴": {
+      "ascii": "r",
+      "script": "Osage"
+    },
+    "𐓂": {
+      "ascii": "o",
+      "script": "Osage"
+    },
+    "𐓎": {
+      "ascii": "u",
+      "script": "Osage"
+    },
+    "𐓒": {
+      "ascii": "7",
+      "script": "Osage"
+    },
+    "𐓪": {
+      "ascii": "o",
+      "script": "Osage"
+    },
+    "𐓶": {
+      "ascii": "u",
+      "script": "Osage"
+    },
+    "𐔓": {
+      "ascii": "n",
+      "script": "Elbasan"
+    },
+    "𐔖": {
+      "ascii": "o",
+      "script": "Elbasan"
+    },
+    "𐔘": {
+      "ascii": "k",
+      "script": "Elbasan"
+    },
+    "𐔜": {
+      "ascii": "c",
+      "script": "Elbasan"
+    },
+    "𐔝": {
+      "ascii": "v",
+      "script": "Elbasan"
+    },
+    "𐔥": {
+      "ascii": "f",
+      "script": "Elbasan"
+    },
+    "𐔦": {
+      "ascii": "l",
+      "script": "Elbasan"
+    },
+    "𐔧": {
+      "ascii": "x",
+      "script": "Elbasan"
+    },
+    "𑓐": {
+      "ascii": "o",
+      "script": "Tirhuta"
+    },
+    "𑜀": {
+      "ascii": "rn",
+      "script": "Ahom"
+    },
+    "𑜆": {
+      "ascii": "v",
+      "script": "Ahom"
+    },
+    "𑜊": {
+      "ascii": "w",
+      "script": "Ahom"
+    },
+    "𑜎": {
+      "ascii": "w",
+      "script": "Ahom"
+    },
+    "𑜏": {
+      "ascii": "w",
+      "script": "Ahom"
+    },
+    "𑢠": {
+      "ascii": "v",
+      "script": "Warang_Citi"
+    },
+    "𑢢": {
+      "ascii": "f",
+      "script": "Warang_Citi"
+    },
+    "𑢣": {
+      "ascii": "l",
+      "script": "Warang_Citi"
+    },
+    "𑢤": {
+      "ascii": "y",
+      "script": "Warang_Citi"
+    },
+    "𑢦": {
+      "ascii": "e",
+      "script": "Warang_Citi"
+    },
+    "𑢩": {
+      "ascii": "z",
+      "script": "Warang_Citi"
+    },
+    "𑢬": {
+      "ascii": "9",
+      "script": "Warang_Citi"
+    },
+    "𑢮": {
+      "ascii": "e",
+      "script": "Warang_Citi"
+    },
+    "𑢯": {
+      "ascii": "4",
+      "script": "Warang_Citi"
+    },
+    "𑢲": {
+      "ascii": "l",
+      "script": "Warang_Citi"
+    },
+    "𑢵": {
+      "ascii": "o",
+      "script": "Warang_Citi"
+    },
+    "𑢸": {
+      "ascii": "u",
+      "script": "Warang_Citi"
+    },
+    "𑢻": {
+      "ascii": "5",
+      "script": "Warang_Citi"
+    },
+    "𑢼": {
+      "ascii": "t",
+      "script": "Warang_Citi"
+    },
+    "𑣀": {
+      "ascii": "v",
+      "script": "Warang_Citi"
+    },
+    "𑣁": {
+      "ascii": "s",
+      "script": "Warang_Citi"
+    },
+    "𑣂": {
+      "ascii": "f",
+      "script": "Warang_Citi"
+    },
+    "𑣃": {
+      "ascii": "i",
+      "script": "Warang_Citi"
+    },
+    "𑣄": {
+      "ascii": "z",
+      "script": "Warang_Citi"
+    },
+    "𑣆": {
+      "ascii": "7",
+      "script": "Warang_Citi"
+    },
+    "𑣈": {
+      "ascii": "o",
+      "script": "Warang_Citi"
+    },
+    "𑣊": {
+      "ascii": "3",
+      "script": "Warang_Citi"
+    },
+    "𑣌": {
+      "ascii": "9",
+      "script": "Warang_Citi"
+    },
+    "𑣕": {
+      "ascii": "6",
+      "script": "Warang_Citi"
+    },
+    "𑣖": {
+      "ascii": "9",
+      "script": "Warang_Citi"
+    },
+    "𑣗": {
+      "ascii": "o",
+      "script": "Warang_Citi"
+    },
+    "𑣘": {
+      "ascii": "u",
+      "script": "Warang_Citi"
+    },
+    "𑣜": {
+      "ascii": "y",
+      "script": "Warang_Citi"
+    },
+    "𑣠": {
+      "ascii": "o",
+      "script": "Warang_Citi"
+    },
+    "𑣣": {
+      "ascii": "rn",
+      "script": "Warang_Citi"
+    },
+    "𑣥": {
+      "ascii": "z",
+      "script": "Warang_Citi"
+    },
+    "𑣦": {
+      "ascii": "w",
+      "script": "Warang_Citi"
+    },
+    "𑣩": {
+      "ascii": "c",
+      "script": "Warang_Citi"
+    },
+    "𑣬": {
+      "ascii": "x",
+      "script": "Warang_Citi"
+    },
+    "𑣯": {
+      "ascii": "w",
+      "script": "Warang_Citi"
+    },
+    "𑣲": {
+      "ascii": "c",
+      "script": "Warang_Citi"
+    },
+    "𑷚": {
+      "ascii": "l",
+      "script": "Tolong_Siki"
+    },
+    "𑷠": {
+      "ascii": "o",
+      "script": "Tolong_Siki"
+    },
+    "𑷡": {
+      "ascii": "l",
+      "script": "Tolong_Siki"
+    },
+    "𖺪": {
+      "ascii": "l",
+      "script": "Beria_Erfe"
+    },
+    "𖺶": {
+      "ascii": "b",
+      "script": "Beria_Erfe"
+    },
+    "𖼈": {
+      "ascii": "v",
+      "script": "Miao"
+    },
+    "𖼊": {
+      "ascii": "t",
+      "script": "Miao"
+    },
+    "𖼖": {
+      "ascii": "l",
+      "script": "Miao"
+    },
+    "𖼨": {
+      "ascii": "l",
+      "script": "Miao"
+    },
+    "𖼵": {
+      "ascii": "r",
+      "script": "Miao"
+    },
+    "𖼺": {
+      "ascii": "s",
+      "script": "Miao"
+    },
+    "𖼻": {
+      "ascii": "3",
+      "script": "Miao"
+    },
+    "𖽀": {
+      "ascii": "a",
+      "script": "Miao"
+    },
+    "𖽂": {
+      "ascii": "u",
+      "script": "Miao"
+    },
+    "𖽃": {
+      "ascii": "y",
+      "script": "Miao"
+    },
+    "𜳖": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𜳗": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𜳘": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𜳙": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𜳚": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𜳛": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𜳜": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𜳝": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𜳞": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𜳟": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𜳠": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𜳡": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𜳢": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𜳣": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𜳤": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𜳥": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𜳦": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𜳧": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𜳨": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𜳩": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𜳪": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𜳫": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𜳬": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𜳭": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𜳮": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𜳯": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𜳰": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𜳱": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𜳲": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𜳳": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𜳴": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𜳵": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𜳶": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𜳷": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𜳸": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𜳹": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𝈆": {
+      "ascii": "3",
+      "script": "Greek"
+    },
+    "𝈍": {
+      "ascii": "v",
+      "script": "Greek"
+    },
+    "𝈒": {
+      "ascii": "7",
+      "script": "Greek"
+    },
+    "𝈓": {
+      "ascii": "f",
+      "script": "Greek"
+    },
+    "𝈖": {
+      "ascii": "r",
+      "script": "Greek"
+    },
+    "𝈪": {
+      "ascii": "l",
+      "script": "Greek"
+    },
+    "𝐀": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝐁": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝐂": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝐃": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝐄": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝐅": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝐆": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝐇": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝐈": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝐉": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝐊": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝐋": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝐌": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝐍": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝐎": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝐏": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝐐": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝐑": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝐒": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝐓": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝐔": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝐕": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝐖": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝐗": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝐘": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝐙": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝐚": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝐛": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝐜": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝐝": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝐞": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝐟": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝐠": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝐡": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝐢": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝐣": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝐤": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝐥": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝐦": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝐧": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝐨": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝐩": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝐪": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝐫": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝐬": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝐭": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝐮": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝐯": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝐰": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝐱": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝐲": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝐳": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝐴": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝐵": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝐶": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝐷": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝐸": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝐹": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝐺": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝐻": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝐼": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝐽": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝐾": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝐿": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝑀": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝑁": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝑂": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝑃": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝑄": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝑅": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝑆": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝑇": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝑈": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝑉": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝑊": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝑋": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝑌": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝑍": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝑎": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝑏": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝑐": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝑑": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝑒": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝑓": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝑔": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝑖": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝑗": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝑘": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝑙": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝑚": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝑛": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝑜": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝑝": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝑞": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝑟": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝑠": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝑡": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝑢": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝑣": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝑤": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝑥": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝑦": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝑧": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝑨": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝑩": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝑪": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝑫": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝑬": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝑭": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝑮": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝑯": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝑰": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝑱": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝑲": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝑳": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝑴": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝑵": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝑶": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝑷": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝑸": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝑹": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝑺": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝑻": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝑼": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝑽": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝑾": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝑿": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝒀": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝒁": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝒂": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝒃": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝒄": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝒅": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝒆": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝒇": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝒈": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝒉": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝒊": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝒋": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝒌": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝒍": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝒎": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝒏": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝒐": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝒑": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝒒": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝒓": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝒔": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝒕": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝒖": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝒗": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝒘": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝒙": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝒚": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝒛": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝒜": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝒞": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝒟": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝒢": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝒥": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝒦": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝒩": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝒪": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝒫": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝒬": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝒮": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝒯": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝒰": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝒱": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝒲": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝒳": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝒴": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝒵": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝒶": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝒷": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝒸": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝒹": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝒻": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝒽": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝒾": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝒿": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝓀": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝓁": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝓂": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝓃": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝓅": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝓆": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝓇": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝓈": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝓉": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝓊": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝓋": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝓌": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝓍": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝓎": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝓏": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝓐": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝓑": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝓒": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝓓": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝓔": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝓕": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝓖": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝓗": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝓘": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝓙": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝓚": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝓛": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝓜": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝓝": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝓞": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝓟": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝓠": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝓡": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝓢": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝓣": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝓤": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝓥": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝓦": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝓧": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝓨": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝓩": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝓪": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝓫": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝓬": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝓭": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝓮": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝓯": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝓰": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝓱": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝓲": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝓳": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝓴": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝓵": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝓶": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝓷": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝓸": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝓹": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝓺": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝓻": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝓼": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝓽": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝓾": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝓿": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝔀": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝔁": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝔂": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝔃": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝔄": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝔅": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝔇": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝔈": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝔉": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝔊": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝔍": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝔎": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝔏": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝔐": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝔑": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝔒": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝔓": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝔔": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝔖": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝔗": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝔘": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝔙": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝔚": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝔛": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝔜": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝔞": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝔟": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝔠": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝔡": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝔢": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝔣": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝔤": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝔥": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝔦": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝔧": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝔨": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝔩": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝔪": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝔫": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝔬": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝔭": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝔮": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝔯": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝔰": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝔱": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝔲": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝔳": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝔴": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝔵": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝔶": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝔷": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝔸": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝔹": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝔻": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝔼": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝔽": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝔾": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝕀": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝕁": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝕂": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝕃": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝕄": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝕆": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝕊": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝕋": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝕌": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝕍": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝕎": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝕏": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝕐": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝕒": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝕓": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝕔": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝕕": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝕖": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝕗": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝕘": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝕙": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝕚": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝕛": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝕜": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝕝": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝕞": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝕟": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝕠": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝕡": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝕢": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝕣": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝕤": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝕥": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝕦": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝕧": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝕨": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝕩": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝕪": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝕫": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝕬": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝕭": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝕮": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝕯": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝕰": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝕱": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝕲": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝕳": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝕴": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝕵": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝕶": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝕷": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝕸": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝕹": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝕺": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝕻": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝕼": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝕽": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝕾": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝕿": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝖀": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝖁": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝖂": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝖃": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝖄": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝖅": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝖆": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝖇": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝖈": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝖉": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝖊": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝖋": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝖌": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝖍": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝖎": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝖏": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝖐": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝖑": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝖒": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝖓": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝖔": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝖕": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝖖": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝖗": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝖘": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝖙": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝖚": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝖛": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝖜": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝖝": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝖞": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝖟": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝖠": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝖡": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝖢": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝖣": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝖤": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝖥": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝖦": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝖧": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝖨": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝖩": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝖪": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝖫": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝖬": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝖭": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝖮": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝖯": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝖰": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝖱": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝖲": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝖳": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝖴": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝖵": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝖶": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝖷": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝖸": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝖹": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝖺": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝖻": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝖼": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝖽": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝖾": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝖿": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝗀": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝗁": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝗂": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝗃": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝗄": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝗅": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝗆": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝗇": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝗈": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝗉": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝗊": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝗋": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝗌": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝗍": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝗎": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝗏": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝗐": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝗑": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝗒": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝗓": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝗔": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝗕": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝗖": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝗗": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝗘": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝗙": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝗚": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝗛": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝗜": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝗝": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝗞": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝗟": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝗠": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝗡": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝗢": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝗣": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝗤": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝗥": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝗦": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝗧": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝗨": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝗩": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝗪": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝗫": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝗬": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝗭": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝗮": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝗯": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝗰": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝗱": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝗲": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝗳": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝗴": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝗵": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝗶": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝗷": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝗸": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝗹": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝗺": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝗻": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝗼": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝗽": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝗾": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝗿": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝘀": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝘁": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝘂": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝘃": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝘄": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝘅": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝘆": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝘇": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝘈": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝘉": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝘊": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝘋": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝘌": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝘍": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝘎": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝘏": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝘐": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝘑": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝘒": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝘓": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝘔": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝘕": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝘖": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝘗": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝘘": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝘙": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝘚": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝘛": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝘜": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝘝": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝘞": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝘟": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝘠": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝘡": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝘢": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝘣": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝘤": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝘥": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝘦": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝘧": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝘨": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝘩": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝘪": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝘫": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝘬": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝘭": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝘮": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝘯": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝘰": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝘱": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝘲": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝘳": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝘴": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝘵": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝘶": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝘷": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝘸": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝘹": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝘺": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝘻": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝘼": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝘽": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝘾": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝘿": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝙀": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝙁": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝙂": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝙃": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝙄": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝙅": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝙆": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝙇": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝙈": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝙉": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝙊": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝙋": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝙌": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝙍": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝙎": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝙏": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝙐": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝙑": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝙒": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝙓": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝙔": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝙕": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝙖": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝙗": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝙘": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝙙": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝙚": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝙛": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝙜": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝙝": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝙞": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝙟": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝙠": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝙡": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝙢": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝙣": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝙤": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝙥": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝙦": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝙧": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝙨": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝙩": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝙪": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝙫": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝙬": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝙭": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝙮": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝙯": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝙰": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝙱": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝙲": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝙳": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝙴": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝙵": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝙶": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝙷": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝙸": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝙹": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝙺": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝙻": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝙼": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝙽": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝙾": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝙿": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝚀": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝚁": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝚂": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝚃": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝚄": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝚅": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝚆": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝚇": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝚈": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝚉": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝚊": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝚋": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝚌": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "𝚍": {
+      "ascii": "d",
+      "script": "Common"
+    },
+    "𝚎": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝚏": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝚐": {
+      "ascii": "g",
+      "script": "Common"
+    },
+    "𝚑": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝚒": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝚓": {
+      "ascii": "j",
+      "script": "Common"
+    },
+    "𝚔": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝚕": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝚖": {
+      "ascii": "rn",
+      "script": "Common"
+    },
+    "𝚗": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝚘": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝚙": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝚚": {
+      "ascii": "q",
+      "script": "Common"
+    },
+    "𝚛": {
+      "ascii": "r",
+      "script": "Common"
+    },
+    "𝚜": {
+      "ascii": "s",
+      "script": "Common"
+    },
+    "𝚝": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝚞": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝚟": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝚠": {
+      "ascii": "w",
+      "script": "Common"
+    },
+    "𝚡": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝚢": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝚣": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝚤": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝚨": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝚩": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝚬": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝚭": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝚮": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝚰": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝚱": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝚳": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝚴": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝚶": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝚸": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝚻": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝚼": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝚾": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝛂": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝛄": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝛊": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝛎": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝛐": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝛒": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝛔": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝛖": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝛠": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝛢": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝛣": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝛦": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝛧": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝛨": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝛪": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝛫": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝛭": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝛮": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝛰": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝛲": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝛵": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝛶": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝛸": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝛼": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝛾": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝜄": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝜈": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝜊": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝜌": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝜎": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝜐": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝜚": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝜜": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝜝": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝜠": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝜡": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝜢": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝜤": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝜥": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝜧": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝜨": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝜪": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝜬": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝜯": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝜰": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝜲": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝜶": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝜸": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝜾": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝝂": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝝄": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝝆": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝝈": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝝊": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝝔": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝝖": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝝗": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝝚": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝝛": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝝜": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝝞": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝝟": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝝡": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝝢": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝝤": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝝦": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝝩": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝝪": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝝬": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝝰": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝝲": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝝸": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝝼": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝝾": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝞀": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝞂": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝞄": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝞎": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝞐": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝞑": {
+      "ascii": "b",
+      "script": "Common"
+    },
+    "𝞔": {
+      "ascii": "e",
+      "script": "Common"
+    },
+    "𝞕": {
+      "ascii": "z",
+      "script": "Common"
+    },
+    "𝞖": {
+      "ascii": "h",
+      "script": "Common"
+    },
+    "𝞘": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝞙": {
+      "ascii": "k",
+      "script": "Common"
+    },
+    "𝞛": {
+      "ascii": "m",
+      "script": "Common"
+    },
+    "𝞜": {
+      "ascii": "n",
+      "script": "Common"
+    },
+    "𝞞": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝞠": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝞣": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "𝞤": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝞦": {
+      "ascii": "x",
+      "script": "Common"
+    },
+    "𝞪": {
+      "ascii": "a",
+      "script": "Common"
+    },
+    "𝞬": {
+      "ascii": "y",
+      "script": "Common"
+    },
+    "𝞲": {
+      "ascii": "i",
+      "script": "Common"
+    },
+    "𝞶": {
+      "ascii": "v",
+      "script": "Common"
+    },
+    "𝞸": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝞺": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝞼": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝞾": {
+      "ascii": "u",
+      "script": "Common"
+    },
+    "𝟈": {
+      "ascii": "p",
+      "script": "Common"
+    },
+    "𝟊": {
+      "ascii": "f",
+      "script": "Common"
+    },
+    "𝟎": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝟏": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝟐": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𝟑": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𝟒": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𝟓": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𝟔": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𝟕": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𝟖": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𝟗": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𝟘": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝟙": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝟚": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𝟛": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𝟜": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𝟝": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𝟞": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𝟟": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𝟠": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𝟡": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𝟢": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝟣": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝟤": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𝟥": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𝟦": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𝟧": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𝟨": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𝟩": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𝟪": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𝟫": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𝟬": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝟭": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝟮": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𝟯": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𝟰": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𝟱": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𝟲": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𝟳": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𝟴": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𝟵": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𝟶": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "𝟷": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "𝟸": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "𝟹": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "𝟺": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "𝟻": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "𝟼": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "𝟽": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "𝟾": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "𝟿": {
+      "ascii": "9",
+      "script": "Common"
+    },
+    "𞣇": {
+      "ascii": "l",
+      "script": "Mende_Kikakui"
+    },
+    "𞣋": {
+      "ascii": "8",
+      "script": "Mende_Kikakui"
+    },
+    "𞸀": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "𞸤": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "𞹤": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "𞺀": {
+      "ascii": "l",
+      "script": "Arabic"
+    },
+    "𞺄": {
+      "ascii": "o",
+      "script": "Arabic"
+    },
+    "🜀": {
+      "ascii": "qe",
+      "script": "Common"
+    },
+    "🜇": {
+      "ascii": "ar",
+      "script": "Common"
+    },
+    "🝌": {
+      "ascii": "c",
+      "script": "Common"
+    },
+    "🝜": {
+      "ascii": "sss",
+      "script": "Common"
+    },
+    "🝨": {
+      "ascii": "t",
+      "script": "Common"
+    },
+    "🝫": {
+      "ascii": "mb",
+      "script": "Common"
+    },
+    "🝬": {
+      "ascii": "vb",
+      "script": "Common"
+    },
+    "🯰": {
+      "ascii": "o",
+      "script": "Common"
+    },
+    "🯱": {
+      "ascii": "l",
+      "script": "Common"
+    },
+    "🯲": {
+      "ascii": "2",
+      "script": "Common"
+    },
+    "🯳": {
+      "ascii": "3",
+      "script": "Common"
+    },
+    "🯴": {
+      "ascii": "4",
+      "script": "Common"
+    },
+    "🯵": {
+      "ascii": "5",
+      "script": "Common"
+    },
+    "🯶": {
+      "ascii": "6",
+      "script": "Common"
+    },
+    "🯷": {
+      "ascii": "7",
+      "script": "Common"
+    },
+    "🯸": {
+      "ascii": "8",
+      "script": "Common"
+    },
+    "🯹": {
+      "ascii": "9",
+      "script": "Common"
+    }
+  }
+}

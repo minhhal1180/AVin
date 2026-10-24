@@ -1,0 +1,293 @@
+[
+  {
+    "id": "plain-https",
+    "content": "https://library.example/a",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "reference",
+    "content": "https://vietcombank.com.vn/",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "reference-subdomain",
+    "content": "https://login.vietcombank.com.vn/",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "reference-decoy",
+    "content": "https://vietcombank.com.vn.attacker.invalid/",
+    "processing_status": "COMPLETED",
+    "assessment": "MEDIUM",
+    "signals": [
+      "URL_DECOY_HOST_LABELS"
+    ]
+  },
+  {
+    "id": "reference-not-substring",
+    "content": "https://notvietcombank.com.vn/",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "userinfo",
+    "content": "https://user:secret@library.example/a",
+    "processing_status": "COMPLETED",
+    "assessment": "MEDIUM",
+    "signals": [
+      "URL_USERINFO_AMBIGUITY"
+    ]
+  },
+  {
+    "id": "path-at",
+    "content": "https://library.example/a@attacker.invalid",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "shortener",
+    "content": "https://bit.ly/demo",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_OPAQUE_DESTINATION"
+    ]
+  },
+  {
+    "id": "shortener-trailing-dot",
+    "content": "https://tinyurl.com./demo",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_OPAQUE_DESTINATION"
+    ]
+  },
+  {
+    "id": "http-ipv4",
+    "content": "http://192.0.2.1:8080/a",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_IP_LITERAL",
+      "URL_PLAINTEXT_SCHEME"
+    ]
+  },
+  {
+    "id": "ipv6",
+    "content": "https://[2001:db8::1]/a",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_IP_LITERAL"
+    ]
+  },
+  {
+    "id": "idn-unicode",
+    "content": "https://thưviện.example/",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_IDN_REPRESENTATION"
+    ]
+  },
+  {
+    "id": "idn-punycode",
+    "content": "https://xn--bcher-kva.example/",
+    "processing_status": "COMPLETED",
+    "assessment": "INCONCLUSIVE",
+    "signals": [
+      "URL_IDN_REPRESENTATION"
+    ]
+  },
+  {
+    "id": "explicit-synthetic-context",
+    "content": "https://bankdemo.example.attacker.invalid/",
+    "context": {
+      "reference_hosts": [
+        "bankdemo.example"
+      ],
+      "shortener_hosts": []
+    },
+    "processing_status": "COMPLETED",
+    "assessment": "MEDIUM",
+    "signals": [
+      "URL_DECOY_HOST_LABELS"
+    ]
+  },
+  {
+    "id": "bad-port",
+    "content": "https://library.example:99999/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "empty-port",
+    "content": "https://library.example:/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "unsupported-scheme",
+    "content": "javascript:alert(1)",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "multiple-at",
+    "content": "https://a@b@library.example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "percent-host",
+    "content": "https://%65xample.com/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "backslash",
+    "content": "https://example.com\\attacker.invalid/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "noncanonical-ipv4",
+    "content": "http://127.1/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "leading-zero-ipv4",
+    "content": "http://0127.0.0.1/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "hex-ipv4",
+    "content": "http://0x7f000001/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "idna-ambiguous-sharp-s",
+    "content": "https://faß.example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "idna-ambiguous-width",
+    "content": "https://ｅxample.com/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "bad-punycode",
+    "content": "https://xn--invalid-.example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "repeated-trailing-dot",
+    "content": "https://example.com../",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "idn-nfd",
+    "content": "https://thưviện.example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "idna-punycode-sharp-s",
+    "content": "https://xn--zca.example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "idna-dot",
+    "content": "https://library。example/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "numeric-final-label",
+    "content": "https://example.123/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "numeric-final-single-digit",
+    "content": "https://foo.1/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "numeric-final-trailing-dot",
+    "content": "https://example.123./",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "url-del-character",
+    "content": "https://example.com/ab",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "hex-label-not-final",
+    "content": "https://0xabc.example/",
+    "processing_status": "COMPLETED",
+    "assessment": "LOW",
+    "signals": []
+  },
+  {
+    "id": "hex-prefix-final-nonhex",
+    "content": "https://example.0xg/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "hex-prefix-final-only",
+    "content": "https://example.0x/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  },
+  {
+    "id": "hex-prefix-final-uppercase",
+    "content": "https://example.0Xg/",
+    "processing_status": "FAILED",
+    "assessment": null,
+    "signals": []
+  }
+]

@@ -1,0 +1,117 @@
+name: VNAnvia
+options:
+  deploymentTarget:
+    iOS: "17.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.3.0"
+    CURRENT_PROJECT_VERSION: 3
+    CODE_SIGN_STYLE: Automatic
+packages:
+  VNAnviaCore:
+    path: VNAnviaCore
+targets:
+  VNAnviaApp:
+    type: application
+    platform: iOS
+    sources: [VNAnviaApp, Shared]
+    info:
+      path: VNAnviaApp/Info.plist
+      properties:
+        CFBundleDisplayName: VNAnvia
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: vn.vnanvia.demo
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - package: VNAnviaCore
+      - target: ActionExtension
+        embed: true
+      - target: SafariWebExtension
+        embed: true
+  ActionExtension:
+    type: app-extension
+    platform: iOS
+    sources: [ActionExtension, Shared]
+    info:
+      path: ActionExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Kiểm tra bằng VNAnvia
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ui-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ActionViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsText: true
+              NSExtensionActivationSupportsWebURLWithMaxCount: 1
+              NSExtensionActivationSupportsImageWithMaxCount: 1
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: vn.vnanvia.demo.action
+        APPLICATION_EXTENSION_API_ONLY: YES
+    dependencies:
+      - package: VNAnviaCore
+  SafariWebExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - SafariWebExtension
+      - path: Shared/Access.swift
+      - path: ../dist/safari-extension/manifest.json
+        buildPhase: resources
+      - path: ../dist/safari-extension/panel.html
+        buildPhase: resources
+      - path: ../dist/safari-extension/panel.js
+        buildPhase: resources
+      - path: ../dist/safari-extension/background.js
+        buildPhase: resources
+      - path: ../dist/safari-extension/content.js
+        buildPhase: resources
+      - path: ../dist/safari-extension/UNICODE-LICENSE.txt
+        buildPhase: resources
+      - path: ../dist/safari-extension/assets
+        type: folder
+        buildPhase: resources
+      - path: ../dist/safari-extension/ocr
+        type: folder
+        buildPhase: resources
+      - path: ../dist/safari-extension/icons
+        type: folder
+        buildPhase: resources
+    info:
+      path: SafariWebExtension/Info.plist
+      properties:
+        CFBundleDisplayName: VNAnvia Safari
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.web-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: vn.vnanvia.demo.safari
+        APPLICATION_EXTENSION_API_ONLY: YES
+    dependencies:
+      - package: VNAnviaCore
+  VNAnviaNativeTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [NativeTests]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: vn.vnanvia.demo.tests
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: VNAnviaApp
+      - package: VNAnviaCore
+schemes:
+  VNAnvia:
+    build:
+      targets:
+        VNAnviaApp: all
+    test:
+      targets:
+        - VNAnviaNativeTests
+

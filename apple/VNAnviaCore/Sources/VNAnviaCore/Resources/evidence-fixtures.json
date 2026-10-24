@@ -1,0 +1,38 @@
+[
+  {
+    "id": "exact-vietnamese",
+    "content": "Hãy giữ mã OTP của bạn.",
+    "evidence_text": "giữ mã OTP",
+    "valid": true
+  },
+  {
+    "id": "invented",
+    "content": "Không gửi OTP cho ai.",
+    "evidence_text": "gửi OTP cho tôi",
+    "valid": false
+  },
+  {
+    "id": "nfd-equal-scalars",
+    "content": "a é z",
+    "evidence_text": "é",
+    "valid": true
+  },
+  {
+    "id": "nfc-not-equal",
+    "content": "a é z",
+    "evidence_text": "é",
+    "valid": false
+  },
+  {
+    "id": "emoji-scalar",
+    "content": "Xin 😀 chào",
+    "evidence_text": "😀",
+    "valid": true
+  },
+  {
+    "id": "empty-evidence",
+    "content": "Xin chào",
+    "evidence_text": "",
+    "valid": false
+  }
+]

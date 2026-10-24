@@ -1,0 +1,19 @@
+# Manual unsigned simulator build. No Apple account, signing key, billing or publishing setup.
+workflows:
+  ios-simulator:
+    name: VNAnvia iOS simulator (unsigned)
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      xcode: latest
+    scripts:
+      - name: Install XcodeGen
+        script: |
+          command -v xcodegen >/dev/null || brew install xcodegen
+      - name: Build and test iOS app and extensions
+        script: bash apple/ci/build-ios.sh
+    artifacts:
+      - build/ios-cloud/**/VNAnvia-simulator.app.zip
+      - build/ios-cloud/**/build-info.json
+      - build/ios-cloud/**/SHA256SUMS.txt
+      - build/ios-cloud/**/logs/*.log
