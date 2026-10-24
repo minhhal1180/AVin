@@ -42,8 +42,10 @@ actor NativeAccess {
  private let websiteRequests=OwnedRequestRegistry<WebsiteResult>()
  init(store:any AccessStore=KeychainAccessStore()){
   self.store=store
-  let saved=store.load();access=saved?.valid==true ? saved:nil;remembering=access != nil
-  if saved != nil && access==nil{store.forget()}
+  let saved=store.load()
+  let restored=saved?.valid==true ? saved:nil
+  access=restored;remembering=restored != nil
+  if saved != nil && restored==nil{store.forget()}
  }
  func forget(){generation+=1;requests.cancelAll();websiteRequests.cancelAll();access=nil;remembering=false;store.forget()}
  func remembers()->Bool{remembering && access?.valid==true}

@@ -3,7 +3,8 @@ import VNAnviaCore
 
 struct WebsiteCard:View {
  let url:String,ready:Bool
- @State private var consent=false,busy=false
+ @State private var consent=false
+ @State private var busy=false
  @State private var request:WebsiteRequest?
  @State private var result:WebsiteResult?
  @State private var message=""

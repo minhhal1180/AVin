@@ -8,7 +8,10 @@ import VNAnviaCore
  @Published var token=""
  @Published var remember=false
  @Published var capabilities:Capabilities?
- @Published var connecting=false, settings=false, picker=false, busy=false
+ @Published var connecting=false
+ @Published var settings=false
+ @Published var picker=false
+ @Published var busy=false
  @Published var consent:AnalysisRequest?
  @Published var review:String?
  @Published var result:AnalysisResponse?

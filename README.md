@@ -22,4 +22,4 @@ Hai workflow chỉ chạy thủ công. Script chạy Swift tests, sinh Xcode pro
 
 Giữ `apple/` và `dist/safari-extension/` cạnh nhau; tài nguyên Safari đã dựng sẵn nên không cần chạy npm trong kit này. Chạy `python3 apple/ci/verify-kit.py` để kiểm hash/layout; kiểm tra đó không chứng minh build native thành công. `README.md` này bổ sung cho GitHub, nằm ngoài manifest của ZIP gốc.
 
-Gói gốc: `VNAnvia-0.3.0-ios-build-kit.zip`, SHA256 `e39f5a3ba35bde646d5f0016c7ce05fb5efcafe5c2ec6abb7ab96f07797975ca`. Không bật billing, ký, TestFlight hoặc tự phát hành trong cấu hình đi kèm.
+Gói gốc: `VNAnvia-0.3.0-ios-build-kit.zip`, SHA256 `752f24e912c9d8c534dfe42ab540f3c9cbb68479f0df7fbdf2f95f0a2f1e132a`. Không bật billing, ký, TestFlight hoặc tự phát hành trong cấu hình đi kèm.
