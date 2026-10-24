@@ -1,6 +1,8 @@
 # VNAnvia — iOS build kit 0.3.0
 
-**Build6 — hướng dẫn kích hoạt lần đầu:** app hiện các bước bật VNAnvia trong Safari ở lần mở đầu, có “Để sau” và mở lại hướng dẫn. Popup có nút “Cho phép trên website này”, gọi yêu cầu quyền trong lần chạm và chỉ xin website hiện tại. Từ chối không gửi văn bản. iOS18.5 không có API mở trực tiếp cài đặt extension; vẫn cần người dùng bật trong Safari. Xem [hướng dẫn](docs/engineering/IOS_SAFARI_QUICK_CHECK.md). Source này cần bằng chứng MacCI build6 mới; không dùng các lượt build5 dưới đây để chứng nhận.
+**Build6 — hướng dẫn kích hoạt lần đầu:** app hiện các bước bật VNAnvia trong Safari ở lần mở đầu, có “Để sau” và mở lại hướng dẫn. Popup có nút “Cho phép trên website này”, gọi yêu cầu quyền trong lần chạm và chỉ xin website hiện tại. Từ chối không gửi văn bản. iOS18.5 vẫn cần người dùng bật tiện ích trong Safari; quyền website được xin sau thao tác chạm. Xem [hướng dẫn](docs/engineering/IOS_SAFARI_QUICK_CHECK.md).
+
+**Mac CI build6 đã đạt:** [IPA iPhone](https://github.com/minhhal1180/AVin/actions/runs/40094291909) và [simulator](https://github.com/minhhal1180/AVin/actions/runs/40094291546) tại commit `4e444918cb41897e9eb7e699964682eea71f64d6`,22core+13native tests không lỗi. IPA đủ3bundle0.3.0/build6, SHA256 `0036afa6b0950b5ee03f28ff0c1d0294334a3f7520647d1ad86c976920fa2f7c`. Gói chưa ký; cần ký/cài bằng iloader, giữ2extension và bật Safari/cấp quyền website. Chưa xác minh build6 trên iPhone thật.
 
 Đã kiểm177TypeScript tests và66Python packaging tests. Chỉ lưu cờ đã xem hướng dẫn, không coi đó là trạng thái quyền Safari. VPS giữ real-content=false/website=false, không thay consent/quota/provider.
 
@@ -28,9 +30,11 @@ Mã nguồn iOS17+ cho VNAnvia: app SwiftUI, Action Extension từ menu Chia s�
 
 ## Cài iPhone bằng Apple ID miễn phí và Windows
 
-Trên Codemagic, làm mới nhánh `main`, bấm **Start new build** và chọn **ios-device-unsigned**. Tải `VNAnvia-device-unsigned.ipa` rồi ký/cài bằng Sideloadly trên Windows. [Hướng dẫn từng bước](docs/engineering/IOS_FREE_INSTALL.md).
+Tải `VNAnvia-device-unsigned.ipa` từ artifact **VNAnvia-iPhone-unsigned** của [lượt build6 đã đạt](https://github.com/minhhal1180/AVin/actions/runs/40094291909). Kết nối iPhone với Windows, mở **iloader**, chọn thiết bị và IPA rồi ký/cài bằng Apple ID trên máy của bạn. Giữ cả Action Extension và Safari Web Extension khi ký. Người dùng đã cài thành công bằng iloader; Sideloadly trước đó gặp lỗi đăng nhập. Không nhập Apple ID hoặc mật khẩu vào chat, Git hay CI.
 
-Workflow mới build Release/iphoneos/arm64 bằng Xcode16.4, giữ hai extension, kiểm Info.plist và Mach-O trước khi xuất IPA. Không nhập Apple ID hoặc signing credential vào CI. IPA cần ký local trước khi cài và refresh trong vòng bảy ngày với tài khoản miễn phí. Safari Web Extension có yêu cầu chính thức Developer Program khi thử trên thiết bị; chưa cam kết hoạt động qua Sideloadly miễn phí. [Apple](https://developer.apple.com/documentation/safariservices/running-your-safari-web-extension).
+Nếu dùng Codemagic cho lượt build sau, làm mới nhánh `main`, bấm **Start new build** và chọn **ios-device-unsigned**. Tài liệu [cài miễn phí](docs/engineering/IOS_FREE_INSTALL.md) có thêm hướng dẫn và giới hạn ký.
+
+Workflow mới build Release/iphoneos/arm64 bằng Xcode16.4, giữ hai extension, kiểm Info.plist và Mach-O trước khi xuất IPA. IPA cần ký local trước khi cài và refresh trong vòng bảy ngày với tài khoản miễn phí. Trên iOS18.5, mở Safari → menu trang → Quản lý phần mở rộng để bật VNAnvia Safari, rồi chạm “Cho phép trên website này” trong popup và tải lại trang. Safari Web Extension có yêu cầu chính thức Developer Program khi thử trên thiết bị; việc đã cài app qua iloader chưa chứng minh extension hoạt động. [Apple](https://developer.apple.com/documentation/safariservices/running-your-safari-web-extension).
 
 GitHub có workflow tương đương **Actions → iPhone IPA build (unsigned) → Run workflow**, artifact **VNAnvia-iPhone-unsigned**. [Build device đã thành công](https://github.com/minhhal1180/AVin/actions/runs/40077591154) cho commit `d85eb3d`: Xcode16.4, Release/iphoneos/arm64, 15 core tests đạt. Đã tải IPA và đối chiếu hash, platform iOS17+ và đủ ba executable app/Action/Safari. IPA SHA256 `4b542536e78651b98fa35afa8311a100ec9e8336883b54ac1e716e223946814d`; chưa ký hoặc thử iPhone. Codemagic mới có cấu hình, chưa có lượt build workflow device tại đó trong phiên này.
 
@@ -52,6 +56,6 @@ Các workflow chỉ chạy thủ công. Script simulator chạy Swift tests, sin
 
 Giữ `apple/` và `dist/safari-extension/` cạnh nhau; tài nguyên Safari đã dựng sẵn nên không cần chạy npm trong kit này. Chạy `python3 apple/ci/verify-kit.py` để kiểm hash/layout; kiểm tra đó không chứng minh build native thành công. `README.md` này bổ sung cho GitHub, nằm ngoài manifest của ZIP gốc.
 
-Gói nguồn cập nhật: `VNAnvia-0.3.0-ios-build-kit.zip`, SHA256 `b594afe625909ea23526000ae17c2827d4dcbc5eb037fcc48b2677d674d7dae7`. Không bật billing, ký, TestFlight hoặc tự phát hành trong cấu hình đi kèm.
+Gói nguồn cập nhật: `VNAnvia-0.3.0-ios-build-kit.zip`, SHA256 `89623ef35c82300cc6823af88e48a6531c909e4082cbdf5e263ecd8600c5a200`. Không bật billing, ký, TestFlight hoặc tự phát hành trong cấu hình đi kèm.
 
 `README_IOS.md` và manifest lưu trạng thái tại thời điểm đóng gói trước lượt CI nêu trên. Kết quả mới được dẫn ở đầu README này; một build simulator thành công không chứng minh ký/cài iPhone hoặc backend production đã sẵn sàng.
