@@ -1,12 +1,12 @@
 # VNAnvia — iOS build kit 0.3.0
 
-**Cập nhật build4 ngày24/10:** sửa lỗi mất lý do server403, thêm thẻ chỉ nhận mẫu đã duyệt và mẫu OTP không tự gửi, đưa kết quả/lỗi sang màn hình riêng, đóng bàn phím khi kiểm tra. Có7 core transport tests mới và7 native model tests mới. Mac CI đang được chạy lại cho đúng commit; chưa coi bằng chứng build3 bên dưới là kiểm chứng build4. Xem [chi tiết](docs/engineering/IOS_RESULT_FEEDBACK.md).
+**Cập nhật build4 ngày24/10:** sửa lỗi mất lý do server403, thêm thẻ chỉ nhận mẫu đã duyệt và mẫu OTP không tự gửi, đưa kết quả/lỗi sang màn hình riêng, đóng bàn phím khi kiểm tra. [Final Mac CI](https://github.com/minhhal1180/AVin/actions/runs/40083355803) đã build Release/iphoneos/arm64 thành công tại `57544b9`,22core tests đạt. IPA cuối đủ ba bundle0.3.0/build4, SHA256 `4886af668e087a7b3c398c997a48af05c847ab4a9c5f650cd6952f0ab94b52b0`; chưa ký/thử bản mới trên iPhone. Xem [chi tiết](docs/engineering/IOS_RESULT_FEEDBACK.md).
 
 VPS0.3.0 đã triển khai và người dùng báo iPhone kết nối thành công. Dữ liệu thật vẫn đóng; văn bản khác mẫu server duyệt bị từ chối trước AI. Website nâng cao chưa có capture worker VPS. Bản iPhone đã cài trước đó là build3, cần IPA build4 sau khi CI đạt.
 
 Gói nguồn build4 SHA256 `5a06a527ef4b9dd7bbdabe30d5d6d7b1f98153d26e6d8b9bb5125de9c1320e74`; manifest kèm125file, không chứa provider/signing secret. Các mô tả CI/IPA build3 dưới đây là lịch sử, có hash riêng.
 
-[Simulator kiểm thử phần Swift đã đạt](https://github.com/minhhal1180/AVin/actions/runs/40082791511) tại `498631b`:22core+11native tests. Kiểm IPA sau lượt đó phát hiện Info.plist vẫn ghi1.0/1 mặc định. Project nay gắn macro phiên bản vào app và hai extension; validator đối chiếu project.yml, đóng gói đang build lại. Không dùng IPA sai metadata làm bản bàn giao cuối.
+[Simulator kiểm thử phần Swift đã đạt](https://github.com/minhhal1180/AVin/actions/runs/40082791511) tại `498631b`:22core+11native tests. Kiểm IPA sau lượt đó phát hiện Info.plist vẫn ghi1.0/1 mặc định. Project nay gắn macro phiên bản vào app và hai extension; validator đối chiếu project.yml. Final device CI đã xác nhận0.3.0/build4;23Swift source/test files trùng byte với simulator đã chạy. Không dùng IPA sai metadata làm bản bàn giao cuối.
 
 Mã nguồn iOS17+ cho VNAnvia: app SwiftUI, Action Extension từ menu Chia sẻ, Safari Web Extension, Swift core/tests và tài nguyên OCR Safari đóng gói cục bộ.
 
