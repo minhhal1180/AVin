@@ -1,4 +1,6 @@
 # Apple build và kiểm thử
+
+Build4 bổ sung [phản hồi lỗi và màn hình kết quả](../docs/engineering/IOS_RESULT_FEEDBACK.md): server403 chỉ-mẫu-thử được giải thích rõ, có mẫu OTP đã duyệt, kết quả mở NavigationStack và đóng bàn phím. Bằng chứng Mac CI mới được lưu riêng; không dùng kết quả build3 dưới đây để chứng nhận build4. Người dùng đã báo cài build3 và kết nối VPS thành công; chưa xác nhận luồng kết quả trên thiết bị. VPS0.3.0 đã deploy, vẫn giữ cổng dữ liệu thật đóng và website worker chưa triển khai.
 Gói Apple rút gọn có build cloud cho simulator và IPA iPhone chưa ký: xem [hướng dẫn build kit](../docs/engineering/IOS_BUILD_KIT.md), [cài miễn phí bằng Sideloadly trên Windows](../docs/engineering/IOS_FREE_INSTALL.md) và [dịch vụ online](../docs/engineering/IOS_ONLINE_BUILD_SERVICES.md). Trong ZIP, hướng dẫn ở root có tên `README_IOS.md`; tài nguyên Safari đã đóng gói nên không cần chạy bước npm/sync dưới đây.
 
 Mã iOS17+; [Mac CI simulator](https://github.com/minhhal1180/AVin/actions/runs/40074879045) đã build và chạy 15 core + 4 native tests trên Xcode16.4 cho source `66679d7`. Chưa có bằng chứng ký/cài hoặc chạy iPhone; workflow device mới có evidence riêng khi chạy.

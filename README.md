@@ -1,5 +1,11 @@
 # VNAnvia — iOS build kit 0.3.0
 
+**Cập nhật build4 ngày24/10:** sửa lỗi mất lý do server403, thêm thẻ chỉ nhận mẫu đã duyệt và mẫu OTP không tự gửi, đưa kết quả/lỗi sang màn hình riêng, đóng bàn phím khi kiểm tra. Có7 core transport tests mới và7 native model tests mới. Mac CI đang được chạy lại cho đúng commit; chưa coi bằng chứng build3 bên dưới là kiểm chứng build4. Xem [chi tiết](docs/engineering/IOS_RESULT_FEEDBACK.md).
+
+VPS0.3.0 đã triển khai và người dùng báo iPhone kết nối thành công. Dữ liệu thật vẫn đóng; văn bản khác mẫu server duyệt bị từ chối trước AI. Website nâng cao chưa có capture worker VPS. Bản iPhone đã cài trước đó là build3, cần IPA build4 sau khi CI đạt.
+
+Gói nguồn build4 SHA256 `933fdd4e856363fe492d5d3a64c3ecb3a10aa0313331101fef23912025325d24`; manifest kèm125file, không chứa provider/signing secret. Các mô tả CI/IPA build3 dưới đây là lịch sử, có hash riêng.
+
 Mã nguồn iOS17+ cho VNAnvia: app SwiftUI, Action Extension từ menu Chia sẻ, Safari Web Extension, Swift core/tests và tài nguyên OCR Safari đóng gói cục bộ.
 
 **Trạng thái đã xác minh:** [build và test simulator thành công trên GitHub Actions](https://github.com/minhhal1180/AVin/actions/runs/40074879045) cho commit `66679d7`: Xcode16.4 trên macOS15.7.9 ARM64, 15 test Swift core và 4 native simulator tests đạt. Đã kiểm app chứa cả Action và Safari extension. Chưa ký IPA hoặc thử iPhone thật; chưa xác minh lại trên Xcode26.6 của Codemagic. Backend VPS mới chưa deploy và cấu hình Gemini Free Tier vẫn chỉ cho dữ liệu mô phỏng server phê duyệt. Khóa provider và credential ký không nằm trong repository.

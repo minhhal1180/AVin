@@ -16,13 +16,17 @@ import VNAnviaCore
  @Published var review:String?
  @Published var result:AnalysisResponse?
  @Published var local:LocalURLResult?
+ @Published var showingOutcome=false
+ @Published var failureCode:String?
  @Published var message=""
+ private let analyze:(AnalysisRequest)async throws->AnalysisResponse
  private var generation=0,connectionGeneration=0
  private var task:Task<Void,Never>?
  private var expiryTask:Task<Void,Never>?
  private var importOperation:ImportOperation?
  private var pickerGeneration=0
  private var restored=false
+ init(analyze:@escaping(AnalysisRequest)async throws->AnalysisResponse = {try await NativeAccess.shared.analyze($0)}){self.analyze=analyze}
  func restore(){guard !restored else{return};restored=true;let g=connectionGeneration
   connecting=true
   Task{do{let restored=try await NativeAccess.shared.restore();guard g==connectionGeneration else{return}
@@ -30,7 +34,7 @@ import VNAnviaCore
    await connected(c,generation:g)
   }catch{guard g==connectionGeneration else{return};connecting=false;message="Dịch vụ chưa sẵn sàng. URL và OCR vẫn dùng được trên thiết bị."}}
  }
- func invalidate(){generation+=1;task?.cancel();task=nil;importOperation?.cancel();importOperation=nil;consent=nil;review=nil;result=nil;local=nil;busy=false}
+ func invalidate(){generation+=1;task?.cancel();task=nil;importOperation?.cancel();importOperation=nil;consent=nil;review=nil;result=nil;local=nil;failureCode=nil;showingOutcome=false;message="";busy=false}
  func forget(){invalidate();connectionGeneration+=1;expiryTask?.cancel();expiryTask=nil;connecting=false;capabilities=nil;token="";remember=false;Task{await NativeAccess.shared.forget()}}
  func connect(){
   invalidate();connectionGeneration+=1;expiryTask?.cancel();let g=connectionGeneration;let r=remember;connecting=true;capabilities=nil
@@ -52,19 +56,23 @@ import VNAnviaCore
    catch{guard g==connectionGeneration else{return};remember=false;message="Chưa lưu được phiên an toàn. Phiên hiện tại vẫn chỉ ở bộ nhớ."}}
  }
  func start(){
+  invalidate()
   do{let text=try Contract.input(draft,type:type)
-   if type=="URL"{local=try LocalURL.analyze(text);return}
+   if type=="URL"{local=try LocalURL.analyze(text);showingOutcome=true;return}
    guard capabilities != nil else{settings=true;message="Kết nối để tiếp tục. Nội dung vẫn giữ trong phiên.";return}
    consent=AnalysisRequest(content:text)
   }catch{message="Nội dung không hợp lệ hoặc quá dài. Hãy kiểm tra và sửa lại."}
  }
- func submit(_ request:AnalysisRequest){
-  guard consent?.request_id==request.request_id else{return}
+ @discardableResult func submit(_ request:AnalysisRequest)->Task<Void,Never>?{
+  guard consent?.request_id==request.request_id else{return nil}
   invalidate();let g=generation;busy=true;message=""
-  task=Task{do{let r=try await NativeAccess.shared.analyze(request);guard g==generation else{return};busy=false
-   if r.processing_status=="FAILED"{message="Không hoàn tất phân tích: "+(r.error_code ?? "")}else{result=r}
-  }catch{guard g==generation else{return};busy=false;message="Không hoàn tất phân tích. Hãy kiểm tra kết nối và thử lại."}}
+  task=Task{do{let r=try await analyze(request);guard g==generation else{return};busy=false
+   if r.processing_status=="FAILED"{showFailure(r.error_code ?? "ANALYSIS_UNAVAILABLE")}else{result=r;showingOutcome=true}
+  }catch{guard g==generation else{return};busy=false;showFailure((error as? VNError)?.rawValue ?? "NETWORK_UNAVAILABLE")}}
+  return task
  }
+ private func showFailure(_ code:String){failureCode=code;message=AnalysisFeedback.message(code);showingOutcome=true}
+ func useDemo(){type="TEXT";draft=AnalysisFeedback.demoText}
  func receive(_ value:Result<String,Error>,generation:Int){
   guard generation==self.generation else{return};importOperation=nil;busy=false
   switch value{case .success(let text):review=text;case .failure(let e):message=e.localizedDescription}
@@ -80,6 +88,8 @@ import VNAnviaCore
 }
 struct AnalysisScreen:View {
  @StateObject var model=AnalysisModel()
+ @FocusState private var editorFocused:Bool
+ @State private var confirmDemo=false
  @Environment(\.scenePhase) private var scenePhase
  var initial:String?=nil
  var close:(()->Void)?=nil
@@ -92,25 +102,27 @@ struct AnalysisScreen:View {
     Text("Kiểm tra trước khi tin.").font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
     Text("Chọn nội dung bạn muốn kiểm chứng.").foregroundStyle(.secondary)
     HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT"){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:false){model.beginImage()}}
+    if model.type=="TEXT" && model.capabilities?.real_content_enabled==false{
+     GroupBox{VStack(alignment:.leading,spacing:12){Label("Chế độ thử nghiệm",systemImage:"testtube.2").font(.headline);Text("Chỉ nhận mẫu mô phỏng đã duyệt.").font(.subheadline).foregroundStyle(.secondary);Button("Dùng mẫu OTP",action:requestDemo).frame(minHeight:44)}}
+    }
     VStack(alignment:.leading,spacing:8){
      Text("Nội dung cần kiểm tra").font(.headline)
-     TextEditor(text:$model.draft).frame(minHeight:180).padding(8).background(.background,in:RoundedRectangle(cornerRadius:12)).overlay(RoundedRectangle(cornerRadius:12).stroke(.secondary)).accessibilityLabel("Nội dung cần kiểm tra")
+     TextEditor(text:$model.draft).focused($editorFocused).frame(minHeight:180).padding(8).background(.background,in:RoundedRectangle(cornerRadius:12)).overlay(RoundedRectangle(cornerRadius:12).stroke(.secondary)).accessibilityLabel("Nội dung cần kiểm tra")
      Text("\(model.draft.unicodeScalars.count) / \(model.type == "TEXT" ? 4000:2048) ký tự").font(.caption).foregroundStyle(.secondary)
     }
     Text("OCR cục bộ · Chỉ gửi văn bản sau đồng ý.").font(.footnote).foregroundStyle(.secondary)
-    Button("Kiểm tra nội dung"){model.start()}.buttonStyle(.borderedProminent).frame(maxWidth:.infinity,minHeight:48).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT"))
+    Button("Kiểm tra nội dung"){editorFocused=false;model.start()}.buttonStyle(.borderedProminent).frame(maxWidth:.infinity,minHeight:48).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT"))
     if model.type=="URL" && !model.busy{WebsiteCard(url:model.draft,ready:model.capabilities != nil).id(model.draft+String(model.capabilities?.token_expires_at ?? 0))}
     if model.busy{ProgressView("Đang xử lý…");Button("Hủy"){model.invalidate()}.frame(minHeight:44)}
     if !model.message.isEmpty{Text(model.message).foregroundStyle(.secondary).accessibilityLabel("Thông báo: "+model.message)}
-    if let r=model.result{resultView(r)}
-    if let r=model.local{
-     Text("Máy chủ: "+r.host).textSelection(.enabled)
-     resultView(r.response)
-    }
+    if model.result != nil || model.local != nil{Button("Xem kết quả"){model.showingOutcome=true}.frame(minHeight:44)}
     DisclosureGroup("Quyền riêng tư & giới hạn"){Text("LOW không chứng nhận an toàn. HIGH không xác nhận tội phạm. Không lưu lịch sử hoặc bản nháp. Ảnh OCR không gửi tới backend.").font(.footnote).foregroundStyle(.secondary)}
-   }.padding(24)}
+   }.padding(24)}.scrollDismissesKeyboard(.interactively)
    .navigationTitle("VNAnvia").navigationBarTitleDisplayMode(.inline)
-   .toolbar{ToolbarItem(placement:.topBarTrailing){Button("Dịch vụ"){model.settings=true}};if let close=close{ToolbarItem(placement:.topBarLeading){Button("Đóng"){model.invalidate();close()}}}}
+   .toolbar{ToolbarItem(placement:.topBarTrailing){Button("Dịch vụ"){editorFocused=false;model.settings=true}};ToolbarItemGroup(placement:.keyboard){Spacer();Button("Xong"){editorFocused=false}};if let close=close{ToolbarItem(placement:.topBarLeading){Button("Đóng"){model.invalidate();close()}}}}
+   .navigationDestination(isPresented:$model.showingOutcome){outcome}
+   .confirmationDialog("Thay nội dung hiện tại bằng mẫu thử?",isPresented:$confirmDemo,titleVisibility:.visible){Button("Dùng mẫu OTP"){model.useDemo()};Button("Giữ nội dung",role:.cancel){}}
+   .onChange(of:model.showingOutcome){_,shown in if shown{editorFocused=false}}
    .sheet(isPresented:$model.settings){connection}
    .sheet(isPresented:$model.picker){ImagePicker(selected:model.selectImage)}
    .sheet(item:Binding(get:{model.consent.map{ConsentItem(request:$0)}},set:{if $0==nil{model.consent=nil}})){item in consent(item.request)}
@@ -123,6 +135,15 @@ struct AnalysisScreen:View {
    .overlay{if scenePhase != .active{Color(.systemBackground).overlay(Text("VNAnvia").font(.title))}}
   }.tint(teal).privacySensitive()
  }
+ func requestDemo(){editorFocused=false;if Contract.trim(model.draft).isEmpty{model.useDemo()}else{confirmDemo=true}}
+ var outcome:some View{ScrollView{VStack(alignment:.leading,spacing:24){
+  if let code=model.failureCode{
+   Label("Chưa thể phân tích",systemImage:"exclamationmark.circle").font(.title2.bold()).accessibilityAddTraits(.isHeader)
+   Text(model.message)
+   if code=="CONSENT_REQUIRED"{Button("Dùng mẫu OTP",action:requestDemo).buttonStyle(.borderedProminent).frame(minHeight:44)}
+   Button("Quay lại nội dung"){model.showingOutcome=false}.frame(minHeight:44)
+  }else if let r=model.result{resultView(r)}else if let r=model.local{Text("Máy chủ: "+r.host).textSelection(.enabled);resultView(r.response)}
+ }.padding(24)}.navigationTitle(model.failureCode==nil ? "Kết quả kiểm tra":"Chưa thể phân tích").navigationBarTitleDisplayMode(.inline)}
  func sourceTile(_ title:String,symbol:String,selected:Bool,action:@escaping()->Void)->some View{
   Button(action:action){VStack(alignment:.leading,spacing:12){Image(systemName:symbol).font(.title2);Text(title).font(.subheadline.weight(.semibold))}.frame(maxWidth:.infinity,minHeight:74,alignment:.leading).padding(12).background(selected ? teal.opacity(0.12):Color(.secondarySystemBackground),in:RoundedRectangle(cornerRadius:16)).overlay(RoundedRectangle(cornerRadius:16).stroke(selected ? teal:Color(.separator),lineWidth:selected ? 2:1))}.buttonStyle(.plain).foregroundStyle(teal)
  }
