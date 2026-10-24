@@ -1,4 +1,14 @@
-# Kiểm tra nhanh trong Safari — build5
+# Kiểm tra nhanh trong Safari — build6
+
+Build6 thêm hướng dẫn kích hoạt ngay lần mở app đầu tiên và nút **Cho phép trên website này** trong popup Safari. Chỉ lưu cờ đã xem hướng dẫn; cờ không đại diện quyền Safari. Từ chối quyền không gửi văn bản, không bật nền hoặc lặp lời nhắc. Có thể mở lại hướng dẫn trong app.
+
+Trên iPhone18.5/Xcode16.4 hiện tại không có API công khai mở trực tiếp màn hình bật extension. `SFSafariSettings.openExtensionsSettings(forIdentifiers:)` cần iOS26.2; không dùng private URL hoặc giả trạng thái đã bật. Người dùng mở app một lần, bật VNAnvia trong Safari, rồi nhấn nút cấp quyền theo website. HTTPS hướng dẫn Apple mở trình duyệt mặc định; không hứa tự mở Safari. [Apple API](https://developer.apple.com/documentation/safariservices/sfsafarisettings/openextensionssettings(foridentifiers:completionhandler:)), [quyền Safari](https://developer.apple.com/documentation/safariservices/managing-safari-web-extension-permissions).
+
+Origin hiện tại được chuẩn bị trước khi chạm nút; `permissions.request` gọi ngay trong click tin cậy, chỉ yêu cầu website đó. Chấp thuận xong kiểm lại tab/origin rồi mới bật nút chọn chữ. Thay website/hủy/không hỗ trợ đều không gọi AI. Host permission là tùy chọn, không yêu cầu mọi website một lượt. Hạn chế menu/trang/Share và consent bên dưới vẫn áp dụng. Bằng chứng lượt mới: `qa/0.3.0/activation/`.
+
+Android build5 có onboarding tương ứng, vùng chữ mô phỏng chọn được và nút Hướng dẫn. Không có quyền bật PROCESS_TEXT: action đăng ký khi cài, app nguồn quyết định menu; dùng Chia sẻ/dán khi nguồn không hỗ trợ. Không thêm Accessibility/overlay/SMS. Share đầu tiên được ưu tiên review thay vì bị guide che. Chrome Android không cài extension PC; không coi hướng dẫn là hộp thoại quyền của hệ điều hành. [Android PROCESS_TEXT](https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT), [Google](https://support.google.com/chrome_webstore/answer/1698338).
+
+## Lịch sử build5
 
 Người dùng24/10/2026 xác nhận có “VNAnvia Safari” trong Cài đặt nhưng chưa bật. Đây là nguyên nhân trực tiếp tiện ích chưa chạy; ảnh menu chọn chữ riêng lẻ không xác định được trạng thái quyền. Safari iOS không hỗ trợ `contextMenus` như Chromium: [Apple compatibility](https://developer.apple.com/documentation/safariservices/assessing-your-safari-web-extension-s-browser-compatibility).
 

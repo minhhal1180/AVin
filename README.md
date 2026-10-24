@@ -1,5 +1,11 @@
 # VNAnvia — iOS build kit 0.3.0
 
+**Build6 — hướng dẫn kích hoạt lần đầu:** app hiện các bước bật VNAnvia trong Safari ở lần mở đầu, có “Để sau” và mở lại hướng dẫn. Popup có nút “Cho phép trên website này”, gọi yêu cầu quyền trong lần chạm và chỉ xin website hiện tại. Từ chối không gửi văn bản. iOS18.5 không có API mở trực tiếp cài đặt extension; vẫn cần người dùng bật trong Safari. Xem [hướng dẫn](docs/engineering/IOS_SAFARI_QUICK_CHECK.md). Source này cần bằng chứng MacCI build6 mới; không dùng các lượt build5 dưới đây để chứng nhận.
+
+Đã kiểm177TypeScript tests và66Python packaging tests. Chỉ lưu cờ đã xem hướng dẫn, không coi đó là trạng thái quyền Safari. VPS giữ real-content=false/website=false, không thay consent/quota/provider.
+
+## Mốc build5 (lịch sử)
+
 **Build5 — kiểm tra nhanh khi tô đen trong Safari:** bật VNAnvia Safari và cho phép website, tô đen rồi chạm nút “Kiểm tra đoạn này”. Có popup kích hoạt và hướng dẫn ba bước trong app. Xem [hướng dẫn](docs/engineering/IOS_SAFARI_QUICK_CHECK.md). Safari iOS không có mục contextMenus như Chrome. Source này cần Mac CI mới; bằng chứng build4 bên dưới chưa chứng nhận build5 hoặc thao tác trên iPhone.
 
 Đã kiểm139TypeScript tests,66kiểm đóng gói Python và shared content script bằng Chromium có touch emulation. TEXT chờ consent; không tự gửi AI khi chọn chữ. VPS vẫn chỉ cho mẫu mô phỏng được duyệt, website worker chưa triển khai. Không có khóa provider trong client.

@@ -8,10 +8,6 @@
     "scripting",
     "nativeMessaging"
   ],
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
   "background": {
     "scripts": [
       "background.js"
@@ -37,6 +33,10 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
   "content_scripts": [
     {
       "matches": [
