@@ -90,6 +90,7 @@ struct AnalysisScreen:View {
  @StateObject var model=AnalysisModel()
  @FocusState private var editorFocused:Bool
  @State private var confirmDemo=false
+ @State private var showingSafariHelp=false
  @Environment(\.scenePhase) private var scenePhase
  var initial:String?=nil
  var close:(()->Void)?=nil
@@ -102,6 +103,7 @@ struct AnalysisScreen:View {
     Text("Kiểm tra trước khi tin.").font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
     Text("Chọn nội dung bạn muốn kiểm chứng.").foregroundStyle(.secondary)
     HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT"){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:false){model.beginImage()}}
+    if close==nil{Button{editorFocused=false;showingSafariHelp=true}label:{Label("Kiểm tra nhanh trong Safari",systemImage:"safari")}.frame(minHeight:44)}
     if model.type=="TEXT" && model.capabilities?.real_content_enabled==false{
      GroupBox{VStack(alignment:.leading,spacing:12){Label("Chế độ thử nghiệm",systemImage:"testtube.2").font(.headline);Text("Chỉ nhận mẫu mô phỏng đã duyệt.").font(.subheadline).foregroundStyle(.secondary);Button("Dùng mẫu OTP",action:requestDemo).frame(minHeight:44)}}
     }
@@ -124,6 +126,7 @@ struct AnalysisScreen:View {
    .confirmationDialog("Thay nội dung hiện tại bằng mẫu thử?",isPresented:$confirmDemo,titleVisibility:.visible){Button("Dùng mẫu OTP"){model.useDemo()};Button("Giữ nội dung",role:.cancel){}}
    .onChange(of:model.showingOutcome){_,shown in if shown{editorFocused=false}}
    .sheet(isPresented:$model.settings){connection}
+   .sheet(isPresented:$showingSafariHelp){SafariHelp()}
    .sheet(isPresented:$model.picker){ImagePicker(selected:model.selectImage)}
    .sheet(item:Binding(get:{model.consent.map{ConsentItem(request:$0)}},set:{if $0==nil{model.consent=nil}})){item in consent(item.request)}
    .sheet(isPresented:Binding(get:{model.review != nil},set:{if !$0{model.review=nil}})){NavigationStack{VStack(alignment:.leading,spacing:16){

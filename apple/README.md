@@ -1,5 +1,7 @@
 # Apple build và kiểm thử
 
+Build5 bổ sung [kiểm tra nhanh khi tô đen trong Safari](../docs/engineering/IOS_SAFARI_QUICK_CHECK.md), popup kích hoạt và hướng dẫn trong app. Bật VNAnvia Safari và cấp quyền website trước khi dùng. Nút nằm trong trang; Safari iOS không có mục `contextMenus` như Chrome. Bằng chứng mới ở `qa/0.3.0/safari-quick/`; các báo cáo build4 bên dưới là lịch sử và không chứng nhận build5.
+
 Build4 bổ sung [phản hồi lỗi và màn hình kết quả](../docs/engineering/IOS_RESULT_FEEDBACK.md): server403 chỉ-mẫu-thử được giải thích rõ, có mẫu OTP đã duyệt, kết quả mở NavigationStack và đóng bàn phím. Bằng chứng Mac CI mới được lưu riêng; không dùng kết quả build3 dưới đây để chứng nhận build4. Người dùng đã báo cài build3 và kết nối VPS thành công; chưa xác nhận luồng kết quả trên thiết bị. VPS0.3.0 đã deploy, vẫn giữ cổng dữ liệu thật đóng và website worker chưa triển khai.
 Gói Apple rút gọn có build cloud cho simulator và IPA iPhone chưa ký: xem [hướng dẫn build kit](../docs/engineering/IOS_BUILD_KIT.md), [cài miễn phí bằng Sideloadly trên Windows](../docs/engineering/IOS_FREE_INSTALL.md) và [dịch vụ online](../docs/engineering/IOS_ONLINE_BUILD_SERVICES.md). Trong ZIP, hướng dẫn ở root có tên `README_IOS.md`; tài nguyên Safari đã đóng gói nên không cần chạy bước npm/sync dưới đây.
 

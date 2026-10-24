@@ -1,5 +1,11 @@
 # VNAnvia — iOS build kit 0.3.0
 
+**Build5 — kiểm tra nhanh khi tô đen trong Safari:** bật VNAnvia Safari và cho phép website, tô đen rồi chạm nút “Kiểm tra đoạn này”. Có popup kích hoạt và hướng dẫn ba bước trong app. Xem [hướng dẫn](docs/engineering/IOS_SAFARI_QUICK_CHECK.md). Safari iOS không có mục contextMenus như Chrome. Source này cần Mac CI mới; bằng chứng build4 bên dưới chưa chứng nhận build5 hoặc thao tác trên iPhone.
+
+Đã kiểm139TypeScript tests,66kiểm đóng gói Python và shared content script bằng Chromium có touch emulation. TEXT chờ consent; không tự gửi AI khi chọn chữ. VPS vẫn chỉ cho mẫu mô phỏng được duyệt, website worker chưa triển khai. Không có khóa provider trong client.
+
+## Lịch sử xác minh trước build5
+
 **Cập nhật build4 ngày24/10:** sửa lỗi mất lý do server403, thêm thẻ chỉ nhận mẫu đã duyệt và mẫu OTP không tự gửi, đưa kết quả/lỗi sang màn hình riêng, đóng bàn phím khi kiểm tra. [Final Mac CI](https://github.com/minhhal1180/AVin/actions/runs/40083355803) đã build Release/iphoneos/arm64 thành công tại `57544b9`,22core tests đạt. IPA cuối đủ ba bundle0.3.0/build4, SHA256 `4886af668e087a7b3c398c997a48af05c847ab4a9c5f650cd6952f0ab94b52b0`; chưa ký/thử bản mới trên iPhone. Xem [chi tiết](docs/engineering/IOS_RESULT_FEEDBACK.md).
 
 VPS0.3.0 đã triển khai và người dùng báo iPhone kết nối thành công. Dữ liệu thật vẫn đóng; văn bản khác mẫu server duyệt bị từ chối trước AI. Website nâng cao chưa có capture worker VPS. Bản iPhone đã cài trước đó là build3, cần IPA build4 sau khi CI đạt.

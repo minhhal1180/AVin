@@ -9,6 +9,7 @@ REQUIRED = (
     "apple/VNAnviaCore/Sources/VNAnviaCore/Resources/metadata.json",
     "dist/safari-extension/manifest.json", "dist/safari-extension/panel.html",
     "dist/safari-extension/panel.js", "dist/safari-extension/UNICODE-LICENSE.txt",
+    "dist/safari-extension/popup.html", "dist/safari-extension/popup.js",
     "dist/safari-extension/background.js", "dist/safari-extension/content.js",
     "dist/safari-extension/ocr/model-manifest.json",
 )
