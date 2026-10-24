@@ -1,4 +1,4 @@
-# Manual unsigned simulator build. No Apple account, signing key, billing or publishing setup.
+# Manual builds without signing credentials or automatic publishing.
 workflows:
   ios-simulator:
     name: VNAnvia iOS simulator (unsigned)
@@ -17,3 +17,21 @@ workflows:
       - build/ios-cloud/**/build-info.json
       - build/ios-cloud/**/SHA256SUMS.txt
       - build/ios-cloud/**/logs/*.log
+  ios-device-unsigned:
+    name: VNAnvia iPhone IPA (unsigned - sign with Sideloadly)
+    instance_type: mac_mini_m2
+    max_build_duration: 45
+    environment:
+      xcode: "16.4"
+    scripts:
+      - name: Install XcodeGen
+        script: |
+          command -v xcodegen >/dev/null || brew install xcodegen
+      - name: Build device IPA and validate both extensions
+        script: bash apple/ci/build-device-unsigned.sh
+    artifacts:
+      - build/ios-device/**/VNAnvia-device-unsigned.ipa
+      - build/ios-device/**/build-info.json
+      - build/ios-device/**/ipa-validation.json
+      - build/ios-device/**/SHA256SUMS.txt
+      - build/ios-device/**/logs/*.log

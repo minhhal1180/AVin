@@ -1,7 +1,7 @@
 # Apple build và kiểm thử
-Gói Apple rút gọn có sẵn cấu hình build cloud: xem [hướng dẫn build kit](../docs/engineering/IOS_BUILD_KIT.md) và [dịch vụ online](../docs/engineering/IOS_ONLINE_BUILD_SERVICES.md). Trong ZIP, hướng dẫn ở root có tên `README_IOS.md`; tài nguyên Safari đã đóng gói nên không cần chạy bước npm/sync dưới đây. Build cloud mặc định unsigned simulator, chưa phải IPA cài iPhone.
+Gói Apple rút gọn có build cloud cho simulator và IPA iPhone chưa ký: xem [hướng dẫn build kit](../docs/engineering/IOS_BUILD_KIT.md), [cài miễn phí bằng Sideloadly trên Windows](../docs/engineering/IOS_FREE_INSTALL.md) và [dịch vụ online](../docs/engineering/IOS_ONLINE_BUILD_SERVICES.md). Trong ZIP, hướng dẫn ở root có tên `README_IOS.md`; tài nguyên Safari đã đóng gói nên không cần chạy bước npm/sync dưới đây.
 
-Mã iOS17+; đây là source chưa được build/ký/thử trên Mac hoặc iPhone trong phiên Windows.
+Mã iOS17+; [Mac CI simulator](https://github.com/minhhal1180/AVin/actions/runs/40074879045) đã build và chạy 15 core + 4 native tests trên Xcode16.4 cho source `66679d7`. Chưa có bằng chứng ký/cài hoặc chạy iPhone; workflow device mới có evidence riêng khi chạy.
 
 1. Tại project root: npm ci; npm run assets:ocr; node scripts/build-safari.mjs.
 2. Đồng bộ contract: .venv/Scripts/python.exe -m scripts.sync_apple_resources (trên Mac dùng python3).
@@ -14,7 +14,7 @@ Mã iOS17+; đây là source chưa được build/ký/thử trên Mac hoặc iPh
 
 Chạy TEST_PLAN_0.3 trên iPhone thật: Vision tiếng Việt (kiểm supportedRecognitionLanguages),20ảnh OCR, back/cancel/stale, native messaging, Keychain expiry/restart, VoiceOver/DynamicType/keyboard và30UIruns.
 Nếu capability/contract không khớp, build lại backend+clients từ cùng source. Không thay cấu hình để bỏ strict-check.
-Project generator là nguồn cấu trúc target; file Xcode sinh ra cần review trên Mac. Chưa ghi status build-passed cho Apple.
+Project generator là nguồn cấu trúc target; file Xcode sinh ra cần review trên Mac. Simulator build/test đã có evidence nêu trên; không suy ra device hoặc signing passed.
 
 Scheme `VNAnvia` đã gắn `VNAnviaNativeTests`: trên Mac chạy `xcodebuild test -project apple/VNAnvia.xcodeproj -scheme VNAnvia -destination 'platform=iOS Simulator,name=<tên iPhone simulator đã cài>'`. Thay destination bằng thiết bị/simulator thực tế trên Mac. Các test dùng store bộ nhớ mô phỏng để kiểm opt-in/opt-out, restore, forget và giữ nguyên deadline; không thay bằng chứng Keychain thật trên iPhone. Cấu trúc test target theo [XcodeGen Project Spec](https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#test-action).
 

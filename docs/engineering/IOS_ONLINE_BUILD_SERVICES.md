@@ -1,8 +1,8 @@
 # Build VNAnvia iOS trực tuyến
 
-Ngày rà soát tài liệu chính thức: **24/10/2026**. Hạn mức và image máy build có thể thay đổi; kiểm tra dashboard trước khi chạy. Đây là hướng dẫn cho mã Swift/SwiftUI, Action Extension và Safari Web Extension của VNAnvia. Chưa có bằng chứng build Xcode hoặc chạy trên iPhone cho gói này.
+Ngày rà soát tài liệu chính thức: **24/10/2026**. Hạn mức và image máy build có thể thay đổi; kiểm tra dashboard trước khi chạy. Đây là hướng dẫn cho mã Swift/SwiftUI, Action Extension và Safari Web Extension của VNAnvia. [Mac CI simulator](https://github.com/minhhal1180/AVin/actions/runs/40074879045) đã build/test trên Xcode16.4; ký/cài và chạy iPhone vẫn cần evidence riêng.
 
-Đề xuất bắt đầu bằng **Codemagic Personal**, chạy workflow simulator có sẵn. GitHub Actions là lựa chọn tương đương nếu đang quản lý mã ở GitHub. Gói chứa cấu hình CI; chưa tạo tài khoản dịch vụ, kết nối Git, tải mã/credential lên cloud hoặc kích hoạt billing.
+Với Apple ID miễn phí và Windows, chọn **Codemagic Personal → ios-device-unsigned**, tải IPA rồi ký/cài bằng Sideloadly theo [hướng dẫn](IOS_FREE_INSTALL.md). GitHub Actions có workflow device tương đương. Repo [AVin](https://github.com/minhhal1180/AVin) đã kết nối; cấu hình không tự phát hành hoặc bật billing.
 
 ## Dịch vụ phù hợp
 
@@ -24,7 +24,7 @@ Các đường dẫn dưới đây tính từ **root gói iOS sau khi giải né
 3. Chọn nhánh chứa `codemagic.yaml`, kiểm tra cấu hình rồi chạy workflow simulator bằng tay. Không cần nhập khóa Groq/Gemini hoặc Apple signing credential cho workflow unsigned này.
 4. Sau khi build thành công, tải artifact, log và báo cáo mà workflow tạo. Chỉ đánh dấu build thành công khi log Xcode thực tế xác nhận; một file YAML hợp lệ chưa chứng minh compile thành công.
 
-Cấu hình đã chọn `instance_type: mac_mini_m2` và `environment.xcode: latest`; cả hai được tài liệu YAML hỗ trợ. Không khai báo sự kiện `triggering` nghĩa là chạy thủ công. Artifact patterns có thể tương đối với clone root, dùng glob hoặc đường dẫn tuyệt đối. [YAML chính thức](https://docs.codemagic.io/yaml-basic-configuration/yaml-getting-started/).
+Cấu hình dùng `instance_type: mac_mini_m2`; workflow device pin Xcode16.4, simulator giữ `latest`. Không khai báo sự kiện `triggering` nghĩa là chạy thủ công. Artifact patterns có thể tương đối với clone root, dùng glob hoặc đường dẫn tuyệt đối. [YAML chính thức](https://docs.codemagic.io/yaml-basic-configuration/yaml-getting-started/).
 
 `latest` có thể đổi Xcode theo thời gian. Sau lượt thành công đầu tiên, ghi phiên bản Xcode/SDK/runner trong bằng chứng và pin phiên bản phù hợp trước khi nghiệm thu.
 
@@ -41,10 +41,13 @@ Repo private dùng quota chung của chủ repo. Larger runners luôn tính phí
 | Đầu ra | Có thể làm gì | Điều kiện |
 |---|---|---|
 | **Unsigned simulator `.app`/`.app.zip`** | Build và chạy với iOS Simulator trên Mac hoặc môi trường simulator cloud phù hợp. | Không cần Apple signing credential; **không cài lên iPhone thật**. [Codemagic simulator](https://docs.codemagic.io/yaml-code-signing/ios-simulator-builds/), [Bitrise simulator](https://docs.bitrise.io/en/bitrise-ci/deploying/ios-deployment/deploying-an-ios-app-for-simulators). |
+| **Unsigned device `.ipa`** | Đầu vào để ký/cài bằng Sideloadly trên Windows với Apple ID miễn phí. | Build `iphoneos`, không phải simulator; giữ cả hai extension. Ký local, hạn bảy ngày, tối đa ba app; chức năng extension cần kiểm tra thực tế. [Sideloadly FAQ](https://sideloadly.io/faq). |
 | **Device build / signed `.ipa`** | Cài lên thiết bị theo phương thức provisioning đã chọn; TestFlight/App Store là quy trình phân phối riêng. | Cần certificate và profile hợp lệ. App chính và từng extension cần profile tương ứng; không chỉ ký container app. Quy trình ký cloud chính thức của Codemagic yêu cầu Apple Developer Program. [Ký iOS và extension profiles](https://docs.codemagic.io/yaml-code-signing/signing-ios/). |
 
 Gói hiện chuẩn bị đường build unsigned để xác minh sớm. Để xuất IPA có chữ ký, phải cấu hình Team, bundle IDs, certificate và profiles riêng bằng kho secrets của CI; không đưa `.p12`, `.p8`, `.mobileprovision` hoặc mật khẩu vào Git. GitHub có [quy trình nhập signing certificate/profile bằng Secrets](https://docs.github.com/en/actions/how-tos/deploy/deploy-to-third-party-platforms/sign-xcode-applications). Không đổi đuôi `.app.zip` thành `.ipa` rồi coi là app đã ký.
 
-Phương án thử iPhone miễn phí vẫn là mượn **Mac có Xcode**, đăng nhập Apple Account/Personal Team, chọn Team cho app và hai extension rồi Run trên iPhone đã pair. Apple quy định provisioning profile Personal Team hết hạn sau **7 ngày**, cần rebuild/reinstall; giới hạn ba app/thiết bị cùng các giới hạn App ID và thiết bị. Không coi Personal Team là phương án ký cloud/TestFlight đã được kiểm chứng cho dự án. [Apple: Personal Team và giới hạn](https://developer.apple.com/help/account/basics/about-your-developer-account).
+Phương án miễn phí khác là mượn **Mac có Xcode**, đăng nhập Apple Account/Personal Team, chọn Team cho app và hai extension rồi Run trên iPhone đã pair. Apple quy định provisioning profile Personal Team hết hạn sau **7 ngày**, cần rebuild/reinstall; giới hạn ba app/thiết bị cùng các giới hạn App ID và thiết bị. Không coi Personal Team là phương án ký cloud/TestFlight đã được kiểm chứng cho dự án. [Apple: Personal Team và giới hạn](https://developer.apple.com/help/account/basics/about-your-developer-account).
 
 Sau khi có build, vẫn phải thử Action Extension, Safari extension, Vision OCR tiếng Việt, Keychain, hủy/timeout, VoiceOver và consent trên iPhone thật. Simulator hoặc lượt build cloud không thay cho bằng chứng đó. Backend đích phải chạy đúng contract/engine/privacy; khóa provider ở server và không nằm trong gói iOS. Xem thêm [Apple build và kiểm thử](../../apple/README.md).
+
+Riêng Safari Web Extension, Apple yêu cầu thành viên Developer Program để thử trên thiết bị thật; Personal Team/Sideloadly không được cam kết hỗ trợ phần này. [Apple: chạy Safari web extension](https://developer.apple.com/documentation/safariservices/running-your-safari-web-extension).
