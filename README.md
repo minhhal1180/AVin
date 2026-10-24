@@ -10,7 +10,7 @@ Trên Codemagic, làm mới nhánh `main`, bấm **Start new build** và chọn 
 
 Workflow mới build Release/iphoneos/arm64 bằng Xcode16.4, giữ hai extension, kiểm Info.plist và Mach-O trước khi xuất IPA. Không nhập Apple ID hoặc signing credential vào CI. IPA cần ký local trước khi cài và refresh trong vòng bảy ngày với tài khoản miễn phí. Safari Web Extension có yêu cầu chính thức Developer Program khi thử trên thiết bị; chưa cam kết hoạt động qua Sideloadly miễn phí. [Apple](https://developer.apple.com/documentation/safariservices/running-your-safari-web-extension).
 
-GitHub có workflow tương đương **Actions → iPhone IPA build (unsigned) → Run workflow**, artifact **VNAnvia-iPhone-unsigned**. Source/workflow đã có; trạng thái build device phải đối chiếu lượt CI riêng.
+GitHub có workflow tương đương **Actions → iPhone IPA build (unsigned) → Run workflow**, artifact **VNAnvia-iPhone-unsigned**. [Build device đã thành công](https://github.com/minhhal1180/AVin/actions/runs/40077591154) cho commit `d85eb3d`: Xcode16.4, Release/iphoneos/arm64, 15 core tests đạt. Đã tải IPA và đối chiếu hash, platform iOS17+ và đủ ba executable app/Action/Safari. IPA SHA256 `4b542536e78651b98fa35afa8311a100ec9e8336883b54ac1e716e223946814d`; chưa ký hoặc thử iPhone. Codemagic mới có cấu hình, chưa có lượt build workflow device tại đó trong phiên này.
 
 ## Kiểm thử simulator online
 
