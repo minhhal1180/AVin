@@ -4,6 +4,8 @@
 
 Đã kiểm139TypeScript tests,66kiểm đóng gói Python và shared content script bằng Chromium có touch emulation. TEXT chờ consent; không tự gửi AI khi chọn chữ. VPS vẫn chỉ cho mẫu mô phỏng được duyệt, website worker chưa triển khai. Không có khóa provider trong client.
 
+**Mac CI build5 đã đạt:** [IPA iPhone](https://github.com/minhhal1180/AVin/actions/runs/40093019866) và [simulator](https://github.com/minhhal1180/AVin/actions/runs/40093019843) tại commit `0d2a0355096d26af6a09b86183d4a950226455e8`,22core+11native tests không lỗi. IPA đủ3bundle0.3.0/build5, SHA256 `5fac113176ef9cf5c2fd56a25aa25b7514ef325b6d6418c50b65d335d6381a74`. Gói chưa ký; cần ký/cài bằng iloader, giữ2extension và bật Safari/cấp quyền site. Chưa xác minh thao tác Safari/iPhone thật. Việc mở bảng kiểm tra có thể xin phiên/khả năng tự động; đoạn chọn chỉ gửi AI sau consent.
+
 ## Lịch sử xác minh trước build5
 
 **Cập nhật build4 ngày24/10:** sửa lỗi mất lý do server403, thêm thẻ chỉ nhận mẫu đã duyệt và mẫu OTP không tự gửi, đưa kết quả/lỗi sang màn hình riêng, đóng bàn phím khi kiểm tra. [Final Mac CI](https://github.com/minhhal1180/AVin/actions/runs/40083355803) đã build Release/iphoneos/arm64 thành công tại `57544b9`,22core tests đạt. IPA cuối đủ ba bundle0.3.0/build4, SHA256 `4886af668e087a7b3c398c997a48af05c847ab4a9c5f650cd6952f0ab94b52b0`; chưa ký/thử bản mới trên iPhone. Xem [chi tiết](docs/engineering/IOS_RESULT_FEEDBACK.md).
