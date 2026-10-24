@@ -108,6 +108,56 @@ def _version(value):
     return parts + (0,) * (3 - len(parts))
 
 
+def _bundle_version(value, field):
+    components = r"[0-9]+(?:\.[0-9]+){1,2}" if field == "CFBundleShortVersionString" else r"[0-9]+(?:\.[0-9]+){0,2}"
+    if not isinstance(value, str) or len(value) > 32 or not re.fullmatch(components, value):
+        raise IPAValidationError("Missing or invalid " + field)
+    return value
+
+
+def project_versions(path):
+    """Read the two explicit global XcodeGen version settings, without a YAML dependency."""
+    try:
+        text = Path(path).read_text(encoding="utf-8-sig")
+    except (OSError, UnicodeError) as error:
+        raise IPAValidationError("Unreadable project specification") from error
+    if len(text) > MAX_PLIST_BYTES:
+        raise IPAValidationError("Project specification exceeds the validation resource limit")
+    lines = text.splitlines()
+
+    def block(name, indentation, first, last):
+        header = re.compile(" " * indentation + re.escape(name) + r":[ \t]*(?:#.*)?")
+        matches = [index for index in range(first, last) if header.fullmatch(lines[index])]
+        if len(matches) != 1:
+            raise IPAValidationError("Missing or ambiguous project settings.base")
+        start = matches[0] + 1
+        end = last
+        for index in range(start, last):
+            line = lines[index]
+            if line.strip() and not line.lstrip().startswith("#") and len(line) - len(line.lstrip(" ")) <= indentation:
+                end = index
+                break
+        return start, end
+
+    first, last = block("settings", 0, 0, len(lines))
+    first, last = block("base", 2, first, last)
+    values = []
+    for key, field in [
+        ("MARKETING_VERSION", "CFBundleShortVersionString"),
+        ("CURRENT_PROJECT_VERSION", "CFBundleVersion"),
+    ]:
+        # Also count quoted keys or overrides elsewhere so an ambiguous spec fails closed.
+        candidate = re.compile(rf'''^[ \t]*(?:{key}|"{key}"|'{key}')[ \t]*:''')
+        matches = [index for index, line in enumerate(lines) if candidate.match(line)]
+        if len(matches) != 1 or not first <= matches[0] < last:
+            raise IPAValidationError("Missing or ambiguous project " + key)
+        value = re.fullmatch(r" {4}" + key + r''':[ \t]*(?:"([0-9.]+)"|'([0-9.]+)'|([0-9.]+))[ \t]*(?:#.*)?''', lines[matches[0]])
+        if value is None:
+            raise IPAValidationError("Invalid explicit project " + key)
+        values.append(_bundle_version(next(part for part in value.groups() if part is not None), field))
+    return tuple(values)
+
+
 def _macho(data):
     if len(data) < 32 or data[:4] != b"\xcf\xfa\xed\xfe":
         raise IPAValidationError("Executable must be a thin little-endian 64-bit Mach-O")
@@ -152,9 +202,13 @@ def _macho(data):
     return build_version, signature_present
 
 
-def validate(path):
+def validate(path, expected_version=None, expected_build=None):
     """Validate bytes without extracting; report structure, not signing/installability."""
     path = Path(path)
+    if expected_version is not None:
+        _bundle_version(expected_version, "CFBundleShortVersionString")
+    if expected_build is not None:
+        _bundle_version(expected_build, "CFBundleVersion")
     try:
         with path.open("rb") as stream, zipfile.ZipFile(stream) as archive:
             members = _members(archive)
@@ -171,6 +225,14 @@ def validate(path):
                     raise IPAValidationError("Bundle Info.plist is invalid") from error
                 if not isinstance(info, dict) or info.get("CFBundleIdentifier") != identifier:
                     raise IPAValidationError("Bundle identifier does not match the VNAnvia device build")
+                version = _bundle_version(info.get("CFBundleShortVersionString"), "CFBundleShortVersionString")
+                build = _bundle_version(info.get("CFBundleVersion"), "CFBundleVersion")
+                if bundles and (version, build) != (bundles[0]["marketing_version"], bundles[0]["build_version"]):
+                    raise IPAValidationError("Application and extension bundle versions disagree")
+                if expected_version is not None and version != expected_version:
+                    raise IPAValidationError("Bundle marketing version does not match project specification")
+                if expected_build is not None and build != expected_build:
+                    raise IPAValidationError("Bundle build version does not match project specification")
                 if info.get("CFBundleSupportedPlatforms") != ["iPhoneOS"]:
                     raise IPAValidationError("Bundle platform must be iPhoneOS")
                 minimum_os = info.get("MinimumOSVersion")
@@ -199,6 +261,8 @@ def validate(path):
                 bundles.append({
                     "path": bundle,
                     "bundle_identifier": identifier,
+                    "marketing_version": version,
+                    "build_version": build,
                     "minimum_os_version": minimum_os,
                     "executable": executable,
                     "platform": "iOS",
@@ -221,6 +285,8 @@ def validate(path):
         "artifact_kind": "device-ipa-for-local-signing",
         "platform": "iOS",
         "architecture": "arm64",
+        "marketing_version": bundles[0]["marketing_version"],
+        "build_version": bundles[0]["build_version"],
         "provisioning_profiles_present": False,
         "signing_status": "not_verified",
         "installation_tested": False,
@@ -231,9 +297,11 @@ def validate(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("ipa", type=Path)
+    parser.add_argument("--project-spec", type=Path, help="Compare bundle versions with explicit global XcodeGen settings")
     args = parser.parse_args()
     try:
-        result = validate(args.ipa)
+        expected = project_versions(args.project_spec) if args.project_spec else (None, None)
+        result = validate(args.ipa, expected_version=expected[0], expected_build=expected[1])
     except IPAValidationError as error:
         print("Device IPA rejected: " + str(error), file=sys.stderr)
         return 1

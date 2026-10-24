@@ -50,7 +50,7 @@ test -d "$APP/PlugIns/SafariWebExtension.appex"
 mkdir "$OUTPUT/Payload"
 ditto --norsrc --noextattr "$APP" "$OUTPUT/Payload/VNAnviaApp.app"
 ditto -c -k --norsrc --noextattr --keepParent "$OUTPUT/Payload" "$OUTPUT/VNAnvia-device-unsigned.ipa"
-python3 apple/ci/verify-device-ipa.py "$OUTPUT/VNAnvia-device-unsigned.ipa" | tee "$OUTPUT/ipa-validation.json"
+python3 apple/ci/verify-device-ipa.py "$OUTPUT/VNAnvia-device-unsigned.ipa" --project-spec apple/project.yml | tee "$OUTPUT/ipa-validation.json"
 python3 - "$OUTPUT" <<'PY'
 import hashlib, json, sys
 from pathlib import Path

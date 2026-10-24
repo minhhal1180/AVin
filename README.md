@@ -4,7 +4,9 @@
 
 VPS0.3.0 đã triển khai và người dùng báo iPhone kết nối thành công. Dữ liệu thật vẫn đóng; văn bản khác mẫu server duyệt bị từ chối trước AI. Website nâng cao chưa có capture worker VPS. Bản iPhone đã cài trước đó là build3, cần IPA build4 sau khi CI đạt.
 
-Gói nguồn build4 SHA256 `933fdd4e856363fe492d5d3a64c3ecb3a10aa0313331101fef23912025325d24`; manifest kèm125file, không chứa provider/signing secret. Các mô tả CI/IPA build3 dưới đây là lịch sử, có hash riêng.
+Gói nguồn build4 SHA256 `5a06a527ef4b9dd7bbdabe30d5d6d7b1f98153d26e6d8b9bb5125de9c1320e74`; manifest kèm125file, không chứa provider/signing secret. Các mô tả CI/IPA build3 dưới đây là lịch sử, có hash riêng.
+
+[Simulator kiểm thử phần Swift đã đạt](https://github.com/minhhal1180/AVin/actions/runs/40082791511) tại `498631b`:22core+11native tests. Kiểm IPA sau lượt đó phát hiện Info.plist vẫn ghi1.0/1 mặc định. Project nay gắn macro phiên bản vào app và hai extension; validator đối chiếu project.yml, đóng gói đang build lại. Không dùng IPA sai metadata làm bản bàn giao cuối.
 
 Mã nguồn iOS17+ cho VNAnvia: app SwiftUI, Action Extension từ menu Chia sẻ, Safari Web Extension, Swift core/tests và tài nguyên OCR Safari đóng gói cục bộ.
 

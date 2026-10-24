@@ -20,6 +20,8 @@ targets:
       path: VNAnviaApp/Info.plist
       properties:
         CFBundleDisplayName: VNAnvia
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
@@ -41,6 +43,8 @@ targets:
       path: ActionExtension/Info.plist
       properties:
         CFBundleDisplayName: Kiểm tra bằng VNAnvia
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.ui-services
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ActionViewController
@@ -86,6 +90,8 @@ targets:
       path: SafariWebExtension/Info.plist
       properties:
         CFBundleDisplayName: VNAnvia Safari
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.Safari.web-extension
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
