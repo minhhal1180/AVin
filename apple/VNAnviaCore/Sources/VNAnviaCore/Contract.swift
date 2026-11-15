@@ -2,7 +2,7 @@ import Foundation
 
 public enum VNError: String, Error { case invalidInput="INVALID_INPUT", invalidResponse="AI_RESPONSE_INVALID", unauthorized="UNAUTHORIZED", unavailable="ANALYSIS_UNAVAILABLE", incompatible="INCOMPATIBLE_BACKEND", unsupportedURL="UNSUPPORTED_URL", timeout="ANALYSIS_TIMEOUT" }
 public enum Contract {
- public static let version="0.3.0", privacy="2026-11-09.1", prompt="vi-context-1.3", engine="hybrid-gemini-groq-1.0"
+ public static let version="0.3.0", privacy="2026-11-11.1", prompt="vi-context-1.3", engine="hybrid-gemini-groq-1.0"
  public static func data(_ name:String) throws -> Data { try Data(contentsOf: Bundle.module.url(forResource:name,withExtension:"json")!) }
  public static func object(_ name:String) throws -> [String:Any] { try JSONSerialization.jsonObject(with:data(name)) as! [String:Any] }
  public static func trim(_ value:String)->String {
@@ -62,7 +62,7 @@ public enum Contract {
 }
 public struct AnalysisRequest: Codable, Sendable {
  public let request_id:String, input_type:String, content:String,privacy_ack_version:String,client_build:String,schema_version:String
- public init(content:String,inputType:String="TEXT"){self.request_id=UUID().uuidString.lowercased();self.input_type=inputType;self.content=content;self.privacy_ack_version=Contract.privacy;self.client_build="ios/0.3.0";self.schema_version="1.0"}
+ public init(content:String,inputType:String="TEXT"){self.request_id=UUID().uuidString.lowercased();self.input_type=inputType;self.content=content;self.privacy_ack_version=Contract.privacy;self.client_build="ios/0.4.1-build11";self.schema_version="1.0"}
 }
 public struct Signal: Codable,Sendable { public let type:String,evidence_text:String,explanation:String }
 public struct AnalysisResponse: Codable,Sendable {
