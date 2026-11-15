@@ -20,7 +20,10 @@ import VNAnviaCore
   XCTAssertTrue(model.showingOutcome);XCTAssertFalse(model.busy)
   XCTAssertEqual(model.failureCode,"CONSENT_REQUIRED");XCTAssertNil(model.result)
   XCTAssertEqual(model.draft,request.content)
-  XCTAssertTrue(model.message.contains("mẫu mô phỏng đã duyệt"))
+  // The current server accepts general text. A policy refusal must explain the
+  // refusal, rather than incorrectly reverting to the historical samples-only mode.
+  XCTAssertTrue(model.message.contains("Máy chủ chưa cho phép"))
+  XCTAssertFalse(model.message.contains("mẫu mô phỏng đã duyệt"))
   XCTAssertFalse(model.message.contains("kiểm tra kết nối"))
  }
  func testCompletedResponseOpensResultAndEditingInvalidatesIt()async throws {

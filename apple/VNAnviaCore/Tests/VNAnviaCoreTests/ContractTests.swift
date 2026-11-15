@@ -1,6 +1,24 @@
 import XCTest
 @testable import VNAnviaCore
 final class ContractTests:XCTestCase {
+ func testDeployedPolicyPinRejectsSupersededConsent()throws {
+  let metadata=try Contract.object("metadata")
+  var raw:[String:Any]=[
+   "api_version":"1","schema_version":"1.0","engine_version":Contract.engine,
+   "rule_version":Contract.version,"prompt_version":Contract.prompt,
+   "privacy_ack_version":"2026-11-11.1","contract_fingerprint":metadata["contract_fingerprint"]!,
+   "limits":["text_codepoints":4000,"url_codepoints":2048,"client_deadline_ms":15000,"backend_deadline_ms":12000],
+   "server_time":1000,"token_expires_at":4600,"real_content_enabled":true,"deployment_profile":"lab-vps"
+  ]
+  func check(_ value:[String:Any])throws {
+   try JSONDecoder().decode(Capabilities.self,from:JSONSerialization.data(withJSONObject:value)).validate()
+  }
+  XCTAssertNoThrow(try check(raw))
+  raw["privacy_ack_version"]="2026-11-09.1"
+  XCTAssertThrowsError(try check(raw))
+  raw["privacy_ack_version"]="future-policy"
+  XCTAssertThrowsError(try check(raw))
+ }
  func testURLRejectsNFDOriginalAndPunycodeSpellings()throws {
   XCTAssertTrue(Contract.isNFC("é"))
   XCTAssertFalse(Contract.isNFC("e\u{301}"))
