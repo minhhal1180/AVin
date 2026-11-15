@@ -104,7 +104,7 @@ struct AnalysisScreen:View {
     Text("Tin nhắn, đường link hay ảnh?").foregroundStyle(.secondary)
     HStack(spacing:8){ForEach(Array(["Nội dung","Xác nhận","Kết quả"].enumerated()),id:\.offset){index,title in
      VStack(alignment:.leading,spacing:4){Text("0\(index+1)").font(.caption2.bold());Text(title).font(.caption.weight(.semibold))}.frame(maxWidth:.infinity,alignment:.leading).padding(12).background(index==0 ? teal.opacity(0.12):Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:14))
-    }.accessibilityLabel("Bước 1 trên 3: Nội dung")
+     }}.accessibilityLabel("Bước 1 trên 3: Nội dung")
     HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT"){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:false){model.beginImage()}}
     if close==nil{Button{editorFocused=false;showingSafariHelp=true}label:{Label("Kiểm tra nhanh trong Safari",systemImage:"safari")}.frame(minHeight:44)}
     if model.type=="TEXT" && model.capabilities?.real_content_enabled==false{

@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-15T02:24:37.121702+00:00",
+  "at": "2026-11-15T02:27:22.607837+00:00",
   "version": "0.3.0",
   "status": "SOURCE_BUILD_KIT; NATIVE_BUILD_SIGNING_IPHONE_UNVERIFIED",
-  "source_fingerprint": "3f611fd803ce1697504a578eee746d2f5ab992f6754c61791ce2f27ec625f63a",
+  "source_fingerprint": "db7120cdc45f41a09b4eaa9d7f27b8506a07e2d20e5be179cc82b80690db7001",
   "contract": {
     "api_version": "1",
     "schema_version": "1.0",
@@ -31,7 +31,7 @@
     "apple/SafariWebExtension/SafariWebExtensionHandler.swift": "cd02c57d669d9fa5a05dc7e7233e902fb4480dd2b53f02fe92e12b42345c6871",
     "apple/Shared/Access.swift": "c0f138b5967ea4028d22250948749d3271d0316d00ce6b1b08b08327ad78d49d",
     "apple/Shared/AnalysisFeedback.swift": "f9a8dfe315691a91c105596c92a08e1d9376444ee87ec20637ebe60d37a592af",
-    "apple/Shared/AnalysisScreen.swift": "52b27f10b08884307388983576ff4cdc6a7a1adecea9671b59d272e4c778e7a7",
+    "apple/Shared/AnalysisScreen.swift": "d8e009bd4796bdd5c9d8ed1dde6937ad49cec3b9b5aaabc870c4f9acbc2e0f1f",
     "apple/Shared/Assets.xcassets/BrandIcon.imageset/Contents.json": "9ec03b8e59647a188e74d6962fd83bad9e8437c5d1578c1dbcd6b5d7253ee82f",
     "apple/Shared/Assets.xcassets/BrandIcon.imageset/brand-1x.png": "98db93e42bd064354e282605f15aac29d8b640c411529748d0fed050b5ac2315",
     "apple/Shared/Assets.xcassets/BrandIcon.imageset/brand-2x.png": "41e3a08b75d8ab588bf0fd25c66c4fac9c12743671718bb674b46420ab615510",
