@@ -1,5 +1,15 @@
 # Apple build và kiểm thử
 
+## Bản iOS 0.4.1/build 11 — 15/11/2026
+
+Nguồn Android build 11 đã bị xóa theo xác nhận của người dùng. ZIP `zavi-APK-source-va-cap-nhat-bao-cao.zip` là nguồn Android 0.3.0/build 9, không phải nguồn build 11. Bản Apple này dùng nguồn Apple còn lại cùng contract/catalog của ZIP; tăng riêng phiên bản ứng dụng lên 0.4.1/build 11. Contract, backend và catalog vẫn 0.3.0; không bỏ kiểm tra fingerprint.
+
+Các chức năng Apple: nhập/dán văn bản, consent từng lần, kết quả và evidence, URL offline, kiểm website qua sandbox sau consent riêng, OCR Vision, Action Extension và Safari Extension kiểm nội dung được người dùng chọn. Giữ backend cố định và provider key trên server.
+
+APK Android 0.4.1/build 11 có dịch vụ `ZaviNotificationListener` và các thành phần ghép hội thoại/kiểm tự động trong DEX. Đây chỉ là bằng chứng tĩnh về thành phần đóng gói, chưa xác nhận hành vi runtime. Không có mã nguồn gốc hoặc bằng chứng khôi phục đầy đủ các chức năng Android mới. iOS không triển khai đọc thông báo ứng dụng khác, giám sát hội thoại nền hoặc tự động gửi tin nhắn đó lên AI. `UNUserNotificationCenter` chỉ quản lý thông báo của chính ứng dụng: [Apple](https://developer.apple.com/documentation/UserNotifications/UNUserNotificationCenter).
+
+Build CI, ký bằng Apple ID, cài iPhone và kiểm chức năng trên thiết bị là các mốc riêng. Xem kết quả thực tế tại `qa/0.4.1/android11-ios11-2026-11-15/` trong workspace; không dùng QA cũ bên dưới để chứng nhận build 11. Cài IPA chưa ký bằng iLoader như lần trước, giữ cả hai extension và dùng cùng Apple ID/bundle ID để cập nhật. Các mục build 6/5/4 dưới đây chỉ là lịch sử.
+
 Build6 hiện hướng dẫn bật Safari ở lần mở app đầu và thêm yêu cầu quyền website trong popup. Tương thích iPhone17+; iOS18.5 vẫn bật extension bằng Safari do API mở cài đặt chỉ có từ26.2. Cờ đã xem không phải trạng thái quyền. Xem [luồng mới](../docs/engineering/IOS_SAFARI_QUICK_CHECK.md), bằng chứng `qa/0.3.0/activation/`. Các kết quả build5/4 dưới đây là lịch sử.
 
 Build5 bổ sung [kiểm tra nhanh khi tô đen trong Safari](../docs/engineering/IOS_SAFARI_QUICK_CHECK.md), popup kích hoạt và hướng dẫn trong app. Bật VNAnvia Safari và cấp quyền website trước khi dùng. Nút nằm trong trang; Safari iOS không có mục `contextMenus` như Chrome. Bằng chứng mới ở `qa/0.3.0/safari-quick/`; các báo cáo build4 bên dưới là lịch sử và không chứng nhận build5.

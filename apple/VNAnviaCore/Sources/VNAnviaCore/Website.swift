@@ -2,10 +2,10 @@ import Foundation
 
 public struct WebsiteRequest:Codable,Sendable {
  public let request_id:String,url:String,consent_version:String,schema_version:String
- public init(url:String){self.url=url;request_id=UUID().uuidString.lowercased();consent_version="website-2026-10-24.1";schema_version="website-1.1"}
+ public init(url:String){self.url=url;request_id=UUID().uuidString.lowercased();consent_version="website-2026-11-10.1";schema_version="website-1.1"}
  public func validate()throws {
   guard request_id.range(of:"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",options:.regularExpression) != nil,
-   consent_version=="website-2026-10-24.1",schema_version=="website-1.1",url.unicodeScalars.count<=2048,
+   consent_version=="website-2026-11-10.1",schema_version=="website-1.1",url.unicodeScalars.count<=2048,
    url.unicodeScalars.allSatisfy({(33...126).contains($0.value)}),!url.contains("\\"),
    let u=URLComponents(string:url),u.scheme=="https",u.host != nil,u.user==nil,u.password==nil,u.port==nil || u.port==443 else{throw VNError.invalidInput}
  }

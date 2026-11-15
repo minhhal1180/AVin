@@ -94,14 +94,17 @@ struct AnalysisScreen:View {
  @Environment(\.scenePhase) private var scenePhase
  var initial:String?=nil
  var close:(()->Void)?=nil
- let teal=Color(red:0.08,green:0.42,blue:0.38)
+ let teal=Color(red:0.03,green:0.46,blue:0.33)
  let labels=["LOW":"Chưa phát hiện dấu hiệu rõ ràng","MEDIUM":"Có dấu hiệu cần kiểm chứng","HIGH":"Có hành vi nguy cơ cao","INCONCLUSIVE":"Chưa đủ cơ sở đánh giá"]
  var body:some View {
   NavigationStack {
    ScrollView {VStack(alignment:.leading,spacing:24){
-    HStack(spacing:12){Image("BrandIcon").resizable().frame(width:40,height:40).clipShape(RoundedRectangle(cornerRadius:12)).accessibilityHidden(true);Text("VNAnvia").font(.headline)}
+    HStack(spacing:12){Image("BrandIcon").resizable().frame(width:40,height:40).clipShape(RoundedRectangle(cornerRadius:12)).accessibilityHidden(true);VStack(alignment:.leading,spacing:2){Text("zavi").font(.title.bold());Text("KIỂM CHỨNG CHỦ ĐỘNG").font(.caption2).foregroundStyle(.secondary)}}
     Text("Kiểm tra trước khi tin.").font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
-    Text("Chọn nội dung bạn muốn kiểm chứng.").foregroundStyle(.secondary)
+    Text("Tin nhắn, đường link hay ảnh?").foregroundStyle(.secondary)
+    HStack(spacing:8){ForEach(Array(["Nội dung","Xác nhận","Kết quả"].enumerated()),id:\.offset){index,title in
+     VStack(alignment:.leading,spacing:4){Text("0\(index+1)").font(.caption2.bold());Text(title).font(.caption.weight(.semibold))}.frame(maxWidth:.infinity,alignment:.leading).padding(12).background(index==0 ? teal.opacity(0.12):Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:14))
+    }.accessibilityLabel("Bước 1 trên 3: Nội dung")
     HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT"){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:false){model.beginImage()}}
     if close==nil{Button{editorFocused=false;showingSafariHelp=true}label:{Label("Kiểm tra nhanh trong Safari",systemImage:"safari")}.frame(minHeight:44)}
     if model.type=="TEXT" && model.capabilities?.real_content_enabled==false{
@@ -109,18 +112,19 @@ struct AnalysisScreen:View {
     }
     VStack(alignment:.leading,spacing:8){
      Text("Nội dung cần kiểm tra").font(.headline)
-     TextEditor(text:$model.draft).focused($editorFocused).frame(minHeight:180).padding(8).background(.background,in:RoundedRectangle(cornerRadius:12)).overlay(RoundedRectangle(cornerRadius:12).stroke(.secondary)).accessibilityLabel("Nội dung cần kiểm tra")
+     TextEditor(text:$model.draft).focused($editorFocused).frame(minHeight:160).padding(12).scrollContentBackground(.hidden).background(Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:20)).overlay(RoundedRectangle(cornerRadius:20).stroke(teal.opacity(0.5))).accessibilityLabel("Nội dung cần kiểm tra")
      Text("\(model.draft.unicodeScalars.count) / \(model.type == "TEXT" ? 4000:2048) ký tự").font(.caption).foregroundStyle(.secondary)
     }
     Text("OCR cục bộ · Chỉ gửi văn bản sau đồng ý.").font(.footnote).foregroundStyle(.secondary)
-    Button("Kiểm tra nội dung"){editorFocused=false;model.start()}.buttonStyle(.borderedProminent).frame(maxWidth:.infinity,minHeight:48).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT"))
+
     if model.type=="URL" && !model.busy{WebsiteCard(url:model.draft,ready:model.capabilities != nil).id(model.draft+String(model.capabilities?.token_expires_at ?? 0))}
     if model.busy{ProgressView("Đang xử lý…");Button("Hủy"){model.invalidate()}.frame(minHeight:44)}
     if !model.message.isEmpty{Text(model.message).foregroundStyle(.secondary).accessibilityLabel("Thông báo: "+model.message)}
     if model.result != nil || model.local != nil{Button("Xem kết quả"){model.showingOutcome=true}.frame(minHeight:44)}
     DisclosureGroup("Quyền riêng tư & giới hạn"){Text("LOW không chứng nhận an toàn. HIGH không xác nhận tội phạm. Không lưu lịch sử hoặc bản nháp. Ảnh OCR không gửi tới backend.").font(.footnote).foregroundStyle(.secondary)}
-   }.padding(24)}.scrollDismissesKeyboard(.interactively)
-   .navigationTitle("VNAnvia").navigationBarTitleDisplayMode(.inline)
+   }.padding(20)}.background(Color(.systemGroupedBackground)).scrollDismissesKeyboard(.interactively)
+   .safeAreaInset(edge:.bottom){Button{editorFocused=false;model.start()}label:{HStack{Text(model.busy ? "Đang xử lý…":"Kiểm tra nội dung");Spacer();Image(systemName:"arrow.right")}.font(.headline).frame(maxWidth:.infinity,minHeight:48)}.buttonStyle(.borderedProminent).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT")).padding(.horizontal,20).padding(.vertical,8).background(.regularMaterial)}
+   .navigationTitle("zavi").navigationBarTitleDisplayMode(.inline)
    .toolbar{ToolbarItem(placement:.topBarTrailing){Button("Dịch vụ"){editorFocused=false;model.settings=true}};ToolbarItemGroup(placement:.keyboard){Spacer();Button("Xong"){editorFocused=false}};if let close=close{ToolbarItem(placement:.topBarLeading){Button("Đóng"){model.invalidate();close()}}}}
    .navigationDestination(isPresented:$model.showingOutcome){outcome}
    .confirmationDialog("Thay nội dung hiện tại bằng mẫu thử?",isPresented:$confirmDemo,titleVisibility:.visible){Button("Dùng mẫu OTP"){model.useDemo()};Button("Giữ nội dung",role:.cancel){}}
@@ -135,8 +139,8 @@ struct AnalysisScreen:View {
     Button("Dùng văn bản này"){let text=model.review ?? "";model.draft=text;model.type="TEXT";model.review=nil}.buttonStyle(.borderedProminent).frame(minHeight:44)
    }.padding(24).navigationTitle("Xem và sửa chữ").toolbar{Button("Hủy"){model.review=nil}}}}
    .onAppear{model.restore();if let initial=initial,model.draft.isEmpty{model.draft=initial}}
-   .overlay{if scenePhase != .active{Color(.systemBackground).overlay(Text("VNAnvia").font(.title))}}
-  }.tint(teal).privacySensitive()
+   .overlay{if scenePhase != .active{Color(.systemBackground).overlay(Text("zavi").font(.title))}}
+  }.tint(teal).groupBoxStyle(ZaviGroupBoxStyle()).privacySensitive()
  }
  func requestDemo(){editorFocused=false;if Contract.trim(model.draft).isEmpty{model.useDemo()}else{confirmDemo=true}}
  var outcome:some View{ScrollView{VStack(alignment:.leading,spacing:24){
@@ -153,9 +157,10 @@ struct AnalysisScreen:View {
  struct ConsentItem:Identifiable {let request:AnalysisRequest;var id:String{request.request_id}}
  func consent(_ request:AnalysisRequest)->some View{
   NavigationStack{ScrollView{VStack(alignment:.leading,spacing:20){
-   Text("Văn bản qua HTTPS edge Cloudflare và VPS VNAnvia. Backend ưu tiên Gemini (Google), dự phòng Groq khi hết quota hoặc dịch vụ tạm lỗi. Cùng văn bản đã xác nhận có thể gửi tới cả hai. Ảnh OCR gốc không được gửi.")
+   Label("Văn bản bạn xác nhận",systemImage:"checkmark.shield").font(.headline)
+   if model.capabilities?.real_content_enabled==true{Text("Văn bản được gửi tới Groq qua backend dự án. Không gửi sang Gemini Free Tier. Xóa mật khẩu, mã OTP thật và thông tin riêng tư không cần thiết trước khi gửi. Ảnh OCR gốc không được gửi.")}else{Text("Văn bản qua HTTPS edge Cloudflare và VPS zavi. Backend ưu tiên Gemini (Google), dự phòng Groq khi hết quota hoặc dịch vụ tạm lỗi. Cùng văn bản đã xác nhận có thể gửi tới cả hai. Ảnh OCR gốc không được gửi.")}
    Text(request.content).padding().background(.quaternary,in:RoundedRectangle(cornerRadius:12)).textSelection(.enabled)
-   Text("Chỉ dùng dữ liệu mô phỏng. Google Free Tier có thể dùng dữ liệu để cải thiện sản phẩm và cho người rà soát; không gửi dữ liệu cá nhân, bí mật hoặc nhạy cảm. Hủy không thu hồi dữ liệu đã gửi. Chính sách "+Contract.privacy).font(.footnote)
+   Text((model.capabilities?.real_content_enabled==true ? "Ứng dụng không lưu lịch sử hay ghi văn bản vào log. Groq có thể lưu nội dung để xử lý sự cố hoặc chống lạm dụng; chưa xác minh ZDR cho tài khoản triển khai. Hủy không thu hồi dữ liệu đã gửi.":"Chỉ dùng dữ liệu mô phỏng. Google Free Tier có thể dùng dữ liệu để cải thiện sản phẩm và cho người rà soát; không gửi dữ liệu cá nhân, bí mật hoặc nhạy cảm. Hủy không thu hồi dữ liệu đã gửi.")+" Chính sách "+Contract.privacy).font(.footnote)
    Button("Đồng ý gửi lần này"){model.submit(request)}.buttonStyle(.borderedProminent).frame(minHeight:44)
    Button("Từ chối"){model.consent=nil}.frame(minHeight:44)
   }.padding(24)}.navigationTitle("Xem lại trước khi gửi").toolbar{Button("Đóng"){model.consent=nil}}}
@@ -167,17 +172,28 @@ struct AnalysisScreen:View {
    Button("Kết thúc phiên",role:.destructive){model.forget()}
    Text(model.message)
   }
-  Section("Quyền riêng tư"){Text("Khóa Gemini và Groq chỉ trên máy chủ. Ưu tiên Gemini, dự phòng Groq khi hết quota hoặc dịch vụ tạm lỗi. Chỉ dùng dữ liệu mô phỏng; Google Free Tier có thể dùng dữ liệu để cải thiện sản phẩm và cho người rà soát. Mỗi target giữ phiên riêng; ảnh, draft và kết quả không lưu. Chính sách "+Contract.privacy)}
+  Section("Quyền riêng tư"){Text((model.capabilities?.real_content_enabled==true ? "Văn bản tùy ý chỉ gửi tới Groq, không sang Gemini Free Tier. Khóa ở máy chủ. Groq có thể lưu nội dung khi xử lý sự cố/chống lạm dụng; chưa xác minh ZDR. Xóa mật khẩu, OTP thật và thông tin riêng tư không cần thiết trước khi gửi.":"Khóa Gemini và Groq chỉ trên máy chủ. Ưu tiên Gemini, dự phòng Groq khi hết quota hoặc dịch vụ tạm lỗi. Chỉ dùng dữ liệu mô phỏng; Google Free Tier có thể dùng dữ liệu để cải thiện sản phẩm và cho người rà soát.")+" Mỗi target giữ phiên riêng; ảnh, draft và kết quả không lưu. Chính sách "+Contract.privacy)}
  }.navigationTitle("Dịch vụ").toolbar{Button("Xong"){model.settings=false}}}}
  func resultView(_ r:AnalysisResponse)->some View{VStack(alignment:.leading,spacing:16){
-  Text(labels[r.assessment ?? ""] ?? "Chưa đánh giá").font(.title2.bold()).accessibilityAddTraits(.isHeader)
+  let warning=r.assessment=="HIGH" || r.assessment=="MEDIUM"
+  GroupBox{VStack(alignment:.leading,spacing:12){Label(labels[r.assessment ?? ""] ?? "Chưa đánh giá",systemImage:warning ? "exclamationmark.shield.fill":"shield.lefthalf.filled").font(.title2.bold()).accessibilityAddTraits(.isHeader);Text("\(r.signals.count) dấu hiệu được ghi nhận").font(.subheadline);Text("Không chứng nhận an toàn hay xác nhận tội phạm.").font(.footnote).foregroundStyle(.secondary)}}
+  Text("Dấu hiệu và bằng chứng").font(.headline)
   let characterNotes=r.limitations.filter{$0.hasPrefix("Ký tự dễ nhầm") || $0.hasPrefix("Tên miền Unicode:") || $0.hasPrefix("Tên miền ASCII thực tế:") || $0.hasPrefix("Gần giống domain tham chiếu:")}
   if !characterNotes.isEmpty{GroupBox("Kiểm tra ký tự tên miền"){VStack(alignment:.leading){ForEach(characterNotes,id:\.self){Text($0).font(.footnote)}}}}
-  ForEach(r.signals,id:\.type){s in VStack(alignment:.leading,spacing:8){Text(s.explanation).font(.headline);Text("“"+s.evidence_text+"”").padding().background(.quaternary,in:RoundedRectangle(cornerRadius:12))}}
+  ForEach(r.signals,id:\.type){s in GroupBox{VStack(alignment:.leading,spacing:12){Text(s.explanation).font(.headline);Text("“"+s.evidence_text+"”").textSelection(.enabled).padding().frame(maxWidth:.infinity,alignment:.leading).background(teal.opacity(0.08),in:RoundedRectangle(cornerRadius:12))}}}
   Text("Bước tiếp theo").font(.headline)
   let guidance=(try? Contract.object("rules")["guidance"] as? [String:String]) ?? [:]
   ForEach(r.recommendation_codes,id:\.self){Text(guidance[$0] ?? $0)}
-  ForEach(r.limitations.filter{!characterNotes.contains($0)},id:\.self){Text($0).font(.footnote).foregroundStyle(.secondary)}
+  DisclosureGroup("Giới hạn của kết quả"){ForEach(r.limitations.filter{!characterNotes.contains($0)},id:\.self){Text($0).font(.footnote).foregroundStyle(.secondary)}}
  }}
 }
 
+
+struct ZaviGroupBoxStyle:GroupBoxStyle {
+ func makeBody(configuration:Configuration)->some View {
+  VStack(alignment:.leading,spacing:12){configuration.label.font(.headline);configuration.content}
+   .frame(maxWidth:.infinity,alignment:.leading).padding(20)
+   .background(Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:24))
+   .overlay(RoundedRectangle(cornerRadius:24).stroke(Color.primary.opacity(0.08)))
+ }
+}

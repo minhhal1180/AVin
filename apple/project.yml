@@ -5,8 +5,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.0"
-    MARKETING_VERSION: "0.3.0"
-    CURRENT_PROJECT_VERSION: 6
+    MARKETING_VERSION: "0.4.1"
+    CURRENT_PROJECT_VERSION: 11
     CODE_SIGN_STYLE: Automatic
 packages:
   VNAnviaCore:
@@ -19,7 +19,7 @@ targets:
     info:
       path: VNAnviaApp/Info.plist
       properties:
-        CFBundleDisplayName: VNAnvia
+        CFBundleDisplayName: zavi
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
@@ -42,7 +42,7 @@ targets:
     info:
       path: ActionExtension/Info.plist
       properties:
-        CFBundleDisplayName: Kiểm tra bằng VNAnvia
+        CFBundleDisplayName: Kiểm tra bằng zavi
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
@@ -93,7 +93,7 @@ targets:
     info:
       path: SafariWebExtension/Info.plist
       properties:
-        CFBundleDisplayName: VNAnvia Safari
+        CFBundleDisplayName: zavi Safari
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:

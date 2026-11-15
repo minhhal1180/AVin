@@ -1,12 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "VNAnvia",
-  "version": "0.3.0",
-  "description": "Kiểm tra nội dung được chọn, sau thao tác của bạn.",
+  "name": "zavi",
+  "version": "0.3.2",
+  "description": "Kiểm tra nội dung được chọn và rà định kỳ email/tệp văn bản sau khi bạn cấp quyền.",
   "permissions": [
     "activeTab",
     "scripting",
     "nativeMessaging"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
   ],
   "background": {
     "scripts": [
@@ -16,7 +20,7 @@
     "persistent": false
   },
   "action": {
-    "default_title": "VNAnvia — kiểm tra phần tô đen",
+    "default_title": "zavi — kiểm tra phần tô đen",
     "default_icon": {
       "16": "icons/icon-16.png",
       "32": "icons/icon-32.png",
@@ -33,10 +37,6 @@
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-  "optional_host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
   "content_scripts": [
     {
       "matches": [

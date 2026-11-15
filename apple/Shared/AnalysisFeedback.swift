@@ -4,7 +4,7 @@ enum AnalysisFeedback {
  static let demoText="Tôi cần xác minh tài khoản. Hãy đọc mã OTP vừa nhận cho tôi qua điện thoại."
  static func message(_ code:String)->String {
   switch code {
-  case "CONSENT_REQUIRED":return "Server hiện chỉ nhận mẫu mô phỏng đã duyệt. Văn bản này chưa được gửi tới AI. Chọn Dùng mẫu OTP để thử; bạn vẫn cần xác nhận trước khi gửi."
+  case "CONSENT_REQUIRED":return "Máy chủ chưa cho phép nội dung này hoặc cần xác nhận theo chính sách mới. Văn bản chưa được gửi tới AI. Kết nối lại và xem thông báo trước khi gửi."
   case "RATE_LIMITED":return "Đã đạt giới hạn lượt phân tích. Hãy chờ rồi thử lại."
   case "UNAUTHORIZED":return "Phiên kết nối đã hết hạn hoặc không còn hợp lệ. Vào Dịch vụ để kết nối lại."
   case "ANALYSIS_TIMEOUT":return "Phân tích quá thời gian chờ. Nội dung vẫn còn; bạn có thể thử lại."

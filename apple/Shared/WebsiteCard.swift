@@ -34,8 +34,8 @@ struct WebsiteCard:View {
   .sheet(isPresented:$consent){NavigationStack{ScrollView{VStack(alignment:.leading,spacing:20){
    Text(request?.url ?? "").textSelection(.enabled)
    Text("Sandbox sẽ liên hệ website và tải tài nguyên; có thể kích hoạt link theo dõi. Xóa mã riêng tư trong URL trước khi gửi.")
-   Text("Backend ưu tiên Gemini (Google), dự phòng Groq khi hết quota hoặc dịch vụ tạm lỗi. Cùng ảnh chụp, nội dung, HTML đã làm sạch, JavaScript và tóm tắt đích request có thể gửi tới cả hai.")
-   Text("Chỉ dùng trang mô phỏng. Google Free Tier có thể dùng dữ liệu để cải thiện sản phẩm và cho người rà soát; không gửi dữ liệu cá nhân, bí mật hoặc nhạy cảm. Không đăng nhập, gửi biểu mẫu hay lưu lịch sử. Hủy không thu hồi dữ liệu đã gửi. Chính sách website-2026-10-24.1.")
+   Text("Website thật chỉ gửi ảnh chụp, chữ, HTML đã làm sạch, JavaScript và tóm tắt request tới Groq; không chuyển sang Gemini Free Tier.")
+   Text("Chỉ dùng URL công khai bạn có quyền kiểm tra. Groq có thể giữ dữ liệu để xử lý sự cố/chống lạm dụng; chưa xác minh ZDR. Không đăng nhập, gửi biểu mẫu hay lưu lịch sử. Hủy không thu hồi dữ liệu đã gửi. Chính sách website-2026-11-10.1.")
    Button("Đồng ý mở và phân tích"){submit()}.buttonStyle(.borderedProminent)
    Button("Từ chối"){consent=false;request=nil}
   }.padding()}.navigationTitle("Cho phép mở website?").toolbar{Button("Đóng"){consent=false;request=nil}}}}

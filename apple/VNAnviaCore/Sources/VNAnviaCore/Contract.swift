@@ -2,7 +2,7 @@ import Foundation
 
 public enum VNError: String, Error { case invalidInput="INVALID_INPUT", invalidResponse="AI_RESPONSE_INVALID", unauthorized="UNAUTHORIZED", unavailable="ANALYSIS_UNAVAILABLE", incompatible="INCOMPATIBLE_BACKEND", unsupportedURL="UNSUPPORTED_URL", timeout="ANALYSIS_TIMEOUT" }
 public enum Contract {
- public static let version="0.3.0", privacy="2026-10-24.1", prompt="vi-context-1.3", engine="hybrid-gemini-groq-1.0"
+ public static let version="0.3.0", privacy="2026-11-09.1", prompt="vi-context-1.3", engine="hybrid-gemini-groq-1.0"
  public static func data(_ name:String) throws -> Data { try Data(contentsOf: Bundle.module.url(forResource:name,withExtension:"json")!) }
  public static func object(_ name:String) throws -> [String:Any] { try JSONSerialization.jsonObject(with:data(name)) as! [String:Any] }
  public static func trim(_ value:String)->String {

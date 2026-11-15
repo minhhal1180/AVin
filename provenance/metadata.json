@@ -4,7 +4,7 @@
   "engine_version": "hybrid-gemini-groq-1.0",
   "rule_version": "0.3.0",
   "prompt_version": "vi-context-1.3",
-  "privacy_ack_version": "2026-10-24.1",
+  "privacy_ack_version": "2026-11-09.1",
   "url_engine_version": "url-local-1.2",
-  "contract_fingerprint": "6b2265352de50eb4d25451ea41d8f17a54b2700c6876dd19f603b18c747c99f1"
+  "contract_fingerprint": "256ae0eefb8f93cad400dc5037cf40389d50e0b87c6a2ad4ea73e7a7f74894fd"
 }
