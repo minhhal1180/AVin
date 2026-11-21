@@ -106,7 +106,15 @@ enum ImageImport {
 struct ImagePicker:UIViewControllerRepresentable {
  let selected:(NSItemProvider?)->Void
  func makeCoordinator()->Coordinator{Coordinator(selected:selected)}
- func makeUIViewController(context:Context)->PHPickerViewController{var c=PHPickerConfiguration();c.selectionLimit=1;c.filter = .images;let p=PHPickerViewController(configuration:c);p.delegate=context.coordinator;return p}
+ func makeUIViewController(context:Context)->PHPickerViewController{
+  var configuration=PHPickerConfiguration()
+  configuration.selectionLimit=1
+  configuration.filter = .images
+  configuration.preferredAssetRepresentationMode = .compatible
+  let picker=PHPickerViewController(configuration:configuration)
+  picker.delegate=context.coordinator
+  return picker
+ }
  func updateUIViewController(_ uiViewController:PHPickerViewController,context:Context){}
  final class Coordinator:NSObject,PHPickerViewControllerDelegate {
   let selected:(NSItemProvider?)->Void

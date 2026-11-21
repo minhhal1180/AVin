@@ -3,8 +3,8 @@ import UniformTypeIdentifiers
 import VNAnviaCore
 
 @MainActor final class AnalysisModel:ObservableObject {
- @Published var draft="" {didSet{invalidate()}}
- @Published var type="TEXT" {didSet{invalidate()}}
+ @Published var draft="" {didSet{if draft.isEmpty{imageSource=nil};invalidate()}}
+ @Published var type="TEXT" {didSet{imageSource=nil;invalidate()}}
  @Published var token=""
  @Published var remember=false
  @Published var capabilities:Capabilities?
@@ -13,7 +13,9 @@ import VNAnviaCore
  @Published var picker=false
  @Published var busy=false
  @Published var consent:AnalysisRequest?
- @Published var review:String?
+ @Published private(set) var imageSource:UUID?
+ @Published private(set) var readingImage=false
+ @Published var imageError:String?
  @Published var result:AnalysisResponse?
  @Published var local:LocalURLResult?
  @Published var showingOutcome=false
@@ -24,6 +26,7 @@ import VNAnviaCore
  private var task:Task<Void,Never>?
  private var expiryTask:Task<Void,Never>?
  private var importOperation:ImportOperation?
+ private var selectedImage:NSItemProvider?
  private var pickerGeneration=0
  private var restored=false
  init(analyze:@escaping(AnalysisRequest)async throws->AnalysisResponse = {try await NativeAccess.shared.analyze($0)}){self.analyze=analyze}
@@ -34,7 +37,12 @@ import VNAnviaCore
    await connected(c,generation:g)
   }catch{guard g==connectionGeneration else{return};connecting=false;message="Dịch vụ chưa sẵn sàng. URL và OCR vẫn dùng được trên thiết bị."}}
  }
- func invalidate(){generation+=1;task?.cancel();task=nil;importOperation?.cancel();importOperation=nil;consent=nil;review=nil;result=nil;local=nil;failureCode=nil;showingOutcome=false;message="";busy=false}
+ func invalidate(){generation+=1;task?.cancel();task=nil;importOperation?.cancel();importOperation=nil;selectedImage=nil;consent=nil;imageError=nil;readingImage=false;result=nil;local=nil;failureCode=nil;showingOutcome=false;message="";busy=false}
+ var primaryActionTitle:String {
+  if readingImage{return "Đang đọc ảnh…"}
+  if busy{return "Đang xử lý…"}
+  return imageSource == nil ? "Kiểm tra nội dung":"Kiểm tra văn bản"
+ }
  func forget(){invalidate();connectionGeneration+=1;expiryTask?.cancel();expiryTask=nil;connecting=false;capabilities=nil;token="";remember=false;Task{await NativeAccess.shared.forget()}}
  func connect(){
   invalidate();connectionGeneration+=1;expiryTask?.cancel();let g=connectionGeneration;let r=remember;connecting=true;capabilities=nil
@@ -73,15 +81,25 @@ import VNAnviaCore
  }
  private func showFailure(_ code:String){failureCode=code;message=AnalysisFeedback.message(code);showingOutcome=true}
  func useDemo(){type="TEXT";draft=AnalysisFeedback.demoText}
+ func useImageText(_ text:String){
+  type="TEXT"
+  draft=text
+  imageSource=UUID()
+ }
  func receive(_ value:Result<String,Error>,generation:Int){
-  guard generation==self.generation else{return};importOperation=nil;busy=false
-  switch value{case .success(let text):review=text;case .failure(let e):message=e.localizedDescription}
+  guard generation==self.generation else{return};importOperation=nil;readingImage=false;busy=false
+  switch value{case .success(let text):useImageText(text);case .failure(let e):imageError=e.localizedDescription}
  }
  func beginImage(){invalidate();pickerGeneration=generation;picker=true;message=""}
  func selectImage(_ provider:NSItemProvider?){
+  guard pickerGeneration==generation,picker else{return}
+  selectedImage=provider
   picker=false
-  guard pickerGeneration==generation,let provider=provider else{return}
-  let g=generation;busy=true
+ }
+ func importSelectedImage(){
+  defer{selectedImage=nil}
+  guard pickerGeneration==generation,let provider=selectedImage else{return}
+  let g=generation;busy=true;readingImage=true
   importOperation=ImageImport.provider(provider){[weak self] value in self?.receive(value,generation:g)}
  }
  deinit{expiryTask?.cancel();task?.cancel();importOperation?.cancel()}
@@ -98,6 +116,7 @@ struct AnalysisScreen:View {
  let labels=["LOW":"Chưa phát hiện dấu hiệu rõ ràng","MEDIUM":"Có dấu hiệu cần kiểm chứng","HIGH":"Có hành vi nguy cơ cao","INCONCLUSIVE":"Chưa đủ cơ sở đánh giá"]
  var body:some View {
   NavigationStack {
+   ScrollViewReader { scroll in
    ScrollView {VStack(alignment:.leading,spacing:24){
     HStack(spacing:12){Image("BrandIcon").resizable().frame(width:40,height:40).clipShape(RoundedRectangle(cornerRadius:12)).accessibilityHidden(true);VStack(alignment:.leading,spacing:2){Text("zavi").font(.title.bold());Text("KIỂM CHỨNG CHỦ ĐỘNG").font(.caption2).foregroundStyle(.secondary)}}
     Text("Kiểm tra trước khi tin.").font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
@@ -105,16 +124,17 @@ struct AnalysisScreen:View {
     HStack(spacing:8){ForEach(Array(["Nội dung","Xác nhận","Kết quả"].enumerated()),id:\.offset){index,title in
      VStack(alignment:.leading,spacing:4){Text("0\(index+1)").font(.caption2.bold());Text(title).font(.caption.weight(.semibold))}.frame(maxWidth:.infinity,alignment:.leading).padding(12).background(index==0 ? teal.opacity(0.12):Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:14))
      }}.accessibilityLabel("Bước 1 trên 3: Nội dung")
-    HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT"){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:false){model.beginImage()}}
+    HStack(spacing:12){sourceTile("Văn bản",symbol:"text.alignleft",selected:model.type=="TEXT" && model.imageSource==nil){model.type="TEXT"};sourceTile("URL",symbol:"link",selected:model.type=="URL"){model.type="URL"};sourceTile("Ảnh",symbol:"photo",selected:model.readingImage || model.imageSource != nil){editorFocused=false;model.beginImage()}}
     if close==nil{Button{editorFocused=false;showingSafariHelp=true}label:{Label("Kiểm tra nhanh trong Safari",systemImage:"safari")}.frame(minHeight:44)}
     if model.type=="TEXT" && model.capabilities?.real_content_enabled==false{
      GroupBox{VStack(alignment:.leading,spacing:12){Label("Chế độ thử nghiệm",systemImage:"testtube.2").font(.headline);Text("Chỉ nhận mẫu mô phỏng đã duyệt.").font(.subheadline).foregroundStyle(.secondary);Button("Dùng mẫu OTP",action:requestDemo).frame(minHeight:44)}}
     }
     VStack(alignment:.leading,spacing:8){
-     Text("Nội dung cần kiểm tra").font(.headline)
-     TextEditor(text:$model.draft).focused($editorFocused).frame(minHeight:160).padding(12).scrollContentBackground(.hidden).background(Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:20)).overlay(RoundedRectangle(cornerRadius:20).stroke(teal.opacity(0.5))).accessibilityLabel("Nội dung cần kiểm tra")
+     Text(model.imageSource==nil ? "Nội dung cần kiểm tra":"Chữ đọc từ ảnh").font(.headline)
+     if model.imageSource != nil{Text("Bạn có thể sửa chữ trước khi kiểm tra.").font(.footnote).foregroundStyle(.secondary)}
+     TextEditor(text:$model.draft).focused($editorFocused).frame(minHeight:160).padding(12).scrollContentBackground(.hidden).background(Color(.secondarySystemGroupedBackground),in:RoundedRectangle(cornerRadius:20)).overlay(RoundedRectangle(cornerRadius:20).stroke(teal.opacity(0.5))).accessibilityLabel(model.imageSource==nil ? "Nội dung cần kiểm tra":"Chữ đọc từ ảnh")
      Text("\(model.draft.unicodeScalars.count) / \(model.type == "TEXT" ? 4000:2048) ký tự").font(.caption).foregroundStyle(.secondary)
-    }
+    }.id("analysis-input")
     Text("OCR cục bộ · Chỉ gửi văn bản sau đồng ý.").font(.footnote).foregroundStyle(.secondary)
 
     if model.type=="URL" && !model.busy{WebsiteCard(url:model.draft,ready:model.capabilities != nil).id(model.draft+String(model.capabilities?.token_expires_at ?? 0))}
@@ -123,7 +143,11 @@ struct AnalysisScreen:View {
     if model.result != nil || model.local != nil{Button("Xem kết quả"){model.showingOutcome=true}.frame(minHeight:44)}
     DisclosureGroup("Quyền riêng tư & giới hạn"){Text("LOW không chứng nhận an toàn. HIGH không xác nhận tội phạm. Không lưu lịch sử hoặc bản nháp. Ảnh OCR không gửi tới backend.").font(.footnote).foregroundStyle(.secondary)}
    }.padding(20)}.background(Color(.systemGroupedBackground)).scrollDismissesKeyboard(.interactively)
-   .safeAreaInset(edge:.bottom){Button{editorFocused=false;model.start()}label:{HStack{Text(model.busy ? "Đang xử lý…":"Kiểm tra nội dung");Spacer();Image(systemName:"arrow.right")}.font(.headline).frame(maxWidth:.infinity,minHeight:48)}.buttonStyle(.borderedProminent).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT")).padding(.horizontal,20).padding(.vertical,8).background(.regularMaterial)}
+    .onChange(of:model.imageSource,initial:true){_,source in
+     if source != nil{scroll.scrollTo("analysis-input",anchor:.top)}
+    }
+   }
+    .safeAreaInset(edge:.bottom){Button{editorFocused=false;model.start()}label:{HStack{Text(model.primaryActionTitle);Spacer();Image(systemName:"arrow.right")}.font(.headline).frame(maxWidth:.infinity,minHeight:48)}.buttonStyle(.borderedProminent).disabled(model.draft.isEmpty||model.busy||(model.connecting && model.type=="TEXT")).padding(.horizontal,20).padding(.vertical,8).background(.regularMaterial)}
    .navigationTitle("zavi").navigationBarTitleDisplayMode(.inline)
    .toolbar{ToolbarItem(placement:.topBarTrailing){Button("Dịch vụ"){editorFocused=false;model.settings=true}};ToolbarItemGroup(placement:.keyboard){Spacer();Button("Xong"){editorFocused=false}};if let close=close{ToolbarItem(placement:.topBarLeading){Button("Đóng"){model.invalidate();close()}}}}
    .navigationDestination(isPresented:$model.showingOutcome){outcome}
@@ -131,13 +155,11 @@ struct AnalysisScreen:View {
    .onChange(of:model.showingOutcome){_,shown in if shown{editorFocused=false}}
    .sheet(isPresented:$model.settings){connection}
    .sheet(isPresented:$showingSafariHelp){SafariHelp()}
-   .sheet(isPresented:$model.picker){ImagePicker(selected:model.selectImage)}
+    .sheet(isPresented:$model.picker,onDismiss:model.importSelectedImage){ImagePicker(selected:model.selectImage)}
    .sheet(item:Binding(get:{model.consent.map{ConsentItem(request:$0)}},set:{if $0==nil{model.consent=nil}})){item in consent(item.request)}
-   .sheet(isPresented:Binding(get:{model.review != nil},set:{if !$0{model.review=nil}})){NavigationStack{VStack(alignment:.leading,spacing:16){
-    Text("OCR có thể nhận sai. Bằng chứng chỉ đối chiếu với chữ bạn xác nhận.").font(.footnote)
-    TextEditor(text:Binding(get:{model.review ?? ""},set:{model.review=$0})).accessibilityLabel("Sửa chữ nhận được")
-    Button("Dùng văn bản này"){let text=model.review ?? "";model.draft=text;model.type="TEXT";model.review=nil}.buttonStyle(.borderedProminent).frame(minHeight:44)
-   }.padding(24).navigationTitle("Xem và sửa chữ").toolbar{Button("Hủy"){model.review=nil}}}}
+    .alert("Chưa đọc được ảnh",isPresented:Binding(get:{model.imageError != nil},set:{if !$0{model.imageError=nil}})){
+     Button("Đóng",role:.cancel){model.imageError=nil}
+    }message:{Text(model.imageError ?? "")}
    .onAppear{model.restore();if let initial=initial,model.draft.isEmpty{model.draft=initial}}
    .overlay{if scenePhase != .active{Color(.systemBackground).overlay(Text("zavi").font(.title))}}
   }.tint(teal).groupBoxStyle(ZaviGroupBoxStyle()).privacySensitive()

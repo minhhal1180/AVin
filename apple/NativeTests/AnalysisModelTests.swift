@@ -63,6 +63,50 @@ import VNAnviaCore
   XCTAssertEqual(model.type,"TEXT");XCTAssertEqual(model.draft,AnalysisFeedback.demoText)
   XCTAssertNil(model.consent);XCTAssertEqual(calls,0);XCTAssertFalse(model.showingOutcome)
  }
+ func testImageTextIsEditableAndOnlySubmitsAfterCurrentConsent()async throws {
+  var submitted:[AnalysisRequest]=[]
+  let model=AnalysisModel(analyze:{request in
+   submitted.append(request)
+   return try self.response(request)
+  })
+  let capabilities:[String:Any]=[
+   "api_version":"1","schema_version":"1.0","engine_version":Contract.engine,
+   "rule_version":Contract.version,"prompt_version":Contract.prompt,"privacy_ack_version":Contract.privacy,
+   "contract_fingerprint":try XCTUnwrap(Contract.object("metadata")["contract_fingerprint"] as? String),
+   "limits":["text_codepoints":4000,"url_codepoints":2048,"client_deadline_ms":15000,"backend_deadline_ms":12000],
+   "server_time":1000,"token_expires_at":4600,"real_content_enabled":true,"deployment_profile":"lab-vps"
+  ]
+  model.capabilities=try JSONDecoder().decode(Capabilities.self,from:JSONSerialization.data(withJSONObject:capabilities))
+  model.type="URL"
+  model.useImageText("Chữ đọc từ ảnh")
+  XCTAssertEqual(model.type,"TEXT")
+  XCTAssertEqual(model.draft,"Chữ đọc từ ảnh")
+  XCTAssertEqual(model.primaryActionTitle,"Kiểm tra văn bản")
+  XCTAssertNil(model.consent)
+  model.start()
+  let old=try XCTUnwrap(model.consent)
+  model.draft="Chữ đã sửa"
+  XCTAssertEqual(model.primaryActionTitle,"Kiểm tra văn bản")
+  XCTAssertNil(model.submit(old))
+  model.start()
+  let request=try XCTUnwrap(model.consent)
+  XCTAssertEqual(request.content,"Chữ đã sửa")
+  XCTAssertTrue(submitted.isEmpty)
+  await model.submit(request)?.value
+  XCTAssertEqual(submitted.map(\.content),["Chữ đã sửa"])
+ }
+ func testCancelledPickerAndStaleOCRPreserveExistingDraft() {
+  let model=AnalysisModel()
+  model.draft="Bản nháp trước đó"
+  model.beginImage()
+  model.selectImage(nil)
+  model.importSelectedImage()
+  model.receive(.success("Chữ từ lượt cũ"),generation:0)
+  XCTAssertEqual(model.draft,"Bản nháp trước đó")
+  XCTAssertNil(model.imageSource)
+  XCTAssertFalse(model.readingImage)
+  XCTAssertFalse(model.busy)
+ }
  func testLocalURLResultOpensWithoutCloudConnection() {
   var calls=0
   let model=AnalysisModel(analyze:{_ in calls+=1;throw VNError.unavailable})

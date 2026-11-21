@@ -15,7 +15,7 @@ final class ActionViewController:UIViewController {
   let cancel=UIButton(type:.system);cancel.setTitle("Hủy",for:.normal);cancel.frame=CGRect(x:24,y:view.bounds.height-100,width:view.bounds.width-48,height:48);cancel.autoresizingMask=[.flexibleWidth,.flexibleTopMargin];cancel.addTarget(self,action:#selector(cancelImport),for:.touchUpInside);view.addSubview(cancel)
   if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier){
    operation=ImageImport.provider(provider){[weak self] value in guard let self=self,self.generation==g else{return};self.operation=nil
-    switch value{case .success(let text):self.show(text,review:true);case .failure(let e):self.showError(e.localizedDescription)}
+    switch value{case .success(let text):self.show(text,fromImage:true);case .failure(let e):self.showError(e.localizedDescription)}
    }
   }else{
    let isURL=provider.hasItemConformingToTypeIdentifier(UTType.url.identifier)
@@ -44,9 +44,9 @@ final class ActionViewController:UIViewController {
  @objc private func cancelImport(){generation+=1;operation?.cancel();operation=nil;analysisModel?.invalidate();extensionContext?.completeRequest(returningItems:nil)}
  override func viewDidDisappear(_ animated:Bool){super.viewDidDisappear(animated);if isBeingDismissed{generation+=1;operation?.cancel();operation=nil;analysisModel?.invalidate()}}
  deinit{operation?.cancel()}
- private func show(_ text:String,review:Bool=false){
+ private func show(_ text:String,fromImage:Bool=false){
   let model=AnalysisModel();analysisModel=model
-  if review{model.review=text}else{model.draft=text;model.type=["http","https"].contains(URL(string:text)?.scheme?.lowercased() ?? "") ? "URL":"TEXT"}
+  if fromImage{model.useImageText(text)}else{model.draft=text;model.type=["http","https"].contains(URL(string:text)?.scheme?.lowercased() ?? "") ? "URL":"TEXT"}
   let host=UIHostingController(rootView:AnalysisScreen(model:model,close:{[weak self] in self?.cancelImport()}))
   addChild(host);view.addSubview(host.view);host.view.frame=view.bounds;host.view.autoresizingMask=[.flexibleWidth,.flexibleHeight];host.didMove(toParent:self)
  }
