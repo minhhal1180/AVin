@@ -1,5 +1,7 @@
 import XCTest
 import VNAnviaCore
+import UIKit
+import UniformTypeIdentifiers
 @testable import VNAnviaApp
 
 @MainActor final class AnalysisModelTests:XCTestCase {
@@ -106,6 +108,37 @@ import VNAnviaCore
   XCTAssertNil(model.imageSource)
   XCTAssertFalse(model.readingImage)
   XCTAssertFalse(model.busy)
+ }
+ func testVietnameseLanguageSelectionPreservesVisionTag() {
+  XCTAssertEqual(ImageImport.recognitionLanguages(from:["en-GB","vi-VT","en-US"]),["vi-VT","en-US"])
+  XCTAssertEqual(ImageImport.recognitionLanguages(from:["VI_vn","en-GB"]),["VI_vn","en-GB"])
+  XCTAssertEqual(ImageImport.recognitionLanguages(from:["vi"]),["vi"])
+  XCTAssertNil(ImageImport.recognitionLanguages(from:["en-US","vietnamese"]))
+ }
+ func testVisionReadsVietnameseFromLocalImageProvider()async throws {
+  let format=UIGraphicsImageRendererFormat()
+  format.scale=1
+  let image=UIGraphicsImageRenderer(size:CGSize(width:960,height:240),format:format).image{ _ in
+   UIColor.white.setFill()
+   UIBezierPath(rect:CGRect(x:0,y:0,width:960,height:240)).fill()
+   let message="Vui lòng đọc mã OTP."
+   message.draw(at:CGPoint(x:40,y:70),withAttributes:[.font:UIFont.systemFont(ofSize:54),.foregroundColor:UIColor.black])
+  }
+  let file=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathExtension("png")
+  defer{try? FileManager.default.removeItem(at:file)}
+  try XCTUnwrap(image.pngData()).write(to:file)
+  let provider=NSItemProvider()
+  provider.registerFileRepresentation(forTypeIdentifier:UTType.png.identifier,fileOptions:[],visibility:.all){done in
+   done(file,false,nil)
+   return nil
+  }
+  var result:Result<String,Error>?
+  let finished=expectation(description:"Image import completed")
+  let operation=ImageImport.provider(provider){result=$0;finished.fulfill()}
+  await fulfillment(of:[finished],timeout:17)
+  withExtendedLifetime(operation){}
+  let text=try XCTUnwrap(result).get()
+  XCTAssertTrue(text.contains("Vui lòng đọc mã OTP"),"Text: \(text)")
  }
  func testLocalURLResultOpensWithoutCloudConnection() {
   var calls=0

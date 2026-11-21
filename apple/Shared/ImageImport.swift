@@ -48,6 +48,31 @@ final class ImportOperation {
 }
 
 enum ImageImport {
+ static func recognitionLanguages(from supported:[String])->[String]? {
+  // Use the platform's exact tag. Vision may expose Vietnamese as vi-VT.
+  func language(_ tag:String)->Substring? {
+   tag.lowercased().split(whereSeparator:{$0=="-" || $0=="_"}).first
+  }
+  guard let vietnamese=supported.first(where:{language($0)=="vi"}) else{return nil}
+  let english=supported.first(where:{$0.caseInsensitiveCompare("en-US") == .orderedSame})
+   ?? supported.first(where:{language($0)=="en"})
+  return [vietnamese]+[english].compactMap{$0}
+ }
+ private static func recognitionRequest()throws->VNRecognizeTextRequest {
+  let request=VNRecognizeTextRequest()
+  request.recognitionLevel = .accurate
+  let defaultRevision=request.revision
+  let revisions=[defaultRevision]+VNRecognizeTextRequest.supportedRevisions.reversed().filter{$0 != defaultRevision}
+  for revision in revisions {
+   request.revision=revision
+   guard let supported=try? request.supportedRecognitionLanguages(),
+         let languages=recognitionLanguages(from:supported) else{continue}
+   request.recognitionLanguages=languages
+   request.usesLanguageCorrection=true
+   return request
+  }
+  throw ImportFailure.language
+ }
  static func read(_ url:URL,operation:ImportOperation)throws->Data {
   let h=try FileHandle(forReadingFrom:url);defer{try? h.close()};var data=Data()
   while true {
@@ -72,10 +97,7 @@ enum ImageImport {
     try operation.check()
     guard let image=CGImageSourceCreateThumbnailAtIndex(source,0,options as CFDictionary)else{throw ImportFailure.invalid}
     try operation.check()
-    let request=VNRecognizeTextRequest();request.recognitionLevel = .accurate
-    let supported=try request.supportedRecognitionLanguages()
-    guard supported.contains("vi-VN") else{throw ImportFailure.language}
-    request.recognitionLanguages=["vi-VN","en-US"].filter{supported.contains($0)};request.usesLanguageCorrection=true
+    let request=try recognitionRequest()
     operation.onCancel{request.cancel()}
     try operation.check()
     try VNImageRequestHandler(cgImage:image).perform([request])

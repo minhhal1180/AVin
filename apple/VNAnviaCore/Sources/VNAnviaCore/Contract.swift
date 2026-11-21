@@ -62,7 +62,7 @@ public enum Contract {
 }
 public struct AnalysisRequest: Codable, Sendable {
  public let request_id:String, input_type:String, content:String,privacy_ack_version:String,client_build:String,schema_version:String
- public init(content:String,inputType:String="TEXT"){self.request_id=UUID().uuidString.lowercased();self.input_type=inputType;self.content=content;self.privacy_ack_version=Contract.privacy;self.client_build="ios/0.4.1-build12";self.schema_version="1.0"}
+ public init(content:String,inputType:String="TEXT"){self.request_id=UUID().uuidString.lowercased();self.input_type=inputType;self.content=content;self.privacy_ack_version=Contract.privacy;self.client_build="ios/0.4.1-build13";self.schema_version="1.0"}
 }
 public struct Signal: Codable,Sendable { public let type:String,evidence_text:String,explanation:String }
 public struct AnalysisResponse: Codable,Sendable {
